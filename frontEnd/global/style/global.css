@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@300&display=swap');
+
+/* font-family: 'Inter', sans-serif;
+font-family: 'Montserrat', sans-serif; */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: #37333c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.title{
+    color: #8f5cd0;
+    font-size: 7em;
+    margin: 50px 0;
+    text-shadow: 15px 10px 7px rgba(0, 0, 0, 0.3);
+}
+
+.mid{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    background-color: #fff;
+    height: 76vh;
+    width: 100vw;
+    border-radius: 100px 100px 0px 0px;
+    box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input{
+    width: 400px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid #000;
+    margin: 0 0 40px;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+}
+
+::-webkit-input-placeholder { 
+    color: #0000007e;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+button {
+    align-items: center;
+    background: linear-gradient(272.21deg, #482673 0.9%, #8F5CD0 150.83%);
+    border: 0;
+    border-radius: 50px;
+    box-shadow: rgba(155, 73, 248, 0.377) 0 15px 30px -5px;
+    color: #FFFFFF;
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 1em;
+    width: 250px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all .3s;
+   }
+   
+   button:active,
+   button:hover {
+    outline: 0;
+   }
+   
+   button span {
+    background-color: rgb(5, 6, 45);
+    padding: 16px 24px;
+    border-radius: 50px;
+    width: 99%;
+    height: 99%;
+    transition: 300ms;
+   }
+   
+   button:hover span {
+    background: none;
+   }
+   
+   button:active {
+    transform: scale(0.9);
+   }
+
+   @media(max-width: 1000px){
+       input{
+           width: 250px;
+           font-size: 15px;
+       }
+   }

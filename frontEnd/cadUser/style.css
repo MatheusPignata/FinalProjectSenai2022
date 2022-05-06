@@ -1,0 +1,18 @@
+.inputs{
+    display: inline-block;
+    flex-wrap: wrap;
+    width: 45vw;
+    /* display: grid;
+    grid-template-columns: 400px 400px;
+    grid-column-gap: 100px;
+    grid-row-gap: 40px;
+    */
+} 
+
+.btns{
+    display: flex;
+}
+
+button{
+    margin: 100px 50px 0;
+}
