@@ -1,0 +1,12 @@
+https://blog.algaworks.com/tutorial-jpa/
+
+https://ankitkamboj18.medium.com/a-guide-to-jpa-with-hibernate-relationship-mappings-onetoone-onetomany-manytoone-310ce31df3f6
+
+https://blog.algaworks.com/lazy-loading-com-mapeamento-onetoone/
+
+https://blog.algaworks.com/jpa-many-to-one/
+
+
+dependenciaa:
+
+https://www.baeldung.com/javax-validation

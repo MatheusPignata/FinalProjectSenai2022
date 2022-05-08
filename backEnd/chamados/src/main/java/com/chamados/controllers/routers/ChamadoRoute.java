@@ -9,22 +9,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chamados.controllers.process.UsuarioControll;
-import com.chamados.models.entities.Usuario;
+import com.chamados.controllers.process.ChamadoControll;
+import com.chamados.models.entities.Chamado;
 
 @RestController
-@RequestMapping("/usu")
-public class UsuarioRoute {
+@RequestMapping("/cha")
+public class ChamadoRoute {
 	@Autowired
-	UsuarioControll controll;
+	ChamadoControll controll;
 
-	@GetMapping("/usuarios")
-	public List<Usuario> listarUsuario() {
-		return controll.listarUsuarios();
+	@GetMapping("/chamados")
+	public List<Chamado> listarChamado() {
+		return controll.listarChamados();
 	}
-	
-	@PostMapping("/usuarios")
-	public Usuario criarUsuario(@RequestBody Usuario usuario) {
-		return controll.criarUsuario(usuario);
+
+	@PostMapping("/chamados")
+	public Chamado criarChamado(@RequestBody Chamado chamado) {
+		return controll.criarChamado(chamado);
 	}
 }

@@ -5,20 +5,22 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.chamados.models.entities.Chamado;
 import com.chamados.models.entities.Usuario;
+import com.chamados.models.repositorys.ChamadoRepository;
 import com.chamados.models.repositorys.UsuarioRepository;
 
 @Component
-public class UsuarioControll {
+public class ChamadoControll {
 
 	@Autowired
-	UsuarioRepository repository;
+	ChamadoRepository repository;
 
-	public Usuario criarUsuario(Usuario usuario) {
-		return repository.save(usuario);
+	public Chamado criarChamado(Chamado chamado) {
+		return repository.saveAndFlush(chamado);
 	}
 
-	public List<Usuario> listarUsuarios() {
+	public List<Chamado> listarChamados() {
 		return repository.findAll();
 	}
 }
