@@ -31,10 +31,15 @@ body{
     justify-content:center;
     align-items:center;
     background-color: #fff;
-    height: 76vh;
+    height: 90vh;
     width: 100vw;
     border-radius: 100px 100px 0px 0px;
     box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.25);
+    overflow-y: scroll;
+}
+
+.mid::-webkit-scrollbar{
+    width: 0;
 }
 
 .content{
@@ -108,5 +113,11 @@ button {
        input{
            width: 250px;
            font-size: 15px;
+       }
+
+       button{
+            font-size: 16px;
+            width: 200px;
+            padding: 3px;
        }
    }

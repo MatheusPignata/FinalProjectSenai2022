@@ -6,14 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../global/style/global.css">
     <link rel="stylesheet" href="style.css">
-    <title>Login</title>
+    <title>Usuarios</title>
 </head>
 <body>
 
-    <h1 class="title">Login</h1>
+    <h1 class="title">Usuarios</h1>
 
     <div class="mid">
-        
+        <div class="content">
+            <div class="pesquisa">
+                <input type="search" id="busca" placeholder="BUSCAR..." onkeyup="buscar()">
+            </div>
+
+            <div class="inputs">
+                <input type="text" id="user_cod" placeholder="NOME COMPLETO">
+                <input type="text" id="user_pw" placeholder="SENHA">
+                <input type="text" id="user_email" placeholder="E-MAIL">
+                <input type="text" id="user_tel" placeholder="TELEFONE">
+                <input type="text" id="user_cpf" placeholder="CPF">
+                <input type="text" id="user_endereco" placeholder="ENDEREÇO">
+            </div>
+
+            <div class="btns">
+                <button>
+                    <span class="text">VOLTAR</span>
+                </button>
+                <button>
+                    <span class="text">CADASTRAR</span>
+                </button>
+            </div>
+        </div>
     </div>
     
 </body>
