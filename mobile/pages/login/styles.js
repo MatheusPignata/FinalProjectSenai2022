@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { withSafeAreaInsets } from 'react-native-safe-area-context';
 
     const styles = StyleSheet.create({
         container: {
@@ -18,8 +19,8 @@ import { StyleSheet } from 'react-native';
             width: "100%",
             height: "65%",
             backgroundColor: "white",
-            borderTopLeftRadius: 75,
-            borderTopRightRadius: 75,
+            borderTopLeftRadius: 100,
+            borderTopRightRadius: 100,
         },
         midTop: {
             width: "100%",
@@ -28,8 +29,8 @@ import { StyleSheet } from 'react-native';
             flex: 1,
             flexDirection: "column",
             alignItems: "center",
-            borderTopLeftRadius: 75,
-            borderTopRightRadius: 75,
+            borderTopLeftRadius: 100,
+            borderTopRightRadius: 100,
         },
         midBot: {
             width: "100%",
@@ -45,13 +46,17 @@ import { StyleSheet } from 'react-native';
         },
         btn:{
             marginTop: 50,
-            borderWidth: 1,
             flex: 1,
+            width: "80%",
+            borderRadius: 20,
+        },
+        gradient:{
+            width: "100%",
+            height: "100%",
+            borderRadius: 20,
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            width: "50%",
-            borderRadius: 20,
         }
     });
 
