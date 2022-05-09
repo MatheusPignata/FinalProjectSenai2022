@@ -29,6 +29,7 @@ public class Chamado {
 	private long id;
 	
 	@ManyToOne
+	@JoinColumn(name = "id_usuario", nullable = false)
 	private Usuario usuario;
 	@Column(name = "produto")
 	private String produto;

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chamados.controllers.process.ChamadoControll;
 import com.chamados.models.entities.Chamado;
+import com.chamados.models.entities.Usuario;
 
 @RestController
 @RequestMapping("/cha")
@@ -24,7 +25,8 @@ public class ChamadoRoute {
 	}
 
 	@PostMapping("/chamados")
-	public Chamado criarChamado(@RequestBody Chamado chamado) {
+	public Chamado criarChamado(@RequestBody Chamado chamado, Usuario user) {
+		System.err.println(user);
 		return controll.criarChamado(chamado);
 	}
 }

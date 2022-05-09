@@ -17,7 +17,7 @@ public class ChamadoControll {
 	ChamadoRepository repository;
 
 	public Chamado criarChamado(Chamado chamado) {
-		return repository.saveAndFlush(chamado);
+		return repository.save(chamado);
 	}
 
 	public List<Chamado> listarChamados() {
