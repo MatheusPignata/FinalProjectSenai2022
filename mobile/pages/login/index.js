@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { TouchableOpacity, TextInput, View, Text } from 'react-native';
+import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 
@@ -38,13 +38,14 @@ export default function Login({ navigation }) {
     }
 
     return (
+        <KeyboardAvoidingView behavior="height">
         <View style={styles.container}>
             <View style={styles.top}>
-                <Text style={{ fontSize: 50, color: "#8300E9", fontFamily: "Inter" }}>OS</Text>
+                <Text style={{ fontSize: 50, color: "#8300E9" }}>OS</Text>
             </View>
             <View style={styles.mid}>
                 <View style={styles.midTop}>
-                    <Text style={{ fontSize: 40, padding: 20, color: "#8300E9" }}>ENTRAR</Text>
+                    <Text style={{ fontSize: 40, marginTop: 50, color: "#8300E9" }}>ENTRAR</Text>
                     <TextInput value={user} onChangeText={setUser} style={styles.inputs} placeholder="Usuario" />
                     <TextInput value={senha} onChangeText={setSenha} style={styles.inputs} secureTextEntry={true} placeholder="Senha" />
                     <TouchableOpacity onPress={() => { autenticar() }} style={styles.btn} >
@@ -57,9 +58,8 @@ export default function Login({ navigation }) {
                         </LinearGradient>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.midBot}>
-                </View>
             </View>
         </View>
+        </KeyboardAvoidingView>
     );
 };

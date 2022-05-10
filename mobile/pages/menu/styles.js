@@ -44,14 +44,14 @@ const styles = StyleSheet.create({
     },
     gradient: {
         width: "100%",
-        height: "70%",
+        height: "100%",
         borderRadius: 20,
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
     },
     text: {
-        color: "white"
+        color: "#fff"
     }
 });
 
