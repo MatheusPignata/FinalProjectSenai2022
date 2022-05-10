@@ -16,7 +16,11 @@ public class ChamadoControll {
 	@Autowired
 	ChamadoRepository repository;
 
-	public Chamado criarChamado(Chamado chamado) {
+	Usuario usu;
+
+	public Chamado criarChamado(Chamado chamado, long id) {
+		usu = new Usuario(id);
+		chamado.setUsuario(usu);
 		return repository.save(chamado);
 	}
 

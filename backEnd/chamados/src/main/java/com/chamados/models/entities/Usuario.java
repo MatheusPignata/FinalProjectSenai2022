@@ -25,18 +25,28 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
-	private long idUsuario;
+	private long id;
+
 	@Column(name = "senha", nullable = false)
 	private String senha;
+
 	@Column(name = "nome", nullable = false)
 	private String nome;
+
 	@Email(message = "Email Invalido!", regexp = "\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")
 	@Column(name = "email", nullable = true, unique = true)
 	private String email;
+
 	@Column(name = "cpf", nullable = false, unique = true)
 	private String cpf;
+
 	@Column(name = "codigo", nullable = false, unique = true)
 	private String codigo;
+
 	@Column(name = "telefone", nullable = false)
 	private long telefone;
+
+	public Usuario(long id) {
+		this.id = id;
+	}
 }

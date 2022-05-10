@@ -27,17 +27,27 @@ public class Chamado {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_chamado")
 	private long id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_usuario", nullable = false)
 	private Usuario usuario;
+
 	@Column(name = "produto")
 	private String produto;
-	/*
+
+	@Column(name = "cor")
 	private String cor;
+
+	@Column(name = "descricao")
 	private String descricao;
+
+	@Column(name = "status")
 	private String status;
+
+	@Column(name = "marca")
 	private String marca;
+
+	@Column(name = "orcamento")
 	private long orcamento;
-	*/
+
 }

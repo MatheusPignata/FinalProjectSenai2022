@@ -2,8 +2,11 @@ package com.chamados.controllers.routers;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +27,8 @@ public class ChamadoRoute {
 		return controll.listarChamados();
 	}
 
-	@PostMapping("/chamados")
-	public Chamado criarChamado(@RequestBody Chamado chamado, Usuario user) {
-		System.err.println(user);
-		return controll.criarChamado(chamado);
+	@PostMapping("/chamados/{id}")
+	public Chamado criarChamado(@RequestBody Chamado chamado, @PathVariable long id) {
+		return controll.criarChamado(chamado, id);
 	}
 }
