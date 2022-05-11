@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     top: {
         width: "100%",
-        height: "20%",
+        height: "30%",
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
     mid: {
         width: "100%",
-        height: "80%",
+        height: "70%",
         backgroundColor: "#fff",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,

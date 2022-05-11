@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     top: {
         width: "100%",
-        height: "30%",
+        height: "20%",
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
     mid: {
         width: "100%",
-        height: "70%",
+        height: "80%",
         backgroundColor: "#fff",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
         flexDirection: "row",
+        paddingLeft: 50,
     },
     gradient: {
         width: "70%",
@@ -64,15 +65,17 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     searchBar:{
-        width: "70%",
+        width: "80%",
         height: "10%",
         borderRadius: 30,
         borderWidth: 1,
         borderColor: "black",
-        marginTop: 10,
-        paddingLeft: 10,
-        paddingTop: 5,
+        marginTop: 15,
+        paddingLeft: 15,
+        paddingRight: 35,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: "#C4C4C4"
     }
 })
-
 export default styles;

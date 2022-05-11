@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image,KeyboardAvoidingView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, KeyboardAvoidingView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 
@@ -22,6 +22,7 @@ export default function Usuario({ navigation }) {
             endereco: endereco
         }
     }
+
     return (
         <KeyboardAvoidingView behavior="height">
             <View style={styles.container}>
@@ -31,8 +32,8 @@ export default function Usuario({ navigation }) {
                 <View style={styles.mid}>
                     <View style={styles.midTop}>
                         <View style={styles.searchBar}>
-                            <TextInput onChangeText={setNome} placeholder="Buscar..." />
-                            <Image source={require('../../assets/lupa.png')} />
+                            <TextInput placeholder="Buscar..." style={{ width: "100%", height: "100%" }} />
+                            <Image style={{ width: "10%", height: "90%" }} source={require('../../assets/lupa.png')} onPress={() => {}} />
                         </View>
                         <TextInput value={nome} onChangeText={setNome} style={styles.inputs} placeholder="Nome" />
                         <TextInput value={senha} onChangeText={setSenha} style={styles.inputs} secureTextEntry={true} placeholder="Senha" />
