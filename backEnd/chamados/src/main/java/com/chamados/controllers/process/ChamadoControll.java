@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import com.chamados.models.entities.Chamado;
 import com.chamados.models.entities.Usuario;
 import com.chamados.models.repositorys.ChamadoRepository;
-import com.chamados.models.repositorys.UsuarioRepository;
 
 @Component
 public class ChamadoControll {

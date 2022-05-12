@@ -18,6 +18,10 @@ public class UsuarioControll {
 		return repository.save(usuario);
 	}
 
+	public Usuario LoginUsuario(String codigo) {
+		return repository.usuarioLogin(codigo);
+	}
+
 	public List<Usuario> listarUsuarios() {
 		return repository.findAll();
 	}

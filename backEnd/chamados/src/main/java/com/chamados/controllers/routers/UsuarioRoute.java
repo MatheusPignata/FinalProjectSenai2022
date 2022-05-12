@@ -27,4 +27,9 @@ public class UsuarioRoute {
 	public Usuario criarUsuario(@RequestBody Usuario usuario) {
 		return controll.criarUsuario(usuario);
 	}
+	
+	@PostMapping("/login")
+	public Usuario LoginUsuario(@RequestBody String codigo) {
+		return controll.LoginUsuario(codigo);
+	}
 }
