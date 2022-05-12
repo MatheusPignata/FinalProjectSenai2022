@@ -12,12 +12,12 @@ export default function Menu({ navigation }) {
             </View>
             <View style={styles.mid}>
                 <View style={styles.midTop}>
-                    <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('') }}>
+                    <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('CreateUsuario') }}>
                         <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                             <Text style={styles.text}>REGISTRAR USUARIO</Text>
                         </LinearGradient>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('Usuario') }}>
+                    <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('UpdateUsuario') }}>
                         <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                             <Text style={styles.text}>EDITAR USUARIO</Text>
                         </LinearGradient>
@@ -32,8 +32,6 @@ export default function Menu({ navigation }) {
                             <Text style={styles.text}>LOCALIZAR CHAMADO</Text>
                         </LinearGradient>
                     </TouchableOpacity>
-                </View>
-                <View style={styles.midBot}>
                 </View>
             </View>
         </View>

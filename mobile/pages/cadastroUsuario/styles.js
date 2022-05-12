@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     top: {
         width: "100%",
-        height: "30%",
+        height: "20%",
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
@@ -16,38 +16,52 @@ const styles = StyleSheet.create({
     },
     mid: {
         width: "100%",
-        height: "70%",
-        backgroundColor: "white",
+        height: "80%",
+        backgroundColor: "#fff",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
     },
     midTop: {
         width: "100%",
-        height: "100%",
-        backgroundColor: "white",
+        height: "80%",
+        backgroundColor: "#fff",
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
     },
+    midBot: {
+        width: "100%",
+        height: "20%",
+        backgroundColor: "#fff",
+    },
+    inputs: {
+        width: "60%",
+        height: "4%",
+        borderBottomColor: "black",
+        borderBottomWidth: 1,
+        marginTop: 35,
+    },
     btn: {
-        flex: 1,
-        width: "80%",
-        borderRadius: 20,
-        marginTop: 20,
+        width: "50%",
+        height: "100%",
+    },
+    btnConatiner:{
+        width: "100%",
+        height: "100%",
+        flexDirection: "column",
+        alignItems: 'center'
     },
     gradient: {
         width: "100%",
-        height: "60%",
-        borderRadius: 20,
-        flexDirection: "column",
+        height: "50%",
+        borderRadius: 30,
         alignItems: "center",
         justifyContent: "center",
     },
-    text: {
+    text:{
         color: "#fff"
-    }
-});
-
+    },
+})
 export default styles;

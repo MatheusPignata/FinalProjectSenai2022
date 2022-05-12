@@ -6,15 +6,17 @@ const Stack = createNativeStackNavigator();
 
 import Login from './pages/login';
 import Menu from './pages/menu';
-import Usuario from './pages/usuario';
+import UpdateUsuario from './pages/updateUsuario';
+import CreateUsuario from './pages/cadastroUsuario';
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator >
-      <Stack.Screen name="Usuario" component={Usuario} options={{ title: '', headerStyle: { backgroundColor: '#37333C', borderBottomWidth: 0 } }} />
-<Stack.Screen name="Login" component={Login} options={{ title: '', headerStyle: { backgroundColor: '#37333C', borderBottomWidth: 0 } }} />
-        <Stack.Screen name="Menu" component={Menu} options={{ title: '', headerStyle: { backgroundColor: '#37333C', borderBottomWidth: 0 } }} />
+        <Stack.Screen name="Menu" component={Menu} options={{ headerTintColor: '#8300E9', title: '', headerStyle: { backgroundColor: '#37333C', borderBottomWidth: 0 } }} />
+        <Stack.Screen name="Login" component={Login} options={{ headerTintColor: '#8300E9', title: '', headerStyle: { backgroundColor: '#37333C', borderBottomWidth: 0 } }} />
+        <Stack.Screen name="UpdateUsuario" component={UpdateUsuario} options={{ headerTintColor: '#8300E9', title: '', headerStyle: { backgroundColor: '#37333C', borderBottomWidth: 0 } }} />
+        <Stack.Screen name="CreateUsuario" component={CreateUsuario} options={{ headerTintColor: '#8300E9', title: '', headerStyle: { backgroundColor: '#37333C', borderBottomWidth: 0 } }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
