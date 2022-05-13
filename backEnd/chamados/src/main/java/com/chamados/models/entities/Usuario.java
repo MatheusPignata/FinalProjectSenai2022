@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,13 +24,12 @@ import lombok.NoArgsConstructor;
 @Table(name = "usuarios")
 public class Usuario {
 
-	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
 	private long id;
 
+	@JsonIgnoreProperties(allowSetters = true)
 	@Column(name = "senha", nullable = false)
 	private String senha;
 
@@ -42,6 +43,7 @@ public class Usuario {
 	@Column(name = "cpf", nullable = false, unique = true)
 	private String cpf;
 
+	@JsonIgnoreProperties(allowSetters = true)
 	@Column(name = "codigo", nullable = false, unique = true)
 	private String codigo;
 
