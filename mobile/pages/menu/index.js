@@ -22,12 +22,12 @@ export default function Menu({ navigation }) {
                             <Text style={styles.text}>EDITAR USUARIO</Text>
                         </LinearGradient>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('') }}>
+                    <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('Chamado') }}>
                         <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                             <Text style={styles.text}>CRIAR CHAMADO</Text>
                         </LinearGradient>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('') }}>
+                    <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('LocalizarChamado') }}>
                         <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                             <Text style={styles.text}>LOCALIZAR CHAMADO</Text>
                         </LinearGradient>

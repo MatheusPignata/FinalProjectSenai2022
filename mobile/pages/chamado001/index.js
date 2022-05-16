@@ -4,7 +4,7 @@ import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView } from 'r
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 
-export default function Chamado({ navigation }) {
+export default function LocalizarChamado({ navigation }) {
     const [produto, setProduto] = useState("");
     const [marca, setMarca] = useState("");
     const [serial, setSerial] = useState("");
@@ -68,7 +68,7 @@ export default function Chamado({ navigation }) {
                     </TouchableOpacity>
                 </View>
             </View>
-        </View>
+        </View>                                                                     
         </KeyboardAvoidingView>
     );
 }
