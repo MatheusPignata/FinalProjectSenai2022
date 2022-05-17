@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { View, Text, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, KeyboardAvoidingView, ToastAndroid, TextInput, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 
-export default function CreateUsuario({ navigation }) {
+export default function CreateUsuario() {
     const [nome, setNome] = useState("");
     const [senha, setSenha] = useState("");
     const [cpf, setCpf] = useState("");
@@ -12,7 +12,7 @@ export default function CreateUsuario({ navigation }) {
     const [telefone, setTelefone] = useState("");
     const [endereco, setEndereco] = useState("");
 
-    const criar = () => {
+    const criarUsuario = () => {
         let data = {
             nome: nome,
             senha: senha,
@@ -21,17 +21,21 @@ export default function CreateUsuario({ navigation }) {
             telefone: telefone,
             endereco: endereco
         }
-        //     fetch('http:/xxxxxxxxx:3000/', {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify(data),
-        //     })
-        //         .then(resp => { return resp.json() })
-        //         .then(data => {
-        //             setShowModal(false);
-        //         })
+        fetch('http:/10.87.207.26:3000/', {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data),
+        })
+            .then(resp => { return resp.json() })
+            .then(async data => {
+                if (data.length > 0) {
+                    ToastAndroid.show('Usuario registrado', ToastAndroid.SHORT)
+                } else {
+                    ToastAndroid.show('Falha ao registrar usuario', ToastAndroid.SHORT);
+                }
+            })
     }
 
     return (
@@ -52,7 +56,7 @@ export default function CreateUsuario({ navigation }) {
                     </View>
                     <View style={styles.midBot}>
                         <View style={styles.btnConatiner}>
-                            <TouchableOpacity style={styles.btn} onPress={() => { criar() }}>
+                            <TouchableOpacity style={styles.btn} onPress={() => { criarUsuario() }}>
                                 <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                                     <Text style={styles.text}>CADASTRAR</Text>
                                 </LinearGradient>

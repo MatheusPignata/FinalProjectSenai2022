@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         height: "80%",
         backgroundColor: "#fff",
         borderTopLeftRadius: 100,
-        borderTopRightRadius: 100,
+        borderTopRightRadius: 100
     },
     midTop: {
         width: "100%",
@@ -29,23 +29,23 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         borderTopLeftRadius: 100,
-        borderTopRightRadius: 100,
+        borderTopRightRadius: 100
     },
     midBot: {
         width: "100%",
         height: "20%",
-        backgroundColor: "#fff",
+        backgroundColor: "#fff"
     },
     inputs: {
         width: "60%",
         height: "4%",
         borderBottomColor: "black",
         borderBottomWidth: 1,
-        marginTop: 35,
+        marginTop: 35
     },
     btn: {
         width: "50%",
-        height: "100%",
+        height: "100%"
     },
     btnConatiner:{
         width: "100%",
@@ -58,10 +58,10 @@ const styles = StyleSheet.create({
         height: "50%",
         borderRadius: 30,
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "center"
     },
     text:{
         color: "#fff"
-    },
+    }
 })
 export default styles;
