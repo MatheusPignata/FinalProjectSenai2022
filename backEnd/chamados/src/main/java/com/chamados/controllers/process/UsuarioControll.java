@@ -1,5 +1,6 @@
 package com.chamados.controllers.process;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import com.chamados.models.dto.AdminLoginDto;
 import com.chamados.models.dto.UsuarioInfoDto;
 import com.chamados.models.dto.UsuarioLoginDto;
 import com.chamados.models.entities.Usuario;
@@ -46,6 +48,19 @@ public class UsuarioControll {
 	}
 
 	public List<Usuario> listarUsuarios() {
-		return repository.findAll();
+		List<Usuario> lis = new ArrayList<Usuario>();
+		for (Usuario usuario : repository.findAll()) {
+			if(usuario.getCpf().equals("")) {
+				lis.add(usuario);
+			}
+		}
+		return lis;
+	}
+
+	public ResponseEntity<AdminLoginDto> loginAdmin(Usuario u) {
+		Usuario usuario = repository.adminLogin(u.getCpf(), u.getSenha());
+		return usuario != null ?
+				 new ResponseEntity<AdminLoginDto>(new AdminLoginDto(usuario), HttpStatus.ACCEPTED)
+				: new ResponseEntity<AdminLoginDto>(new AdminLoginDto(), HttpStatus.BAD_REQUEST);
 	}
 }
