@@ -42,11 +42,7 @@ export default function Login({ navigation }) {
                         <TextInput value={user} onChangeText={setUser} style={styles.inputs} placeholder="Usuario" />
                         <TextInput value={senha} onChangeText={setSenha} style={styles.inputs} secureTextEntry={true} placeholder="Senha" />
                         <TouchableOpacity onPress={() => { autenticar() }} style={styles.btn} >
-                            <LinearGradient
-                                style={styles.gradient}
-                                colors={["#482673", "#8F5CD0"]}
-                                start={{ x: 0, y: 0.5 }}
-                                end={{ x: 1, y: 0.5 }}>
+                            <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                                 <Text style={styles.text}>ENTRAR</Text>
                             </LinearGradient>
                         </TouchableOpacity>

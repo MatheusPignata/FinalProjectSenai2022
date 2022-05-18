@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
     mid: {
         width: "100%",
-        height: "75%",
+        height: "70%",
         backgroundColor: "white",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     },
     btn: {
         flex: 1,
-        width: "70%",
+        width: "80%",
         borderRadius: 20,
         marginTop: 20,
     },
