@@ -7,9 +7,14 @@
     <link rel='shortcut icon' href="../global/img/chama.png">
     <link rel="stylesheet" href="../global/style/global.css">
     <link rel="stylesheet" href="style.css">
+    <script src="jquery-2.1.4.js"></script>
     <title>Login</title>
 </head>
 <body>
+
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
 
     <h1 class="title">Login</h1>
 
@@ -26,6 +31,11 @@
     </div>
     
 </body>
+<script>
+    $(window).on("load",function(){
+        $(".load-wrapper").fadeOut('slow');
+    });
+</script>
 <script src="../global/script/global.js"></script>
 <script src="script.js"></script>
 </html>
