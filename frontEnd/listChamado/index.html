@@ -4,18 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='shortcut icon' href="../global/img/chama.png">
     <link rel="stylesheet" href="../global/style/global.css">
     <link rel="stylesheet" href="style.css">
-    <title>Login</title>
+    <title>Chamados</title>
 </head>
 <body>
 
-    <h1 class="title">Login</h1>
+    <h1 class="title">Chamados</h1>
 
     <div class="mid">
-        
+        <div class="content">
+            <div class="pesquisa">
+                <input type="search" id="busca" placeholder="BUSCAR..." onkeyup="buscar()">
+            </div>
+
+            <div class="table">
+                <table cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th class="col1">chamado</th>
+                            <th class="col2">produto</th>
+                            <th class="col3">status</th>
+                            <th class="col4">técnico</th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        <tr class="order model">
+                            <td class="chamado">001</td>
+                            <td class="prod">computador</td>
+                            <td class="status">em andamento</td>
+                            <td class="tec">jose antonio</td>
+                        </tr>
+                        <tr class="order model">
+                            <td class="chamado">001</td>
+                            <td class="prod">computador</td>
+                            <td class="status">em andamento</td>
+                            <td class="tec">jose antonio</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="btns">
+                <button onclick="backpg()">
+                    <span class="text">VOLTAR</span>
+                </button>
+            </div>
+        </div>
     </div>
     
 </body>
+<script src="../global/script/global.js"></script>
 <script src="script.js"></script>
 </html>

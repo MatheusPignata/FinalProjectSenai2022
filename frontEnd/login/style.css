@@ -1,3 +1,7 @@
+.content{
+    justify-content: center;
+}
+
 .inputs{
     display: flex;
     flex-direction: column;

@@ -1,0 +1,44 @@
+.inputs{
+    display: grid;
+    grid-template-columns: 400px 400px;
+    grid-column-gap: 100px;
+    grid-row-gap: 40px;
+   
+} 
+
+textarea{
+    margin-top: 28px;
+    padding: 5px;
+    border: 2px solid #000;
+    background-color: #eee;
+}
+
+.btns{
+    display: flex;
+}
+
+button{
+    margin: 100px 50px 0;
+}
+
+@media(max-width: 1000px){
+    .title{
+        font-size: 4em;
+    }
+
+    .inputs{
+        display: grid;
+        grid-template-columns: 250px;
+        grid-row-gap: 4px;
+       
+    } 
+
+    .btns{
+        margin-top: 60px;
+        flex-direction: column-reverse;
+    }
+
+    button{
+        margin: 0 0 20px;
+    }
+}

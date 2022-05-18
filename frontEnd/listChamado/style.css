@@ -1,0 +1,75 @@
+.pesquisa{
+    margin-bottom: 15px;
+}
+
+input[type="search"]{
+    border: none;
+    background-color: #eee;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.table{
+    height: 70%;
+    width: 90vw;
+}
+
+table{
+    max-height: 95%;
+    width: 100%;
+    border-bottom: 1px solid #000;
+}
+
+.col1, .chamado{
+    width: 5%;
+    text-align: center;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+.col2, .prod{
+    width: 55%;
+    text-align: left;
+    border-right: 1px solid #000;
+    padding: 0 10px;
+}
+
+.col3, .status{
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #000;
+}
+
+.col4, .tec{
+    width: 25%;
+    text-align: left;
+    border-right: 1px solid #000;
+    
+    padding: 0 10px;
+}
+
+tbody tr:nth-child(odd){
+    background-color: #fff;
+}
+
+tbody tr:nth-child(even){
+    background-color: #E7E7E7;
+}
+
+@media(max-width: 1000px){
+    .pesquisa{
+        margin: 50px 0 -30px 0;
+    }
+
+    .title{
+        font-size: 4em;
+    }
+
+    button{
+        margin: 0 0 20px;
+    }
+
+    table{
+        font-size: 10px;
+    }
+}
