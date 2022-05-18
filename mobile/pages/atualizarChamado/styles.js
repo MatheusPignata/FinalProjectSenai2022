@@ -33,7 +33,9 @@ const styles = StyleSheet.create({
     },
     midBot: {
         width: "100%",
-        height: "40%",
+        height: "20%",
+        backgroundColor: "#fff",
+        marginTop: 50
     },
     inputs: {
         width: "60%",
@@ -43,10 +45,15 @@ const styles = StyleSheet.create({
         margin: 20,
     },
     btn: {
-        marginTop: 50,
-        flex: 1,
-        width: "80%",
-        height: "20%",
+        width: "40%",
+        height: "200%",
+        paddingLeft: 5
+    },
+    btnConatiner:{
+        width: "100%",
+        height: "100%",
+        flexDirection: "row",
+        paddingLeft: 50,
     },
     gradient: {
         width: "100%",
@@ -56,7 +63,28 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     text: {
-        color: "#fff"
+        color: "#fff",
+        width: 80
+    },
+    inputdesc: {
+        height: 100,
+        width: 240,
+        backgroundColor: "gray",
+        padding: 0,
+        borderRadius: 5,
+    },
+    searchBar:{
+        width: "80%",
+        height: 30,
+        borderRadius: 30,
+        borderWidth: 1,
+        borderColor: "black",
+        marginTop: 15,
+        paddingLeft: 15,
+        paddingRight: 35,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: "#C4C4C4"
     }
 });
 

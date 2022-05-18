@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView } from 'react-native';
+import { TouchableOpacity, TextInput, View, Text, Image, KeyboardAvoidingView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 
@@ -12,6 +12,7 @@ export default function Chamado({ navigation }) {
     const [cor, setCor] = useState("");
     const [statusprod, setStatusprod] = useState("");
     const [orcamento, setOrcamento] = useState("");
+    const [searchBar, setSearch] = useState("");
 
     const cadastrarChamado = () => {
         let chamado = {
@@ -45,11 +46,17 @@ export default function Chamado({ navigation }) {
         <KeyboardAvoidingView behavior="height">
         <View style={styles.container}>
             <View style={styles.top}>
-                <Text style={{ fontSize: 50, color: "#8300E9" }}>Chamado</Text>
+                <Text style={{ fontSize: 40, color: "#8300E9" }}>Atualizar Chamado</Text>
             </View>
             <View style={styles.mid}>
                 <View style={styles.midTop}>
-                    <Text style={{ fontSize: 22, marginTop: 30, color: "#8300E9" }}>Criar Chamado</Text>
+                    <Text style={{ fontSize: 22, marginTop: 30, color: "#8300E9" }}>Atualizar Chamado</Text>
+                    <View style={styles.searchBar}>
+                            <TextInput value={searchBar} onChangeText={setSearch} placeholder="Buscar..." style={{ width: "100%", height: "100%" }} />
+                            <TouchableOpacity style={{ width: "100%", height: "90%" }}>
+                                <Image style={{ width: "10%", height: "90%", marginTop: 4 }} source={require('../../assets/lupa.png')} />
+                            </TouchableOpacity>
+                        </View>
                     <TextInput value={produto} onChangeText={setProduto} style={styles.inputs} placeholder="Produto" />
                     <TextInput value={marca} onChangeText={setMarca} style={styles.inputs} placeholder="Marca" />
                     <TextInput value={serial} onChangeText={setSerial} style={styles.inputs} placeholder="Serial Number" />
@@ -69,7 +76,7 @@ export default function Chamado({ navigation }) {
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.btn} onPress={() => {  }}>
                                 <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
-                                    <Text style={styles.text}>CADASTRAR</Text>
+                                    <Text style={styles.text}>ATUALIZAR</Text>
                                 </LinearGradient>
                             </TouchableOpacity>
                         </View>
