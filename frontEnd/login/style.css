@@ -16,10 +16,6 @@ body, html {
     text-align: center;
 }
 
-body {
-  background-color: #242F3F;
-}
-
 .loader-wrapper{
     width: 100%;
     height: 100%;
@@ -31,6 +27,12 @@ body {
     display: flex;
     justify-content:center;
     align-items:center;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s .5s, opacity .5s linear;
 }
 
 .loader {
