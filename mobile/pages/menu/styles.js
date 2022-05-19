@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
-        backgroundColor: "#250E42"
+        backgroundColor: "#37333C",
     },
     top: {
         width: "100%",
@@ -12,46 +12,41 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "center"
     },
     mid: {
         width: "100%",
-        height: 550,
+        height: "70%",
         backgroundColor: "white",
-        borderTopLeftRadius: 60,
-        borderTopRightRadius: 60,
+        borderTopLeftRadius: 100,
+        borderTopRightRadius: 100,
     },
     midTop: {
         width: "100%",
+        height: "100%",
         backgroundColor: "white",
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
-        marginTop: 40
     },
     btn: {
         flex: 1,
         width: "80%",
-        marginTop: 5,
+        borderRadius: 20,
+        marginTop: 20,
     },
     gradient: {
-        width: "85%",
-        height: 50,
+        width: "100%",
+        height: "60%",
         borderRadius: 20,
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        margin: "auto"
     },
     text: {
-        color: "#fff",
-        fontWeight: "bold"
-    },
-    image: {
-        height: 250,
-        width: "70%"
+        color: "#fff"
     }
 });
 

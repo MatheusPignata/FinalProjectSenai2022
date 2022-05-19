@@ -35,7 +35,7 @@ export default function CreateUsuario({ navigation }) {
         <KeyboardAvoidingView behavior="height">
             <View style={styles.container}>
                 <View style={styles.top}>
-                    <Text style={{ fontSize: 40, color: "#8300E9", textAlign: "center", fontWeight: "bold"}}>REGISTRAR USUARIO</Text>
+                    <Text style={{ fontSize: 50, color: "#8300E9", textAlign: "center" }}>CADASTRAR USUARIO</Text>
                 </View>
                 <View style={styles.mid}>
                     <View style={styles.midTop}>

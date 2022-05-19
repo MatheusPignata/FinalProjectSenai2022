@@ -5,29 +5,37 @@ import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 
 export default function Login({ navigation }) {
-    const [user, setUser] = useState("");
+    const [codigo, setCodigo] = useState("");
     const [senha, setSenha] = useState("");
 
     const autenticar = () => {
         let data = {
-            user: user,
+            codigo: codigo,
             senha: senha,
         }
-        //     fetch('http://xxxxxxx:3000/login', {
-        //         "method": "POST",
-        //         "headers": {
-        //             "Content-Type": "application/json"
-        //         },
-        //         "body": JSON.stringify(usuario),
-        //     })
-        //         .then(resp => { return resp.json() })
-        //         .then(async data => {
-        //             if (data.length > 0) {
-        //                 navigation.navigate('Menu');
-        //             } else {
-        //                 ToastAndroid.show('usuario ou Senha Invalidos', ToastAndroid.SHORT);
-        //             }
-        //         })
+        fetch('http://10.87.207.19:3000/usu/logCad/false', {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": JSON.stringify(data),
+        })
+            .then(resp => { return resp.json() })
+            .then(async data => {
+                if (data.length > 0) {
+                    navigation.navigate('Menu');
+                } else {
+                    ToastAndroid.show('usuario ou Senha Invalidos', ToastAndroid.SHORT);
+                }
+            })
+    }
+
+    const showFuncionario = () => {
+
+    }
+
+    const showSuusario = () => {
+        
     }
 
     return (
@@ -38,12 +46,14 @@ export default function Login({ navigation }) {
                 </View>
                 <View style={styles.mid}>
                     <View style={styles.midTop}>
-                        <Text style={{ fontSize: 40, marginTop: 50, color: "#8300E9", fontWeight: "bold" }}>ENTRAR</Text>
-                        <TextInput value={user} onChangeText={setUser} style={styles.inputs} placeholder="Usuario" />
-                        <TextInput value={senha} onChangeText={setSenha} style={styles.inputs} secureTextEntry={true} placeholder="Senha" />
-                        <TouchableOpacity onPress={() => { autenticar() }} style={styles.btn} >
+                        <TouchableOpacity style={styles.btn}>
                             <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
-                                <Text style={styles.text}>ENTRAR</Text>
+                                <Text>Opa1</Text>
+                            </LinearGradient>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.btn}>
+                            <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
+                                <Text>Opa2</Text>
                             </LinearGradient>
                         </TouchableOpacity>
                     </View>

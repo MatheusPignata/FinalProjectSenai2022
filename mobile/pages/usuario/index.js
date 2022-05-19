@@ -27,7 +27,7 @@ export default function Usuario({ navigation }) {
         <KeyboardAvoidingView behavior="height">
             <View style={styles.container}>
                 <View style={styles.top}>
-                    <Text style={{ fontSize: 40, color: "#8300E9", fontWeight: "bold" }}>USUARIO</Text>
+                    <Text style={{ fontSize: 50, color: "#8300E9" }}>USUARIO</Text>
                 </View>
                 <View style={styles.mid}>
                     <View style={styles.midTop}>
@@ -38,7 +38,7 @@ export default function Usuario({ navigation }) {
                         <TextInput value={nome} onChangeText={setNome} style={styles.inputs} placeholder="Nome" />
                         <TextInput value={senha} onChangeText={setSenha} style={styles.inputs} secureTextEntry={true} placeholder="Senha" />
                         <TextInput value={cpf} onChangeText={setCpf} style={styles.inputs} placeholder="CPF" />
-                        <TextInput value={email} onChangeText={setEmail} style={styles.inputs} placeholder="E-mail" />
+                        <TextInput value={email} onChangeText={setEmail} style={styles.inputs} placeholder="e-mail" />
                         <TextInput value={telefone} onChangeText={setTelefone} style={styles.inputs} placeholder="Telefone" />
                         <TextInput value={endereco} onChangeText={setEndereco} style={styles.inputs} placeholder="Endereço" />
                     </View>

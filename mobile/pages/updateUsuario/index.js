@@ -28,7 +28,7 @@ export default function UpdateUsuario({ navigation }) {
         <KeyboardAvoidingView behavior="height">
             <View style={styles.container}>
                 <View style={styles.top}>
-                    <Text style={{ fontSize: 40, color: "#8300E9", fontWeight: "bold"}}>USUARIO</Text>
+                    <Text style={{ fontSize: 50, color: "#8300E9" }}>USUARIO</Text>
                 </View>
                 <View style={styles.mid}>
                     <View style={styles.midTop}>

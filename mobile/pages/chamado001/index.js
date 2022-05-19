@@ -4,7 +4,7 @@ import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView } from 'r
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 
-export default function Chamado({ navigation }) {
+export default function LocalizarChamado({ navigation }) {
     const [produto, setProduto] = useState("");
     const [marca, setMarca] = useState("");
     const [serial, setSerial] = useState("");
@@ -13,8 +13,8 @@ export default function Chamado({ navigation }) {
     const [statusprod, setStatusprod] = useState("");
     const [orcamento, setOrcamento] = useState("");
 
-    const cadastrarChamado = () => {
-        let chamado = {
+    const atualizarChamado = () => {
+        let attchamado = {
             produto: produto,
             marca: marca,
             serial: serial,
@@ -25,18 +25,18 @@ export default function Chamado({ navigation }) {
         }
 
         fetch('http://10.87.207.2:3000/chamado', {
-            "method": "POST",
+            "method": "PUT",
             "headers": {
                 "Content-Type": "application/json"
              },
-                "body": JSON.stringify(chamado),
+                "body": JSON.stringify(attchamado),
         })
         .then(resp => { return resp.json() })
         .then(async data => {
             if (data.length > 0) {
              navigation.navigate('');
         } else {
-             ToastAndroid.show('Erro ao cadastrar chamado', ToastAndroid.SHORT);
+             ToastAndroid.show('Erro ao atualizar chamado', ToastAndroid.SHORT);
             }
         })
     }
@@ -61,14 +61,14 @@ export default function Chamado({ navigation }) {
                     <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                         <Text style={styles.text}>VOLTAR</Text>
                     </LinearGradient>
-                    <TouchableOpacity onPress={() => { cadastrarChamado() }} style={styles.btn} >
+                    <TouchableOpacity onPress={() => { atualizarChamado() }} style={styles.btn} >
                     <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
-                        <Text style={styles.text}>Cadastrar Chamado</Text>
+                        <Text style={styles.text}>Atualizar Chamado</Text>
                     </LinearGradient>
                     </TouchableOpacity>
                 </View>
             </View>
-        </View>
+        </View>                                                                     
         </KeyboardAvoidingView>
     );
 }
