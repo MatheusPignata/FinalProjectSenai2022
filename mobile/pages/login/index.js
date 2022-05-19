@@ -38,7 +38,7 @@ export default function Login({ navigation }) {
                 </View>
                 <View style={styles.mid}>
                     <View style={styles.midTop}>
-                        <Text style={{ fontSize: 25, marginTop: 50, color: "#8300E9" }}>ENTRAR</Text>
+                        <Text style={{ fontSize: 40, marginTop: 50, color: "#8300E9", fontWeight: "bold" }}>ENTRAR</Text>
                         <TextInput value={user} onChangeText={setUser} style={styles.inputs} placeholder="Usuario" />
                         <TextInput value={senha} onChangeText={setSenha} style={styles.inputs} secureTextEntry={true} placeholder="Senha" />
                         <TouchableOpacity onPress={() => { autenticar() }} style={styles.btn} >

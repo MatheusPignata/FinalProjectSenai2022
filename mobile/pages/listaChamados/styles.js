@@ -31,51 +31,23 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
     },
-    midBot: {
-        width: "100%",
-        height: "20%",
-        backgroundColor: "#fff",
-    },
-    inputs: {
-        width: "60%",
-        height: "4%",
-        borderBottomColor: "black",
-        borderBottomWidth: 1,
-        margin: 20,
-    },
     btn: {
-        width: "50%",
-        height: "100%",
-    },
-    btnConatiner:{
-        width: "100%",
-        height: "100%",
-        flexDirection: "row",
-        paddingLeft: 50,
+        flex: 1,
+        width: 150,
+        borderRadius: 20,
+        marginTop: 460
     },
     gradient: {
-        width: "70%",
-        height: "50%",
-        borderRadius: 30,
+        width: "100%",
+        height: 40,
+        borderRadius: 20,
         alignItems: "center",
         justifyContent: "center",
-        margin: "auto"
+        marginLeft: 105
     },
     text:{
         color: "#fff"
-    },
-    searchBar:{
-        width: "80%",
-        height: "10%",
-        borderRadius: 30,
-        borderWidth: 1,
-        borderColor: "black",
-        marginTop: 15,
-        paddingLeft: 15,
-        paddingRight: 35,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        backgroundColor: "#C4C4C4"
     }
 })
+
 export default styles;

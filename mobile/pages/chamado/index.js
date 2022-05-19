@@ -45,7 +45,7 @@ export default function Chamado({ navigation }) {
         <KeyboardAvoidingView behavior="height">
         <View style={styles.container}>
             <View style={styles.top}>
-                <Text style={{ fontSize: 50, color: "#8300E9" }}>Chamado</Text>
+                <Text style={{ fontSize: 40, color: "#8300E9", fontWeight: "bold" }}>Chamado</Text>
             </View>
             <View style={styles.mid}>
                 <View style={styles.midTop}>
@@ -67,7 +67,7 @@ export default function Chamado({ navigation }) {
                                     <Text style={styles.text}>VOLTAR</Text>
                                 </LinearGradient>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.btn} onPress={() => {  }}>
+                            <TouchableOpacity style={styles.btn} onPress={() => { cadastrarChamado() }}>
                                 <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                                     <Text style={styles.text}>CADASTRAR</Text>
                                 </LinearGradient>
