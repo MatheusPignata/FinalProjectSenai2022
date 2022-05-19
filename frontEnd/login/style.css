@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Krona+One&display=swap');
+
 .content{
     justify-content: center;
 }
@@ -18,15 +20,22 @@ body, html {
 
 .loader-wrapper{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: absolute;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #37333c;
+    background-color: var(--bg-color);
+    font-family: 'Krona One', sans-serif;
+    color: #fff;
     display: flex;
+    flex-direction: column;
     justify-content:center;
     align-items:center;
+}
+
+.loader-wrapper img{
+  height: 150px;
 }
 
 .hidden {
@@ -35,63 +44,28 @@ body, html {
   transition: visibility 0s .5s, opacity .5s linear;
 }
 
-.loader {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  border: 4px solid #Fff;
-  animation: loader 2s infinite ease;
+.rotate-vert-center {
+	-webkit-animation: rotate-vert-center 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
+	        animation: rotate-vert-center 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
 }
 
-.loader-inner {
-  vertical-align: top;
-  display: inline-block;
-  width: 100%;
-  background-color: #fff;
-  animation: loader-inner 2s infinite ease-in;
-}
-
-@keyframes loader {
+@-webkit-keyframes rotate-vert-center {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
   }
-  
-  25% {
-    transform: rotate(180deg);
-  }
-  
-  50% {
-    transform: rotate(180deg);
-  }
-  
-  75% {
-    transform: rotate(360deg);
-  }
-  
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
   }
 }
-
-@keyframes loader-inner {
+@keyframes rotate-vert-center {
   0% {
-    height: 0%;
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
   }
-  
-  25% {
-    height: 0%;
-  }
-  
-  50% {
-    height: 100%;
-  }
-  
-  75% {
-    height: 100%;
-  }
-  
   100% {
-    height: 0%;
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
   }
 }

@@ -3,6 +3,12 @@
 /* font-family: 'Inter', sans-serif;
 font-family: 'Montserrat', sans-serif; */
 
+:root{
+    --bg-color: #250E42;
+    --title-color: #8f5cd0;
+    --detail-color: #ebdbff;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -11,7 +17,7 @@ font-family: 'Montserrat', sans-serif; */
 
 body{
     height: 100vh;
-    background-color: #37333c;
+    background-color: var(--bg-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +26,7 @@ body{
 }
 
 .title{
-    color: #8f5cd0;
+    color: var(--title-color);
     font-size: 7em;
     margin: 50px 0;
     text-shadow: 15px 10px 7px rgba(0, 0, 0, 0.3);
