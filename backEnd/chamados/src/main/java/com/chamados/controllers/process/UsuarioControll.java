@@ -2,6 +2,9 @@ package com.chamados.controllers.process;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -30,7 +33,6 @@ public class UsuarioControll {
 		} catch (DataIntegrityViolationException e) {
 			return new ResponseEntity<UsuarioLoginDto>(new UsuarioLoginDto(), HttpStatus.BAD_REQUEST);
 		}
-
 	}
 
 	public ResponseEntity<UsuarioLoginDto> loginUsuario(String codigo) {
@@ -41,26 +43,23 @@ public class UsuarioControll {
 				: new ResponseEntity<UsuarioLoginDto>(new UsuarioLoginDto(), HttpStatus.BAD_REQUEST);
 	}
 
-	public UsuarioInfoDto listarInfoUsuario(long id) {
-		Usuario usuario = repository.usuarioInfo(id);
-		return new UsuarioInfoDto(usuario.getId(), usuario.getCpf(), usuario.getNome(), usuario.getEmail(),
-				usuario.getTelefone());
+	public ResponseEntity<UsuarioInfoDto> listarInfoUsuario(long id) {
+		Usuario usuario = repository.findById(id).orElse(null);
+		return usuario != null
+				? new ResponseEntity<UsuarioInfoDto>(new UsuarioInfoDto(usuario.getId(), usuario.getCpf(),
+						usuario.getNome(), usuario.getEmail(), usuario.getTelefone()), HttpStatus.ACCEPTED)
+				: new ResponseEntity<UsuarioInfoDto>(new UsuarioInfoDto(), HttpStatus.BAD_REQUEST);
 	}
 
-	public List<Usuario> listarUsuarios() {
-		List<Usuario> lis = new ArrayList<Usuario>();
-		for (Usuario usuario : repository.findAll()) {
-			if(usuario.getCpf().equals("")) {
-				lis.add(usuario);
-			}
-		}
+	public List<UsuarioLoginDto> listarUsuarios() {
+		List<UsuarioLoginDto> lis = new ArrayList<UsuarioLoginDto>();
+		repository.findAll().stream().filter(u -> u.getCpf().equals("")).forEach(u -> lis.add(new UsuarioLoginDto(u)));
 		return lis;
 	}
 
 	public ResponseEntity<AdminLoginDto> loginAdmin(Usuario u) {
 		Usuario usuario = repository.adminLogin(u.getCpf(), u.getSenha());
-		return usuario != null ?
-				 new ResponseEntity<AdminLoginDto>(new AdminLoginDto(usuario), HttpStatus.ACCEPTED)
+		return usuario != null ? new ResponseEntity<AdminLoginDto>(new AdminLoginDto(usuario), HttpStatus.ACCEPTED)
 				: new ResponseEntity<AdminLoginDto>(new AdminLoginDto(), HttpStatus.BAD_REQUEST);
 	}
 }

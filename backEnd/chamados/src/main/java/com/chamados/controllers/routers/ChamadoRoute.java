@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chamados.controllers.process.ChamadoControll;
+import com.chamados.models.dto.ChamadoInfoDto;
 import com.chamados.models.entities.Chamado;
 
 @RestController
@@ -20,7 +21,7 @@ public class ChamadoRoute {
 	ChamadoControll controll;
 
 	@GetMapping("/chamados")
-	public List<Chamado> listarChamado() {
+	public List<ChamadoInfoDto> listarChamado() {
 		return controll.listarChamados();
 	}
 

@@ -38,14 +38,13 @@ public class UsuarioRoute {
 
 	// todos usuarios
 	@GetMapping("/lisTodos")
-	public List<Usuario> listarUsuario() {
+	public List<UsuarioLoginDto> listarUsuario() {
 		return controll.listarUsuarios();
 	}
 
 	// listar informações do usuario especifico
 	@GetMapping("/info/{id}")
-	public UsuarioInfoDto listarInfoUsuario(@PathVariable long id) {
-		System.out.println(id);
+	public ResponseEntity<UsuarioInfoDto> listarInfoUsuario(@PathVariable long id) {
 		return controll.listarInfoUsuario(id);
 	}
 	/*

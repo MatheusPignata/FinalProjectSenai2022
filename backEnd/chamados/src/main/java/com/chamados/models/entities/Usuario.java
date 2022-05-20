@@ -40,7 +40,7 @@ public class Usuario {
 	@Column(name = "email", nullable = true, unique = true)
 	private String email;
 
-	@Column(name = "cpf", nullable = false, unique = true)
+	@Column(name = "cpf", nullable = false)
 	private String cpf;
 
 	@JsonIgnoreProperties(allowSetters = true)
@@ -52,5 +52,11 @@ public class Usuario {
 
 	public Usuario(long id) {
 		this.id = id;
+	}
+	
+	public Usuario(long id, String nome, String email) {
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
 	}
 }
