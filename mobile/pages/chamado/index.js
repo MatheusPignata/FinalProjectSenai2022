@@ -45,27 +45,35 @@ export default function Chamado({ navigation }) {
         <KeyboardAvoidingView behavior="height">
         <View style={styles.container}>
             <View style={styles.top}>
-                <Text style={{ fontSize: 50, color: "#8300E9" }}>OS</Text>
+                <Text style={{ fontSize: 40, color: "#8300E9", fontWeight: "bold" }}>Chamado</Text>
             </View>
             <View style={styles.mid}>
                 <View style={styles.midTop}>
-                    <Text style={{ fontSize: 40, marginTop: 50, color: "#8300E9" }}>ENTRAR</Text>
+                    <Text style={{ fontSize: 22, marginTop: 30, color: "#8300E9" }}>Criar Chamado</Text>
                     <TextInput value={produto} onChangeText={setProduto} style={styles.inputs} placeholder="Produto" />
-                    <TextInput value={marca} onChangeText={setMarca} style={styles.inputs} secureTextEntry={true} placeholder="Marca" />
-                    <TextInput value={serial} onChangeText={setSerial} style={styles.inputs} secureTextEntry={true} placeholder="Serial Number" />
-                    <TextInput value={tecnico} onChangeText={setTecnico} style={styles.inputs} secureTextEntry={true} placeholder="Técnico Responsável" />
-                    <TextInput value={cor} onChangeText={setCor} style={styles.inputs} secureTextEntry={true} placeholder="Cor" />
-                    <TextInput value={statusprod} onChangeText={setStatusprod} style={styles.inputs} secureTextEntry={true} placeholder="Status" />
-                    <TextInput value={orcamento} onChangeText={setOrcamento} style={styles.inputs} secureTextEntry={true} placeholder="Orcamento" />
-                    <TouchableOpacity onPress={() => {  }} style={styles.btn} ></TouchableOpacity>
-                    <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
-                        <Text style={styles.text}>VOLTAR</Text>
-                    </LinearGradient>
-                    <TouchableOpacity onPress={() => { cadastrarChamado() }} style={styles.btn} >
-                    <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
-                        <Text style={styles.text}>Cadastrar Chamado</Text>
-                    </LinearGradient>
-                    </TouchableOpacity>
+                    <TextInput value={marca} onChangeText={setMarca} style={styles.inputs} placeholder="Marca" />
+                    <TextInput value={serial} onChangeText={setSerial} style={styles.inputs} placeholder="Serial Number" />
+                    <TextInput value={tecnico} onChangeText={setTecnico} style={styles.inputs} placeholder="Técnico Responsável" />
+                    <TextInput value={cor} onChangeText={setCor} style={styles.inputs} placeholder="Cor" />
+                    <TextInput value={statusprod} onChangeText={setStatusprod} style={styles.inputs} placeholder="Status" />
+                    <TextInput value={orcamento} onChangeText={setOrcamento} style={styles.inputs}placeholder="Orcamento" />
+                    <View>
+                        <TextInput style={styles.inputdesc} secureTextEntry={false} placeholder="Descrição do Problema"></TextInput>
+                    </View>
+                    <View style={styles.midBot}>
+                        <View style={styles.btnConatiner}>
+                            <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Menu')}>
+                                <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
+                                    <Text style={styles.text}>VOLTAR</Text>
+                                </LinearGradient>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.btn} onPress={() => { cadastrarChamado() }}>
+                                <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
+                                    <Text style={styles.text}>CADASTRAR</Text>
+                                </LinearGradient>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 </View>
             </View>
         </View>

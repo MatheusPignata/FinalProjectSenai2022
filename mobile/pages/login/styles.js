@@ -4,12 +4,13 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
-        backgroundColor: "#37333C",
+        backgroundColor: "#250E42",
     },
     top: {
         width: "100%",
         height: "30%",
         flex: 1,
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center"
     },
@@ -18,11 +19,21 @@ const styles = StyleSheet.create({
         height: "70%",
         backgroundColor: "#fff",
         borderTopLeftRadius: 100,
-        borderTopRightRadius: 100
+        borderTopRightRadius: 100,
     },
     midTop: {
         width: "100%",
         height: "100%",
+        backgroundColor: "#fff",
+        flex: 1,
+        flexDirection: "column",
+        alignItems: "center",
+        borderTopLeftRadius: 100,
+        borderTopRightRadius: 100,
+    },
+    midBot: {
+        width: "100%",
+        height: "40%",
     },
     inputs: {
         width: "60%",
@@ -32,39 +43,20 @@ const styles = StyleSheet.create({
         margin: 20,
     },
     btn: {
+        marginTop: 50,
         flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: "center",
-        width: "100%",
-        height: "40%",
+        width: "80%",
+        height: "20%",
     },
     gradient: {
-        width: "90%",
-        height: "30%",
-        borderRadius: 30,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    ShowGradient: {
         width: "100%",
-        height: "100%",
+        height: "20%",
         borderRadius: 30,
         alignItems: "center",
         justifyContent: "center",
     },
     text: {
         color: "#fff"
-    },
-    funcBtn:{
-        flex: 1,
-        flexDirection: "column",
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    showBtn:{
-        width: "90%",
-        height: "10%",
     }
 });
 

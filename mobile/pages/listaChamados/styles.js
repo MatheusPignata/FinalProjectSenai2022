@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: 150,
         borderRadius: 20,
-        marginTop: 460
+        marginTop: 20
     },
     gradient: {
         width: "100%",
@@ -47,6 +47,51 @@ const styles = StyleSheet.create({
     },
     text:{
         color: "#fff"
+    },
+    uptable: {
+        flexDirection: "row",
+        marginTop: 30,
+        backgroundColor: "#8f5cd0"
+    },
+    lista: {
+        width: 75,
+        alignItems: "center",
+    },
+    lista2: {
+        width: 150,
+        alignItems: "center",
+    },
+    lista3: {
+        width: 75,
+        alignItems: "center",
+    },
+    lista4: {
+        width: 75,
+        alignItems: "center",
+    },
+    conteudoLista: {
+        flexDirection: "row"
+    },
+    conteudo: {
+        width: 75,
+        alignItems: "center",
+    },
+    conteudo2: {
+        width: 150,
+        alignItems: "center",
+    },
+    conteudo3: {
+        width: 75,
+        alignItems: "center",
+    },
+    conteudo4: {
+        width: 75,
+        alignItems: "center",
+    },
+    tabela: {
+        height: 350,
+        borderWidth: 1,
+        borderColor: "black",
     }
 })
 

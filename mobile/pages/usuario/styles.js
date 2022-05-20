@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
-        backgroundColor: "#37333C",
+        backgroundColor: "#250E42",
     },
     top: {
         width: "100%",
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     },
     midBot: {
         width: "100%",
-        height: "40%",
+        height: "20%",
+        backgroundColor: "#fff",
     },
     inputs: {
         width: "60%",
@@ -43,21 +44,38 @@ const styles = StyleSheet.create({
         margin: 20,
     },
     btn: {
-        marginTop: 50,
-        flex: 1,
-        width: "80%",
-        height: "20%",
+        width: "50%",
+        height: "100%",
+    },
+    btnConatiner:{
+        width: "100%",
+        height: "100%",
+        flexDirection: "row",
+        paddingLeft: 50,
     },
     gradient: {
-        width: "100%",
-        height: "20%",
+        width: "70%",
+        height: "50%",
         borderRadius: 30,
         alignItems: "center",
         justifyContent: "center",
+        margin: "auto"
     },
-    text: {
+    text:{
         color: "#fff"
+    },
+    searchBar:{
+        width: "80%",
+        height: "10%",
+        borderRadius: 30,
+        borderWidth: 1,
+        borderColor: "black",
+        marginTop: 15,
+        paddingLeft: 15,
+        paddingRight: 35,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: "#C4C4C4"
     }
-});
-
+})
 export default styles;

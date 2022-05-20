@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
-        backgroundColor: "#37333C",
+        backgroundColor: "#250E42",
     },
     top: {
         width: "100%",
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
     midTop: {
         width: "100%",
-        height: "80%",
+        height: "100%",
         backgroundColor: "#fff",
         flex: 1,
         flexDirection: "column",

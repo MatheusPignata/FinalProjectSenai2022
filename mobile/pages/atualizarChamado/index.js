@@ -46,7 +46,7 @@ export default function Chamado({ navigation }) {
         <KeyboardAvoidingView behavior="height">
         <View style={styles.container}>
             <View style={styles.top}>
-                <Text style={{ fontSize: 40, color: "#8300E9" }}>Atualizar Chamado</Text>
+                <Text style={{ fontSize: 40, color: "#8300E9", fontWeight: "bold" }}>Atualizar Chamado</Text>
             </View>
             <View style={styles.mid}>
                 <View style={styles.midTop}>
