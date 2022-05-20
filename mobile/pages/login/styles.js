@@ -18,16 +18,11 @@ const styles = StyleSheet.create({
         height: "70%",
         backgroundColor: "#fff",
         borderTopLeftRadius: 100,
-        borderTopRightRadius: 100,
+        borderTopRightRadius: 100
     },
     midTop: {
         width: "100%",
         height: "100%",
-        flexDirection: 'column',
-        justifyContent: 'center',
-        borderTopLeftRadius: 100,
-        borderTopRightRadius: 100,
-        flex: 1,
     },
     inputs: {
         width: "60%",
@@ -37,19 +32,39 @@ const styles = StyleSheet.create({
         margin: 20,
     },
     btn: {
-        marginLeft: 20,
-        padding: 0,
-        width: "90%",
-    },
-    gradient: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: "center",
         width: "100%",
         height: "40%",
+    },
+    gradient: {
+        width: "90%",
+        height: "30%",
+        borderRadius: 30,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    ShowGradient: {
+        width: "100%",
+        height: "100%",
         borderRadius: 30,
         alignItems: "center",
         justifyContent: "center",
     },
     text: {
         color: "#fff"
+    },
+    funcBtn:{
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    showBtn:{
+        width: "90%",
+        height: "10%",
     }
 });
 
