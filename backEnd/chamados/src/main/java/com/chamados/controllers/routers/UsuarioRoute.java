@@ -47,10 +47,10 @@ public class UsuarioRoute {
 	public ResponseEntity<UsuarioInfoDto> listarInfoUsuario(@PathVariable long id) {
 		return controll.listarInfoUsuario(id);
 	}
-	/*
+	
 	@PutMapping("/alt/{id}")
-	public ResponseEntity<UsuarioLoginDto> alterarIndoUsuario(@RequestBody Usuario u, @PathVariable long id) {
-		return new ResponseEntity<UsuarioLoginDto>();
+	public ResponseEntity<Object> alterarIndoUsuario(@RequestBody Usuario u, @PathVariable long id) {
+		return controll.altUsuario(u, id);
 	}
-	*/
+	
 }

@@ -2,10 +2,7 @@ package com.chamados.controllers.process;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
+import org.hibernate.mapping.UnionSubclass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -44,10 +41,11 @@ public class UsuarioControll {
 	}
 
 	public ResponseEntity<UsuarioInfoDto> listarInfoUsuario(long id) {
-		Usuario usuario = repository.findById(id).orElse(null);
-		return usuario != null
-				? new ResponseEntity<UsuarioInfoDto>(new UsuarioInfoDto(usuario.getId(), usuario.getCpf(),
-						usuario.getNome(), usuario.getEmail(), usuario.getTelefone()), HttpStatus.ACCEPTED)
+		Usuario u = repository.findById(id).orElse(null);
+		return u != null
+				? new ResponseEntity<UsuarioInfoDto>(
+						new UsuarioInfoDto(u.getId(), u.getCpf(), u.getNome(), u.getEmail(), u.getTelefone()),
+						HttpStatus.ACCEPTED)
 				: new ResponseEntity<UsuarioInfoDto>(new UsuarioInfoDto(), HttpStatus.BAD_REQUEST);
 	}
 
@@ -61,5 +59,26 @@ public class UsuarioControll {
 		Usuario usuario = repository.adminLogin(u.getCpf(), u.getSenha());
 		return usuario != null ? new ResponseEntity<AdminLoginDto>(new AdminLoginDto(usuario), HttpStatus.ACCEPTED)
 				: new ResponseEntity<AdminLoginDto>(new AdminLoginDto(), HttpStatus.BAD_REQUEST);
+	}
+
+	public ResponseEntity<Object> altUsuario(Usuario u, long id) {
+		try {
+			return repository.findById(id).map(us -> {
+				us.setNome(u.getNome());
+				us.setCodigo(u.getCodigo());
+				us.setCpf(u.getCpf());
+				us.setEmail(u.getEmail());
+				us.setSenha(u.getSenha());
+				us.setTelefone(u.getTelefone());
+
+				Usuario usuario = repository.save(us);
+
+				return usuario != null ? new ResponseEntity<Object>(usuario, HttpStatus.OK)
+						: new ResponseEntity<Object>(usuario, HttpStatus.OK);
+			}).orElse(ResponseEntity.notFound().build());
+		} catch (DataIntegrityViolationException e) {
+			return ResponseEntity.badRequest().body("");
+		}
+
 	}
 }
