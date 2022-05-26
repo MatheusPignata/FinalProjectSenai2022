@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import com.chamados.models.dto.ChamadoInfoDto;
@@ -18,18 +20,20 @@ public class ChamadoControll {
 	@Autowired
 	ChamadoRepository repository;
 
-	Usuario usu;
+	Chamado usu;
 
-	public Chamado criarChamado(Chamado chamado, long id) {
-		usu = new Usuario(id);
-		chamado.setUsuario(usu);
-		return repository.save(chamado);
+	public ResponseEntity<ChamadoInfoDto> criarChamado(Chamado chamado, long id) {
+		Usuario usuario = new Usuario();
+		usuario.setId(id);
+		chamado.setUsuario(usuario);
+		usu = repository.save(chamado);
+		return new ResponseEntity<ChamadoInfoDto>(new ChamadoInfoDto(usu, usu.getUsuario().getId()), HttpStatus.ACCEPTED);
 	}
 
 	public List<ChamadoInfoDto> listarChamados() {
 		List<ChamadoInfoDto> lis = new ArrayList<ChamadoInfoDto>();
 		repository.findAll().stream().forEach(u -> 
-			lis.add(new ChamadoInfoDto(u))
+			lis.add(new ChamadoInfoDto(u, u.getId()))
 		);
 		return lis;
 	}

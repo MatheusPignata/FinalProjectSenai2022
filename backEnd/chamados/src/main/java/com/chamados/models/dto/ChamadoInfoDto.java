@@ -1,11 +1,6 @@
 package com.chamados.models.dto;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 import com.chamados.models.entities.Chamado;
-import com.chamados.models.entities.Usuario;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class ChamadoInfoDto {
 	private long id;
-	private Usuario usuario;
+	private UsuarioInfoDto usuario;
 	private String produto;
 	private String cor;
 	private String descricao;
@@ -24,9 +19,9 @@ public class ChamadoInfoDto {
 	private String marca;
 	private long orcamento;
 
-	public ChamadoInfoDto(Chamado c) {
+	public ChamadoInfoDto(Chamado c, long id) {
 		this.id = c.getId();
-		this.usuario = new Usuario(c.getUsuario().getId(), c.getUsuario().getNome(), c.getUsuario().getEmail());
+		this.usuario = new UsuarioInfoDto(c.getUsuario());
 		this.produto = c.getProduto();
 		this.cor = c.getCor();
 		this.descricao = c.getDescricao();
