@@ -26,6 +26,4 @@ public class UsuarioInfoDto {
 		this.email = u.getEmail();
 		this.telefone = u.getTelefone();
 	}
-	
-	
 }

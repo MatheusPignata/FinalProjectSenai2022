@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,38 +20,42 @@ import com.chamados.models.dto.UsuarioLoginDto;
 import com.chamados.models.entities.Usuario;
 
 @RestController
-@RequestMapping("/usu")
+@RequestMapping("/us")
 public class UsuarioRoute {
 	@Autowired
 	UsuarioControll controll;
 
 	// login e cadastro
-	@PostMapping("/logCad/{tipo}")
+	@PostMapping("/log/{tipo}")
 	public ResponseEntity<UsuarioLoginDto> loginUsuario(@RequestBody Usuario u, @PathVariable boolean tipo) {
-		System.out.println(tipo);
 		return tipo ? controll.criarUsuario(u) : controll.loginUsuario(u.getCodigo());
 	}
 
-	@PostMapping("/logAdm")
+	@PostMapping("/log")
 	public ResponseEntity<AdminLoginDto> loginAdmin(@RequestBody Usuario u) {
 		return controll.loginAdmin(u);
 	}
 
 	// todos usuarios
-	@GetMapping("/lisTodos")
+	@GetMapping("/lis")
 	public List<UsuarioLoginDto> listarUsuario() {
 		return controll.listarUsuarios();
 	}
 
 	// listar informações do usuario especifico
-	@GetMapping("/info/{id}")
+	@GetMapping("/inf/{id}")
 	public ResponseEntity<UsuarioInfoDto> listarInfoUsuario(@PathVariable long id) {
 		return controll.listarInfoUsuario(id);
 	}
-	
+
 	@PutMapping("/alt/{id}")
 	public ResponseEntity<Object> alterarIndoUsuario(@RequestBody Usuario u, @PathVariable long id) {
 		return controll.altUsuario(u, id);
 	}
-	
+
+	@DeleteMapping("/del/{id}")
+	public ResponseEntity<Object> remUsuario(@PathVariable long id) {
+		return controll.remUsuario(id);
+	}
+
 }

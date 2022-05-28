@@ -16,7 +16,6 @@ import com.chamados.models.repositorys.ChamadoRepository;
 
 @Component
 public class ChamadoControll {
-
 	@Autowired
 	ChamadoRepository repository;
 
@@ -30,11 +29,21 @@ public class ChamadoControll {
 		return new ResponseEntity<ChamadoInfoDto>(new ChamadoInfoDto(usu, usu.getUsuario().getId()), HttpStatus.ACCEPTED);
 	}
 
-	public List<ChamadoInfoDto> listarChamados() {
+	public List<ChamadoInfoDto> listarChamados(String status) {
 		List<ChamadoInfoDto> lis = new ArrayList<ChamadoInfoDto>();
-		repository.findAll().stream().forEach(u -> 
-			lis.add(new ChamadoInfoDto(u, u.getId()))
-		);
+		repository.findAll().stream().filter(u -> (u.getStatus() != null) && u.getStatus().equals(status)).forEach(u -> {
+			lis.add(new ChamadoInfoDto(u, u.getId()));
+			/*
+			if((u.getStatus() != null) && u.getStatus().equals(status)) {
+				lis.add(new ChamadoInfoDto(u, u.getId()));
+			}*/
+			
+		});
 		return lis;
+	}
+	
+	public ResponseEntity<ChamadoInfoDto> listarInfoChamado(long id) {
+		usu = repository.findById(id).orElse(usu);
+		return new ResponseEntity<ChamadoInfoDto>(new ChamadoInfoDto(usu, usu.getId()), HttpStatus.ACCEPTED);
 	}
 }

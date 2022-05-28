@@ -17,7 +17,6 @@ import com.chamados.models.repositorys.UsuarioRepository;
 
 @Component
 public class UsuarioControll {
-
 	@Autowired
 	UsuarioRepository repository;
 
@@ -79,6 +78,10 @@ public class UsuarioControll {
 		} catch (DataIntegrityViolationException e) {
 			return ResponseEntity.badRequest().body("");
 		}
-
+	}
+	
+	public ResponseEntity<Object> remUsuario(long id) {
+		repository.deleteById(id);
+		return ResponseEntity.ok().body("cu");
 	}
 }

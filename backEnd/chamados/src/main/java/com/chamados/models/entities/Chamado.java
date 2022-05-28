@@ -49,6 +49,4 @@ public class Chamado {
 
 	@Column(name = "orcamento")
 	private long orcamento;
-
-	
 }
