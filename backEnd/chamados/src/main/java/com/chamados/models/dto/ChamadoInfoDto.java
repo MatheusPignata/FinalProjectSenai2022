@@ -19,7 +19,7 @@ public class ChamadoInfoDto {
 	private String marca;
 	private long orcamento;
 
-	public ChamadoInfoDto(Chamado c, long id) {
+	public ChamadoInfoDto(Chamado c) {
 		this.id = c.getId();
 		this.usuario = new UsuarioInfoDto(c.getUsuario());
 		this.produto = c.getProduto();

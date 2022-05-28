@@ -2,7 +2,6 @@ package com.chamados.controllers.process;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.mapping.UnionSubclass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -27,7 +26,7 @@ public class UsuarioControll {
 					new UsuarioLoginDto(usuario.getId(), usuario.getNome(), usuario.getEmail(), usuario.getTelefone()),
 					HttpStatus.ACCEPTED);
 		} catch (DataIntegrityViolationException e) {
-			return new ResponseEntity<UsuarioLoginDto>(new UsuarioLoginDto(), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<UsuarioLoginDto>(HttpStatus.BAD_REQUEST);
 		}
 	}
 
@@ -36,28 +35,25 @@ public class UsuarioControll {
 		return u != null
 				? new ResponseEntity<UsuarioLoginDto>(
 						new UsuarioLoginDto(u.getId(), u.getNome(), u.getEmail(), u.getTelefone()), HttpStatus.ACCEPTED)
-				: new ResponseEntity<UsuarioLoginDto>(new UsuarioLoginDto(), HttpStatus.BAD_REQUEST);
+				: new ResponseEntity<UsuarioLoginDto>(HttpStatus.BAD_REQUEST);
 	}
 
-	public ResponseEntity<UsuarioInfoDto> listarInfoUsuario(long id) {
+	public ResponseEntity<Object> listarInfoUsuario(long id) {
 		Usuario u = repository.findById(id).orElse(null);
-		return u != null
-				? new ResponseEntity<UsuarioInfoDto>(
-						new UsuarioInfoDto(u.getId(), u.getCpf(), u.getNome(), u.getEmail(), u.getTelefone()),
-						HttpStatus.ACCEPTED)
-				: new ResponseEntity<UsuarioInfoDto>(new UsuarioInfoDto(), HttpStatus.BAD_REQUEST);
+		return u != null ? ResponseEntity.ok().body(new UsuarioInfoDto(u)) : ResponseEntity.badRequest().body("");
 	}
 
 	public List<UsuarioLoginDto> listarUsuarios() {
 		List<UsuarioLoginDto> lis = new ArrayList<UsuarioLoginDto>();
-		repository.findAll().stream().filter(u -> u.getCpf().equals("")).forEach(u -> lis.add(new UsuarioLoginDto(u)));
+		repository.findAll().stream().filter(u -> u.getSenha().equals(""))
+				.forEach(u -> lis.add(new UsuarioLoginDto(u)));
 		return lis;
 	}
 
 	public ResponseEntity<AdminLoginDto> loginAdmin(Usuario u) {
 		Usuario usuario = repository.adminLogin(u.getCpf(), u.getSenha());
 		return usuario != null ? new ResponseEntity<AdminLoginDto>(new AdminLoginDto(usuario), HttpStatus.ACCEPTED)
-				: new ResponseEntity<AdminLoginDto>(new AdminLoginDto(), HttpStatus.BAD_REQUEST);
+				: new ResponseEntity<AdminLoginDto>(HttpStatus.BAD_REQUEST);
 	}
 
 	public ResponseEntity<Object> altUsuario(Usuario u, long id) {
@@ -73,13 +69,13 @@ public class UsuarioControll {
 				Usuario usuario = repository.save(us);
 
 				return usuario != null ? new ResponseEntity<Object>(usuario, HttpStatus.OK)
-						: new ResponseEntity<Object>(usuario, HttpStatus.OK);
+						: new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
 			}).orElse(ResponseEntity.notFound().build());
 		} catch (DataIntegrityViolationException e) {
 			return ResponseEntity.badRequest().body("");
 		}
 	}
-	
+
 	public ResponseEntity<Object> remUsuario(long id) {
 		repository.deleteById(id);
 		return ResponseEntity.ok().body("cu");

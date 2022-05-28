@@ -25,6 +25,18 @@ public class UsuarioRoute {
 	@Autowired
 	UsuarioControll controll;
 
+	// todos usuarios
+	@GetMapping("/lis")
+	public List<UsuarioLoginDto> listarUsuario() {
+		return controll.listarUsuarios();
+	}
+
+	// listar informações do usuario especifico
+	@GetMapping("/inf/{id}")
+	public ResponseEntity<Object> listarInfoUsuario(@PathVariable long id) {
+		return controll.listarInfoUsuario(id);
+	}
+
 	// login e cadastro
 	@PostMapping("/log/{tipo}")
 	public ResponseEntity<UsuarioLoginDto> loginUsuario(@RequestBody Usuario u, @PathVariable boolean tipo) {
@@ -34,18 +46,6 @@ public class UsuarioRoute {
 	@PostMapping("/log")
 	public ResponseEntity<AdminLoginDto> loginAdmin(@RequestBody Usuario u) {
 		return controll.loginAdmin(u);
-	}
-
-	// todos usuarios
-	@GetMapping("/lis")
-	public List<UsuarioLoginDto> listarUsuario() {
-		return controll.listarUsuarios();
-	}
-
-	// listar informações do usuario especifico
-	@GetMapping("/inf/{id}")
-	public ResponseEntity<UsuarioInfoDto> listarInfoUsuario(@PathVariable long id) {
-		return controll.listarInfoUsuario(id);
 	}
 
 	@PutMapping("/alt/{id}")
