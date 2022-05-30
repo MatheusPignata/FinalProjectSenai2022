@@ -29,7 +29,6 @@ public class Usuario {
 	@Column(name = "id_usuario")
 	private long id;
 
-	@JsonIgnoreProperties(allowSetters = true)
 	@Column(name = "senha", nullable = false)
 	private String senha;
 
@@ -40,20 +39,22 @@ public class Usuario {
 	@Column(name = "email", nullable = true, unique = true)
 	private String email;
 
-	@Column(name = "cpf", nullable = false)
+	@Column(name = "cpf", nullable = false, unique = true)
 	private String cpf;
 
-	@JsonIgnoreProperties(allowSetters = true)
-	@Column(name = "codigo", nullable = false, unique = true)
-	private String codigo;
+	@Column(name = "endereco", nullable = false)
+	private String endereco;
 
 	@Column(name = "telefone", nullable = false)
 	private long telefone;
 
+	@Column(name = "cargo", nullable = false)
+	private char cargo;
+
 	public Usuario(long id) {
 		this.id = id;
 	}
-	
+
 	public Usuario(long id, String nome, String email) {
 		this.id = id;
 		this.nome = nome;

@@ -22,19 +22,15 @@ public class UsuarioControll {
 	public ResponseEntity<UsuarioLoginDto> criarUsuario(Usuario u) {
 		try {
 			Usuario usuario = repository.save(u);
-			return new ResponseEntity<UsuarioLoginDto>(
-					new UsuarioLoginDto(usuario.getId(), usuario.getNome(), usuario.getEmail(), usuario.getTelefone()),
-					HttpStatus.ACCEPTED);
+			return new ResponseEntity<UsuarioLoginDto>(new UsuarioLoginDto(usuario), HttpStatus.ACCEPTED);
 		} catch (DataIntegrityViolationException e) {
 			return new ResponseEntity<UsuarioLoginDto>(HttpStatus.BAD_REQUEST);
 		}
 	}
 
-	public ResponseEntity<UsuarioLoginDto> loginUsuario(String codigo) {
-		Usuario u = repository.usuarioLogin(codigo);
-		return u != null
-				? new ResponseEntity<UsuarioLoginDto>(
-						new UsuarioLoginDto(u.getId(), u.getNome(), u.getEmail(), u.getTelefone()), HttpStatus.ACCEPTED)
+	public ResponseEntity<UsuarioLoginDto> loginUsuario(String cpf, String senha) {
+		Usuario u = repository.login(cpf, senha);
+		return u != null ? new ResponseEntity<UsuarioLoginDto>(new UsuarioLoginDto(u), HttpStatus.ACCEPTED)
 				: new ResponseEntity<UsuarioLoginDto>(HttpStatus.BAD_REQUEST);
 	}
 
@@ -51,7 +47,7 @@ public class UsuarioControll {
 	}
 
 	public ResponseEntity<AdminLoginDto> loginAdmin(Usuario u) {
-		Usuario usuario = repository.adminLogin(u.getCpf(), u.getSenha());
+		Usuario usuario = repository.login(u.getCpf(), u.getSenha());
 		return usuario != null ? new ResponseEntity<AdminLoginDto>(new AdminLoginDto(usuario), HttpStatus.ACCEPTED)
 				: new ResponseEntity<AdminLoginDto>(HttpStatus.BAD_REQUEST);
 	}
@@ -60,12 +56,12 @@ public class UsuarioControll {
 		try {
 			return repository.findById(id).map(us -> {
 				us.setNome(u.getNome());
-				us.setCodigo(u.getCodigo());
 				us.setCpf(u.getCpf());
 				us.setEmail(u.getEmail());
 				us.setSenha(u.getSenha());
 				us.setTelefone(u.getTelefone());
-
+				us.setEndereco(u.getEndereco());
+				
 				Usuario usuario = repository.save(us);
 
 				return usuario != null ? new ResponseEntity<Object>(usuario, HttpStatus.OK)

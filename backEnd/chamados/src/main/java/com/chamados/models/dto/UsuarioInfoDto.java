@@ -18,6 +18,7 @@ public class UsuarioInfoDto {
 	private String nome;
 	private String email;
 	private long telefone;
+	private String endereco;
 	
 	public UsuarioInfoDto(Usuario u) {
 		this.id = u.getId();
@@ -25,5 +26,6 @@ public class UsuarioInfoDto {
 		this.nome = u.getNome();
 		this.email = u.getEmail();
 		this.telefone = u.getTelefone();
+		this.endereco = u.getEndereco();
 	}
 }

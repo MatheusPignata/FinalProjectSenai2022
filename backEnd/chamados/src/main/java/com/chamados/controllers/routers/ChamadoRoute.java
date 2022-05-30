@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chamados.controllers.process.ChamadoControll;
+import com.chamados.models.dto.ChamadoClienteDto;
 import com.chamados.models.dto.ChamadoInfoDto;
 import com.chamados.models.entities.Chamado;
 
@@ -27,6 +28,11 @@ public class ChamadoRoute {
 	@GetMapping("/lis")
 	public List<ChamadoInfoDto> listarChamado(@RequestParam(required = false) String status) {
 		return controll.listarChamados(status);
+	}
+
+	@GetMapping("/lis/{id}")
+	public List<ChamadoClienteDto> listarChamadosCliente(@PathVariable long id) {
+		return controll.listarChamadosCliente(id);
 	}
 
 	@GetMapping("/inf/{id}")

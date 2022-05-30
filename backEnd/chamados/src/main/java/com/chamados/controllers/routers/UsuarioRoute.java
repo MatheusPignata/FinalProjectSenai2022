@@ -40,7 +40,7 @@ public class UsuarioRoute {
 	// login e cadastro
 	@PostMapping("/log/{tipo}")
 	public ResponseEntity<UsuarioLoginDto> loginUsuario(@RequestBody Usuario u, @PathVariable boolean tipo) {
-		return tipo ? controll.criarUsuario(u) : controll.loginUsuario(u.getCodigo());
+		return tipo ? controll.criarUsuario(u) : controll.loginUsuario(u.getCpf(), u.getSenha());
 	}
 
 	@PostMapping("/log")

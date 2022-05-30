@@ -14,11 +14,15 @@ public class UsuarioLoginDto {
 	private String nome;
 	private String email;
 	private long telefone;
-	
+	private String endereco;
+	private char cargo;
+
 	public UsuarioLoginDto(Usuario u) {
 		this.id = u.getId();
 		this.nome = u.getNome();
 		this.email = u.getEmail();
 		this.telefone = u.getTelefone();
+		this.endereco = u.getEndereco();
+		this.cargo = u.getCargo();
 	}
 }

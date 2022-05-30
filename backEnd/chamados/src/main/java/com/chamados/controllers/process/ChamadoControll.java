@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import com.chamados.models.dto.ChamadoClienteDto;
 import com.chamados.models.dto.ChamadoInfoDto;
 import com.chamados.models.entities.Chamado;
 import com.chamados.models.entities.Usuario;
@@ -32,8 +33,16 @@ public class ChamadoControll {
 		} catch (DataIntegrityViolationException e) {
 			return new ResponseEntity<ChamadoInfoDto>(HttpStatus.BAD_REQUEST);
 		}
-
 	}
+	
+	public List<ChamadoClienteDto> listarChamadosCliente(long id) {
+		List<ChamadoClienteDto> lis = new ArrayList<ChamadoClienteDto>();
+		repository.findAll().stream().filter(u -> u.getUsuario().getId() == id).forEach(u -> {
+			lis.add(new ChamadoClienteDto(u));
+		});
+		return lis;
+	}
+	
 
 	public List<ChamadoInfoDto> listarChamados(String status) {
 		List<ChamadoInfoDto> lis = new ArrayList<ChamadoInfoDto>();
