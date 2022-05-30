@@ -1,0 +1,82 @@
+http://10.87.207.19:8080/
+
+import * as React from 'react';
+import { useState } from 'react';
+import { Button, TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import styles from './styles';
+
+export default function Login({ navigation }) {
+    const [cpf, setCpf] = useState("");
+    const [senha, setSenha] = useState("");
+    const [codigo, setCod] = useState("");
+
+    const autenticarAdm = () => {
+        // fetch('http://localhost:3000/us/log', {
+        //     "method": "POST",
+        //     "headers": {
+        //         "Content-Type": "application/json"
+        //     },
+        //     "body": JSON.stringify(data),
+        // })
+        //     .then(resp => { return resp.json() })
+        //     .then(async data => {
+        //         if (data.length > 0) {
+        //             navigation.navigate('Menu');
+        //         } else {
+        //             ToastAndroid.show('CPF ou senha inválidos', ToastAndroid.SHORT);
+        //         }
+        //     })
+    }
+    const [showBtn, setShowBtnElement] = useState(true)
+    const showOrHideBtn = () => setShowBtnElement(false)
+
+    const [showUser, setShowUserElement] = useState(false)
+    const showOrHideUser = () => setShowUserElement(true)
+
+    const [showAdm, setShowAdmElement] = useState(false)
+    const showOrHideAdm = () => setShowAdmElement(true)
+
+    const showBtnUser = () => {
+        showOrHideBtn()
+        showOrHideUser()
+    }
+    const showBtnAdm = () => {
+        showOrHideBtn()
+        showOrHideAdm()
+    }
+
+    return (
+        <KeyboardAvoidingView behavior="height">
+            <View style={styles.container}>
+                <View style={styles.top}>
+                    <Text style={{ fontSize: 50, color: "#8300E9" }}>OS</Text>
+                </View>
+                <View style={styles.mid}>
+                    <View style={styles.midTop}>
+                        {showBtn ?
+                            <View style={styles.midTop}>
+                                <TouchableOpacity style={styles.btn} onPress={showBtnUser}>
+                                    <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
+                                        <Text style={styles.text}>USUARIO</Text>
+                                    </LinearGradient>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.btn} onPress={showBtnAdm}>
+                                    <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
+                                        <Text style={styles.text}>FUNCIONARIO</Text>
+                                    </LinearGradient>
+                                </TouchableOpacity>
+                            </View>
+                            : null}
+                        {showUser ?
+                            <View>
+                                <TextInput value={codigo} onChange={setCod} placeholder={'Código'} />
+                            </View>
+                        : null}
+                        {showAdm}
+                    </View>
+                </View>
+            </View>
+        </KeyboardAvoidingView >
+    );
+};

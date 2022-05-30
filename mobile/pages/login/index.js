@@ -5,12 +5,12 @@ import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 
 export default function Login({ navigation }) {
-    const [user, setUser] = useState("");
+    const [cpf, setCpf] = useState("");
     const [senha, setSenha] = useState("");
 
     const autenticar = () => {
         let data = {
-            user: user,
+            cpf: cpf,
             senha: senha,
         }
         //     fetch('http://xxxxxxx:3000/login', {
@@ -18,7 +18,7 @@ export default function Login({ navigation }) {
         //         "headers": {
         //             "Content-Type": "application/json"
         //         },
-        //         "body": JSON.stringify(usuario),
+        //         "body": JSON.stringify(data),
         //     })
         //         .then(resp => { return resp.json() })
         //         .then(async data => {
@@ -39,7 +39,7 @@ export default function Login({ navigation }) {
                 <View style={styles.mid}>
                     <View style={styles.midTop}>
                         <Text style={{ fontSize: 40, marginTop: 50, color: "#8300E9", fontWeight: "bold" }}>ENTRAR</Text>
-                        <TextInput value={user} onChangeText={setUser} style={styles.inputs} placeholder="Usuario" />
+                        <TextInput value={cpf} onChangeText={setCpf} style={styles.inputs} placeholder="CPF" />
                         <TextInput value={senha} onChangeText={setSenha} style={styles.inputs} secureTextEntry={true} placeholder="Senha" />
                         <TouchableOpacity onPress={() => { autenticar() }} style={styles.btn} >
                             <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>

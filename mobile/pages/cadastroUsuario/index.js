@@ -20,7 +20,7 @@ export default function CreateUsuario({ navigation }) {
             telefone: telefone,
             endereco: endereco
         }
-        //     fetch('http:/xxxxxxxxx:3000/', {
+        //     fetch('http:/http://10.87.207.19:8080/', {
         //         method: "POST",
         //         headers: {
         //             "Content-Type": "application/json"

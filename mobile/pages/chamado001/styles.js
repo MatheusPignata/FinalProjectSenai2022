@@ -4,11 +4,11 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
-        backgroundColor: "#250E42"
+        backgroundColor: "#37333C",
     },
     top: {
         width: "100%",
-        height: "30%",
+        height: "20%",
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
@@ -16,41 +16,47 @@ const styles = StyleSheet.create({
     },
     mid: {
         width: "100%",
-        height: 550,
-        backgroundColor: "white",
-        borderTopLeftRadius: 60,
-        borderTopRightRadius: 60
+        height: "80%",
+        backgroundColor: "#fff",
+        borderTopLeftRadius: 100,
+        borderTopRightRadius: 100,
     },
     midTop: {
         width: "100%",
-        backgroundColor: "white",
+        height: "100%",
+        backgroundColor: "#fff",
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
-        marginTop: 40
+    },
+    midBot: {
+        width: "100%",
+        height: "40%",
+    },
+    inputs: {
+        width: "60%",
+        height: "4%",
+        borderBottomColor: "black",
+        borderBottomWidth: 1,
+        margin: 20,
     },
     btn: {
+        marginTop: 50,
         flex: 1,
         width: "80%",
-        marginTop: 5
+        height: "20%",
     },
     gradient: {
         width: "100%",
-        height: 50,
-        borderRadius: 20,
-        flexDirection: "column",
+        height: "20%",
+        borderRadius: 30,
         alignItems: "center",
         justifyContent: "center",
     },
     text: {
-        color: "#fff",
-        fontWeight: "bold"
-    },
-    image: {
-        height: 250,
-        width: "70%"
+        color: "#fff"
     }
 });
 
