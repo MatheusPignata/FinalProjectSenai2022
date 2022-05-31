@@ -11,7 +11,8 @@ export default function CreateUsuario({ navigation }) {
     const [email, setEmail] = useState("");
     const [telefone, setTelefone] = useState("");
     const [endereco, setEndereco] = useState("");
-    const criar = () => {
+
+    const cadastrar = () => {
         let data = {
             nome: nome,
             senha: senha,
@@ -49,7 +50,7 @@ export default function CreateUsuario({ navigation }) {
                     </View>
                     <View style={styles.midBot}>
                         <View style={styles.btnConatiner}>
-                            <TouchableOpacity style={styles.btn} onPress={() => { criar() }}>
+                            <TouchableOpacity style={styles.btn} onPress={() => { cadastrar() }}>
                                 <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                                     <Text style={styles.text}>CADASTRAR</Text>
                                 </LinearGradient>

@@ -15,8 +15,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Menu" component={Menu} options={{ headerTintColor: '#8300E9', title: '', headerStyle: { backgroundColor: '#37333C', borderBottomWidth: 0 } }} />
         <Stack.Screen name="Login" component={Login} options={{ headerTintColor: '#8300E9', title: '', headerStyle: { backgroundColor: '#37333C', borderBottomWidth: 0 } }} />
+        <Stack.Screen name="Menu" component={Menu} options={{ headerTintColor: '#8300E9', title: '', headerStyle: { backgroundColor: '#37333C', borderBottomWidth: 0 } }} />
         <Stack.Screen name="CreateUsuario" component={CreateUsuario} options={{ headerTintColor: '#8300E9', title: '', headerStyle: { backgroundColor: '#37333C', borderBottomWidth: 0 } }} />
         <Stack.Screen name="UpdateUsuario" component={UpdateUsuario} options={{ headerTintColor: '#8300E9', title: '', headerStyle: { backgroundColor: '#37333C', borderBottomWidth: 0 } }} />
         <Stack.Screen name="Chamado" component={Chamado} options={{ headerTintColor: '#8300E9', title: '', headerStyle: { backgroundColor: '#37333C' } }} />

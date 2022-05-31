@@ -22,13 +22,29 @@ export default function UpdateUsuario({ navigation }) {
             telefone: telefone,
             endereco: endereco
         }
+
+        fetch('http:/http://10.87.207.19:8080/us/alt/'+ id, {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": JSON.stringify(data),
+        })
+            .then(resp => { return resp.json() })
+            .then(async data => {
+                if (data.length > 0) {
+                    navigation.navigate('');
+                } else {
+                    ToastAndroid.show('Erro ao atualizar usuário', ToastAndroid.SHORT);
+                }
+            })
     }
 
     return (
         <KeyboardAvoidingView behavior="height">
             <View style={styles.container}>
                 <View style={styles.top}>
-                    <Text style={{ fontSize: 40, color: "#8300E9", fontWeight: "bold"}}>USUARIO</Text>
+                    <Text style={{ fontSize: 40, color: "#8300E9", fontWeight: "bold" }}>USUARIO</Text>
                 </View>
                 <View style={styles.mid}>
                     <View style={styles.midTop}>
