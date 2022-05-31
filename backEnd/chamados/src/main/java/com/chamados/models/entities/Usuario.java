@@ -15,10 +15,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 //gerar contrutor inteiro e vazio
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 //gerar getters, setters, toString, equals, hashCode
-@Data
+//@Data
 //representa a tabela
 @Entity
 @Table(name = "usuarios")
@@ -49,7 +49,7 @@ public class Usuario {
 	private long telefone;
 
 	@Column(name = "cargo", nullable = false)
-	private char cargo;
+	private String cargo;
 
 	public Usuario(long id) {
 		this.id = id;
@@ -60,4 +60,93 @@ public class Usuario {
 		this.nome = nome;
 		this.email = email;
 	}
+
+	public Usuario() {
+		
+	}
+	
+	public Usuario(long id, String senha, String nome, String email, String cpf, String endereco, long telefone,
+			String cargo) {
+		super();
+		this.id = id;
+		this.senha = senha;
+		this.nome = nome;
+		this.email = email;
+		this.cpf = cpf;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.cargo = cargo;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public long getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(long telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", senha=" + senha + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf
+				+ ", endereco=" + endereco + ", telefone=" + telefone + ", cargo=" + cargo + "]";
+	}
+
+	
 }

@@ -41,7 +41,7 @@ public class UsuarioControll {
 
 	public List<UsuarioLoginDto> listarUsuarios() {
 		List<UsuarioLoginDto> lis = new ArrayList<UsuarioLoginDto>();
-		repository.findAll().stream().filter(u -> u.getSenha().equals(""))
+		repository.findAll().stream().filter(u -> u.getCargo().equals("C"))
 				.forEach(u -> lis.add(new UsuarioLoginDto(u)));
 		return lis;
 	}

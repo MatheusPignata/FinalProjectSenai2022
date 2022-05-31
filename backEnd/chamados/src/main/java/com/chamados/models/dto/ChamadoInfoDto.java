@@ -29,4 +29,6 @@ public class ChamadoInfoDto {
 		this.marca = c.getMarca();
 		this.orcamento = c.getOrcamento();
 	}
+	
+	
 }
