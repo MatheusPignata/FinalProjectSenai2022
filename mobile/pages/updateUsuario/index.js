@@ -23,7 +23,7 @@ export default function UpdateUsuario({ navigation }) {
             endereco: endereco
         }
 
-        fetch('http:/http://10.87.207.19:8080/us/alt/'+ id, {
+        fetch('http://10.87.207.19:8080/us/alt/'+ id, {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"
@@ -33,7 +33,7 @@ export default function UpdateUsuario({ navigation }) {
             .then(resp => { return resp.json() })
             .then(async data => {
                 if (data.length > 0) {
-                    navigation.navigate('');
+                    navigation.navigate('Menu');
                 } else {
                     ToastAndroid.show('Erro ao atualizar usuário', ToastAndroid.SHORT);
                 }

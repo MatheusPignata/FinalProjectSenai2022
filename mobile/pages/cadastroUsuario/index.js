@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { View, Text, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, KeyboardAvoidingView, TextInput, TouchableOpacity, ToastAndroid } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 
@@ -21,22 +21,27 @@ export default function CreateUsuario({ navigation }) {
             telefone: telefone,
             endereco: endereco
         }
-        //     fetch('http:/http://10.87.207.19:8080/', {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify(data),
+        // fetch('http://10.87.207.19:8080/us/log/true', { 
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(data),
+        // })
+        //     .then(resp => { return resp.json() })
+        //     .then(data => {
+        //         if (data.length > 0) {
+        //             ToastAndroid.show('Cadastro realizado com sucesso', ToastAndroid.SHORT);
+        //         } else {
+        //             ToastAndroid.show('Não foi possível cadastrar um novo usuário', ToastAndroid.SHORT);
+        //         }
         //     })
-        //         .then(resp => { return resp.json() })
-        //         .then(data => {
-        //         })
     }
     return (
         <KeyboardAvoidingView behavior="height">
             <View style={styles.container}>
                 <View style={styles.top}>
-                    <Text style={{ fontSize: 40, color: "#8300E9", textAlign: "center", fontWeight: "bold"}}>REGISTRAR USUARIO</Text>
+                    <Text style={{ fontSize: 40, color: "#8300E9", textAlign: "center", fontWeight: "bold" }}>REGISTRAR USUARIO</Text>
                 </View>
                 <View style={styles.mid}>
                     <View style={styles.midTop}>

@@ -1,35 +1,37 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView } from 'react-native';
+import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView, ToastAndroid } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 
 export default function Login({ navigation }) {
     const [cpf, setCpf] = useState("");
     const [senha, setSenha] = useState("");
-    const [codigo, setCodigo] = useState("");
 
     const autenticarUser = () => {
         let data = {
             cpf: cpf,
             senha: senha
         }
-            fetch('http://10.87.207.19:8080/us/logr', {
-                "method": "POST",
-                "headers": {
-                    "Content-Type": "application/json"
-                },
-                "body": JSON.stringify(data),
-            })
-                .then(resp => { return resp.json() })
-                .then(async data => {
-                    if (data.length > 0) {
-                        navigation.navigate('Menu');
-                        global.id = data.id;
+        fetch('http://10.87.207.19:8080/login', {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": JSON.stringify(data),
+        })
+            .then(resp => { return resp.json() })
+            .then(async data => {
+                if (data.id > 0) {
+                    if (data.cargo == "F") {
+                        navigation.navigate("Menu");
                     } else {
-                        ToastAndroid.show('CPF ou senha inválidos', ToastAndroid.SHORT);
+                        navigation.navigate("Menu")
                     }
-                })
+                } else{
+                    ToastAndroid.show('CPF ou senha inválidos', ToastAndroid.SHORT);
+                }
+            })
     }
 
     return (
