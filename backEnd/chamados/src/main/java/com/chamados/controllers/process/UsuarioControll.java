@@ -36,13 +36,11 @@ public class UsuarioControll {
 
 	public ResponseEntity<Object> listarInfoUsuario(long id) {
 		Usuario u = repository.findById(id).orElse(null);
-		//return u != null ? ResponseEntity.ok().body(new UsuarioInfoDto(u)) : ResponseEntity.badRequest().body("");
 		return u != null ? ResponseEntity.ok().body(u) : ResponseEntity.badRequest().body("");
 	}
 
 	public List<UsuarioLoginDto> listarUsuarios() {
 		List<UsuarioLoginDto> lis = new ArrayList<UsuarioLoginDto>();
-		//repository.findAll().stream().filter(u -> u.getCargo().equals("C"))
 		repository.findAll().stream()
 				.forEach(u -> lis.add(new UsuarioLoginDto(u)));
 		return lis;

@@ -20,40 +20,40 @@ import com.chamados.models.dto.UsuarioLoginDto;
 import com.chamados.models.entities.Usuario;
 
 @RestController
-@RequestMapping("/us")
 public class UsuarioRoute {
 	@Autowired
 	UsuarioControll controll;
 
 	// todos usuarios
-	@GetMapping("/lis")
+	@GetMapping("/listuser")
 	public List<UsuarioLoginDto> listarUsuario() {
 		return controll.listarUsuarios();
 	}
 
 	// listar informações do usuario especifico
-	@GetMapping("/inf/{id}")
+	@GetMapping("/listuser/{id}")
 	public ResponseEntity<Object> listarInfoUsuario(@PathVariable long id) {
 		return controll.listarInfoUsuario(id);
 	}
 
 	// login e cadastro
-	@PostMapping("/log/{tipo}")
-	public ResponseEntity<UsuarioLoginDto> loginUsuario(@RequestBody Usuario u, @PathVariable boolean tipo) {
-		return tipo ? controll.criarUsuario(u) : controll.loginUsuario(u.getCpf(), u.getSenha());
+	@PostMapping("/login")
+	public ResponseEntity<UsuarioLoginDto> loginUsuario(@RequestBody Usuario u) {
+		return controll.loginUsuario(u.getCpf(), u.getSenha());
 	}
 
-	@PostMapping("/log")
-	public ResponseEntity<AdminLoginDto> loginAdmin(@RequestBody Usuario u) {
-		return controll.loginAdmin(u);
+	@PostMapping("/cadastrar")
+	public ResponseEntity<UsuarioLoginDto> cadastrarUsuario(@RequestBody Usuario u) {
+		return controll.criarUsuario(u);
 	}
+	
 
-	@PutMapping("/alt/{id}")
+	@PutMapping("/alterar/{id}")
 	public ResponseEntity<Object> alterarIndoUsuario(@RequestBody Usuario u, @PathVariable long id) {
 		return controll.altUsuario(u, id);
 	}
 
-	@DeleteMapping("/del/{id}")
+	@DeleteMapping("/deletar/{id}")
 	public ResponseEntity<Object> remUsuario(@PathVariable long id) {
 		return controll.remUsuario(id);
 	}

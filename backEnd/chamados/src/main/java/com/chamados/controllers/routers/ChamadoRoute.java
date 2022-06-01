@@ -20,37 +20,38 @@ import com.chamados.models.dto.ChamadoInfoDto;
 import com.chamados.models.entities.Chamado;
 
 @RestController
-@RequestMapping("/ch")
 public class ChamadoRoute {
 	@Autowired
 	ChamadoControll controll;
 
-	@GetMapping("/lis")
+	//todos chamados
+	@GetMapping("/listchamado")
 	public List<ChamadoInfoDto> listarChamado(@RequestParam(required = false) String status) {
 		return controll.listarChamados(status);
 	}
 
-	@GetMapping("/lis/{id}")
+	//chamados do cliente
+	@GetMapping("/listchamado/cliente/{id}")
 	public List<ChamadoClienteDto> listarChamadosCliente(@PathVariable long id) {
 		return controll.listarChamadosCliente(id);
 	}
 
-	@GetMapping("/inf/{id}")
+	@GetMapping("/listchamado/{id}")
 	public ResponseEntity<Object> listarInfoChamado(@PathVariable long id) {
 		return controll.listarInfoChamado(id);
 	}
 
-	@PostMapping("/cri/{id}")
+	@PostMapping("/criarchamado/{id}")
 	public ResponseEntity<ChamadoInfoDto> criarChamado(@RequestBody Chamado chamado, @PathVariable long id) {
 		return controll.criarChamado(chamado, id);
 	}
 
-	@PutMapping("/alt/{id}")
+	@PutMapping("/alterarchamado/{id}")
 	public ResponseEntity<Object> altChamado(@RequestBody Chamado chamado, @PathVariable long id) {
 		return controll.altChamado(chamado, id);
 	}
 
-	@DeleteMapping("/del/{id}")
+	@DeleteMapping("/deletarchamado/{id}")
 	public ResponseEntity<Object> remChamado(@PathVariable long id) {
 		return controll.remChamado(id);
 	}
