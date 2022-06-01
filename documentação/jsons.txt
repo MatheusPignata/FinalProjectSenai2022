@@ -1,0 +1,114 @@
+Telas a finalizar:
+    cadChamado: X
+    cadUser: ✔
+    chamado: X
+    listChamado: X
+    login: X
+    menu: ✔
+    upUser: X
+
+
+JSON de cada tela:
+    cadChamado:
+        mando:
+        {
+            "produto": "nome do produto",
+            "marca": 'marca do produto',
+            "serial": serial number,
+            "tecnico_responsalvel": "id tecnico",
+            "cliente": cpf do cliente
+            "cor": "cor do produto",
+            "status": "status do produto",
+            "orcamento": 'valor do serviço',
+            "descricao": "descricao do produto"
+        }
+
+        recebo:
+            {
+                status http;
+            }
+
+    cadUser:
+        mando: 
+            {
+                'nome': nome,
+                'senha': pw,
+                'email': email,
+                'telefone': tel,
+                'cpf': cpf,
+                'endereco': endereco,
+                'cargo': cargo
+            }
+
+        recebo:
+            {
+                status http;
+            }
+
+
+    chamado:
+        mando:
+            update
+            {
+                "produto": "nome do produto",
+                "marca": 'marca do produto',
+                "serial": serial number,
+                "tecnico_responsalvel": "id tecnico",
+                "cliente": cpf do cliente
+                "cor": "cor do produto",
+                "status": "status do produto",
+                "orcamento": 'valor do serviço',
+                "descricao": "descricao do produto"
+            }
+
+        recebo:
+            {
+                status http;
+            }
+
+    listChamado:
+        mando:
+
+        recebo:
+            {
+                "id": id do produto,
+                "produto": "nome do produto",
+                "serial": serial number,
+                "tecnico_responsalvel": "id tecnico",
+                "status": "status do produto"
+            }
+
+    login:
+        mando: 
+            {
+                'cpf': cpf,
+                'senha': pw
+            }
+
+        recebo:
+            {
+                'id': user_id,
+                'name': 'user_name',
+                'cargo': user_cargo
+            }
+
+    menu:
+        mando:
+
+        recebo:
+
+    upUser:
+        mando:
+        update
+            {
+                'nome': nome,
+                'senha': pw,
+                'email': email,
+                'telefone': tel,
+                'cpf': cpf,
+                'endereco': endereco
+            }
+        recebo:
+            {
+                status http;
+            }

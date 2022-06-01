@@ -16,12 +16,18 @@
     <div class="mid">
         <div class="content">
             <div class="inputs">
-                <input type="text" id="user_cod" placeholder="NOME COMPLETO">
-                <input type="text" id="user_pw" placeholder="SENHA">
-                <input type="text" id="user_email" placeholder="E-MAIL">
-                <input type="text" id="user_tel" placeholder="TELEFONE">
-                <input type="text" id="user_cpf" placeholder="CPF">
-                <input type="text" id="user_endereco" placeholder="ENDEREÇO">
+                <input type="text" id="user_name" placeholder="NOME COMPLETO" required>
+                <input type="password" id="user_pw" placeholder="SENHA" required>
+                <input type="email" id="user_email" placeholder="E-MAIL" required>
+                <input type="text" id="tel" placeholder="TELEFONE" maxlength="15" required>
+                <input type="text" id="user_cpf" placeholder="CPF" onkeydown="maskCPF(this)" required>
+                <input type="text" id="user_endereco" placeholder="ENDEREÇO" required>
+                <span>
+                    <div>
+                        <span><input type="radio" name="cargo" value="C" id="user_cargo"><label>Cliente</label></span>
+                        <span><input type="radio" name="cargo" value="F" id="user_cargo"><label>Funcionário</label></span>
+                    </div>
+                </span>
             </div>
             <div class="btns">
                 <button onclick="backpg()">

@@ -4,8 +4,9 @@ setTimeout(() => {
 
 function login() {
     let cpf = document.querySelector("#user_cpf").value;
-    let pw = md5(document.querySelector("#user_pw").value);
-    let url = 'http://localhost:3000/login';
+    let pw = document.querySelector("#user_pw").value;
+    // let pw = md5(document.querySelector("#user_pw").value);
+    let url = 'http://localhost:8080/us/log/false';
 
     let data = {
         "cpf" : cpf,
@@ -23,11 +24,7 @@ function login() {
             console.log(res);
             return res.json();
         }).then(data => { 
-            if (data.length != 0) {
-               
-            }else {
-                alert('CPF ou senha incorreto')
-            }
+            console.log(data);
         }).catch(err => {
             console.log(err);
         });
