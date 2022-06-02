@@ -16,7 +16,7 @@ public class InfoChamadoDTO {
 	private String descricao;
 	private String status;
 	private String marca;
-	private long orcamento;
+	private double orcamento;
 
 	public InfoChamadoDTO(Chamado c) {
 		this.id = c.getId();
@@ -94,11 +94,11 @@ public class InfoChamadoDTO {
 		this.marca = marca;
 	}
 
-	public long getOrcamento() {
+	public double getOrcamento() {
 		return orcamento;
 	}
 
-	public void setOrcamento(long orcamento) {
+	public void setOrcamento(double orcamento) {
 		this.orcamento = orcamento;
 	}
 

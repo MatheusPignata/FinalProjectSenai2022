@@ -14,7 +14,7 @@ public class ChamadoClienteDTO {
 	private String descricao;
 	private String status;
 	private String marca;
-	private long orcamento;
+	private double orcamento;
 
 	public ChamadoClienteDTO(Chamado c) {
 		this.id = c.getId();
@@ -27,7 +27,7 @@ public class ChamadoClienteDTO {
 	}
 
 	public ChamadoClienteDTO(long id, String produto, String cor, String descricao, String status, String marca,
-			long orcamento) {
+			double orcamento) {
 		this.id = id;
 		this.produto = produto;
 		this.cor = cor;
@@ -89,11 +89,11 @@ public class ChamadoClienteDTO {
 		this.marca = marca;
 	}
 
-	public long getOrcamento() {
+	public double getOrcamento() {
 		return orcamento;
 	}
 
-	public void setOrcamento(long orcamento) {
+	public void setOrcamento(double orcamento) {
 		this.orcamento = orcamento;
 	}
 }

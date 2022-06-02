@@ -38,7 +38,7 @@ public class Chamado {
 	@Column(name = "cor")
 	private String cor;
 
-	@Column(name = "descricao")
+	@Column(name = "descricao", length = 1000)
 	private String descricao;
 
 	@Column(name = "status")
@@ -51,10 +51,10 @@ public class Chamado {
 	private String serial;
 
 	@Column(name = "orcamento")
-	private long orcamento;
+	private double orcamento;
 
 	public Chamado(long id, Usuario funcionario, Usuario cliente, String produto, String cor, String descricao,
-			String status, String marca, String serial, long orcamento) {
+			String status, String marca, String serial, double orcamento) {
 		this.id = id;
 		this.funcionario = funcionario;
 		this.cliente = cliente;
@@ -135,11 +135,11 @@ public class Chamado {
 		this.marca = marca;
 	}
 
-	public long getOrcamento() {
+	public double getOrcamento() {
 		return orcamento;
 	}
 
-	public void setOrcamento(long orcamento) {
+	public void setOrcamento(double orcamento) {
 		this.orcamento = orcamento;
 	}
 

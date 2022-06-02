@@ -66,7 +66,9 @@ tbody tr:nth-child(odd){
 tbody tr:nth-child(even){
     background-color: var(--detail-color);
 }
-
+.model{
+    display: none;
+}
 @media(max-width: 1000px){
     .pesquisa{
         margin: 50px 0 -30px 0;
