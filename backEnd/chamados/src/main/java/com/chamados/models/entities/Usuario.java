@@ -40,7 +40,7 @@ public class Usuario {
 	private String endereco;
 
 	@Column(name = "telefone", nullable = false)
-	private long telefone;
+	private String telefone;
 
 	@Column(name = "cargo", nullable = false)
 	private String cargo;
@@ -59,7 +59,7 @@ public class Usuario {
 		
 	}
 	
-	public Usuario(long id, String senha, String nome, String email, String cpf, String endereco, long telefone,
+	public Usuario(long id, String senha, String nome, String email, String cpf, String endereco, String telefone,
 			String cargo) {
 		this.id = id;
 		this.senha = senha;
@@ -119,11 +119,11 @@ public class Usuario {
 		this.endereco = endereco;
 	}
 
-	public long getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(long telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 

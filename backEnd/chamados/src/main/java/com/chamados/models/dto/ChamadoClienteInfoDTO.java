@@ -10,7 +10,7 @@ import com.chamados.models.entities.Usuario;
 public class ChamadoClienteInfoDTO {
 	private long id;
 	private String nome;
-	private long telefone;
+	private String telefone;
 	private String endereco;
 
 	public ChamadoClienteInfoDTO(Usuario u) {
@@ -20,7 +20,7 @@ public class ChamadoClienteInfoDTO {
 		this.endereco = u.getEndereco();
 	}
 
-	public ChamadoClienteInfoDTO(long id, String nome, long telefone, String endereco) {
+	public ChamadoClienteInfoDTO(long id, String nome, String telefone, String endereco) {
 		this.id = id;
 		this.nome = nome;
 		this.telefone = telefone;
@@ -47,11 +47,11 @@ public class ChamadoClienteInfoDTO {
 		this.nome = nome;
 	}
 
-	public long getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(long telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 

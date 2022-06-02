@@ -15,7 +15,7 @@ export default function ListaChamado({ navigation }) {
                 </View>
                 <View style={styles.mid}>
                     <View style={styles.searchBar}>
-                        <TextInput value={searchBar} onChangeText={setSearch} placeholder="Buscar..." style={{ width: "50%", height: 35, marginTop: 25, margin: "auto", borderWidth: 1, borderColor: "black", borderRadius: 10 }} />    
+                        <TextInput value={searchBar} onChangeText={setSearch} placeholder="Buscar..." style={{ width: "50%", height: 35, marginBottom:"5%", borderWidth: 1, borderColor: "black", borderRadius: 10 }} />    
                     </View>
                     <View style={styles.tabela}>
                         <View style={styles.uptable}>

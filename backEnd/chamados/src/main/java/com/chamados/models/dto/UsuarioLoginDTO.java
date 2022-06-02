@@ -11,7 +11,7 @@ public class UsuarioLoginDTO {
 	private long id;
 	private String nome;
 	private String email;
-	private long telefone;
+	private String telefone;
 	private String endereco;
 	private String cargo;
 
@@ -24,7 +24,7 @@ public class UsuarioLoginDTO {
 		this.cargo = u.getCargo();
 	}
 
-	public UsuarioLoginDTO(long id, String nome, String email, long telefone, String endereco, String cargo) {
+	public UsuarioLoginDTO(long id, String nome, String email, String telefone, String endereco, String cargo) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
@@ -61,11 +61,11 @@ public class UsuarioLoginDTO {
 		this.email = email;
 	}
 
-	public long getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(long telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 

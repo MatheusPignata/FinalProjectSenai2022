@@ -20,6 +20,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
+        paddingTop: 50,
+        alignItems: "center",
     },
     midTop: {
         width: "100%",
@@ -43,10 +45,11 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: "center",
         justifyContent: "center",
-        marginLeft: 105
+        margin:'auto'
     },
     text:{
-        color: "#fff"
+        color: "#fff",
+
     },
     uptable: {
         flexDirection: "row",
