@@ -1,4 +1,4 @@
-const url = '10.87.207.19'
+const url = 'http://localhost:8080/'
 
 function backpg() {
     window.history.back();

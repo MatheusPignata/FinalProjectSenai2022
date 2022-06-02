@@ -40,21 +40,26 @@ export default function CreateUsuario({ navigation }) {
             endereco: endereco,
             cargo: cargo
         }
-        fetch('http://10.87.207.19:8080/cadastrar', {
-            "method": "POST",
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data),
-        })
-            .then(resp => { return resp })
-            .then(data => {
-                if (data.status == 200) {
-                    ToastAndroid.show('Cadastro realizado com sucesso', ToastAndroid.SHORT);
-                } else {
-                    ToastAndroid.show('Não foi possível cadastrar um novo usuário', ToastAndroid.SHORT);
-                }
-            })
+        if (data.senha == "" || data.nome == "" || data.cpf == "" || data.email == "" || data.telefone == "" || data.endereco == "" || data.cargo == "") {
+            ToastAndroid.show("Preencha todos os campos", ToastAndroid.SHORT);
+        } else {
+            // fetch('http://10.87.207.19:8080/cadastrar', {
+            //     "method": "POST",
+            //     "headers": {
+            //         "Content-Type": "application/json"
+            //     },
+            //     body: JSON.stringify(data),
+            // })
+            //     .then(resp => { return resp })
+            //     .then(data => {
+            //         if (data.status == 200) {
+            //             ToastAndroid.show('Cadastro realizado com sucesso', ToastAndroid.SHORT);
+            //         } else {
+            //             ToastAndroid.show('Não foi possível cadastrar um novo usuário', ToastAndroid.SHORT);
+            //         }
+            //     })
+        }
+
     }
     return (
         <KeyboardAvoidingView behavior="height">

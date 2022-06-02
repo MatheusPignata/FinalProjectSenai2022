@@ -56,9 +56,13 @@ public class Usuario {
 	}
 
 	public Usuario() {
-		
+
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 6f2d014359f1dd547901ff64db5f7b5ac1adc924
 	public Usuario(long id, String senha, String nome, String email, String cpf, String endereco, String telefone,
 			String cargo) {
 		this.id = id;
@@ -139,5 +143,5 @@ public class Usuario {
 	public String toString() {
 		return "Usuario [id=" + id + ", senha=" + senha + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf
 				+ ", endereco=" + endereco + ", telefone=" + telefone + ", cargo=" + cargo + "]";
-	}	
+	}
 }

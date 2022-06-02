@@ -16,14 +16,23 @@
     <div class="mid">
         <div class="content">
             <div class="inputs">
-                <input type="text" id="" placeholder="PRODUTO">
-                <input type="text" id="" placeholder="MARCA">
-                <input type="text" id="" placeholder="SERIAL NUMBER">
-                <input type="text" id="" placeholder="TECNICO RESPONSAVEL">
-                <input type="text" id="" placeholder="COR">
-                <input type="text" id="" placeholder="STATUS">
-                <input type="text" id="" placeholder="ORÇAMENTO">
-                <textarea name="problem" id="problem" rows="7" cols="" placeholder="DESCRIÇÃO DO PROBLEMA..."></textarea>
+                <input type="text" id="produto" placeholder="PRODUTO">
+                <input type="text" id="marca" placeholder="MARCA">
+                <input type="text" id="sn" placeholder="SERIAL NUMBER">
+                <select id="func" name="select">
+                    <option disabled selected value="0">TECNICO RESPONSAVEL</option>
+                </select>
+                <input type="text" id="cor" placeholder="COR">
+                <input type="text" id="tel" placeholder="TELEFONE DO CLIENTE" maxlength="15">
+                <select id="opt" name="opt">
+                    <option disabled selected value="0">STATUS</option>
+                    <option value="Analise">Analise</option>
+                    <option value="Andamento">Andamento</option>
+                    <option value="Urgente">Urgente</option>
+                    <option value="Concluido">Concluido</option>
+                </select>
+                <input type="number" id="orcamento" placeholder="ORÇAMENTO">
+                <textarea name="problem" id="descricao" rows="7" cols="" placeholder="DESCRIÇÃO DO PROBLEMA..."></textarea>
             </div>
             <div class="btns">
                 <button onclick="backpg()">
