@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
-        backgroundColor: "#250E42",
+        backgroundColor: "#250E42"
     },
     top: {
         width: "100%",
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         height: "80%",
         backgroundColor: "#fff",
         borderTopLeftRadius: 100,
-        borderTopRightRadius: 100,
+        borderTopRightRadius: 100
     },
     midTop: {
         width: "100%",
@@ -28,29 +28,31 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
+        justifyContent: "center",
         borderTopLeftRadius: 100,
-        borderTopRightRadius: 100,
+        borderTopRightRadius: 100
     },
     midBot: {
         width: "100%",
         height: "20%",
-        backgroundColor: "#fff",
+        backgroundColor: "#fff"
     },
     inputs: {
         width: "60%",
         height: "4%",
         borderBottomColor: "black",
         borderBottomWidth: 1,
-        marginTop: 35,
+        marginTop: 35
     },
     btn: {
-        width: "50%",
+        width: "60%",
         height: "100%",
+        marginTop: -50
     },
     btnConatiner:{
         width: "100%",
         height: "100%",
-        flexDirection: "column",
+        flex: 1,
         alignItems: 'center'
     },
     gradient: {
@@ -58,10 +60,19 @@ const styles = StyleSheet.create({
         height: "50%",
         borderRadius: 30,
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "center"
+    },
+    checkbox:{
+        width: "50%",
+        padding: 10,
+        flex: 1,
+        alignItems: 'flex-start'
     },
     text:{
         color: "#fff"
     },
+    textStyle:{
+        textDecorationLine: "none"
+    }
 })
 export default styles;

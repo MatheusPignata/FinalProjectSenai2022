@@ -22,11 +22,11 @@ export default function Login({ navigation }) {
         })
             .then(resp => { return resp.json() })
             .then(async data => {
-                if (data.id > 0) {
+                if (data.status != 400) {
                     if (data.cargo == "F") {
                         navigation.navigate("Menu");
                     } else {
-                        navigation.navigate("Menu")
+                        navigation.navigate("ListaChamado");
                     }
                 } else{
                     ToastAndroid.show('CPF ou senha inválidos', ToastAndroid.SHORT);

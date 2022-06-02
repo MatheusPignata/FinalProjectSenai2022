@@ -23,7 +23,7 @@ export default function UpdateUsuario({ navigation }) {
             endereco: endereco
         }
 
-        fetch('http://10.87.207.19:8080/us/alt/'+ id, {
+        fetch('http://10.87.207.19:8080/', {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"
@@ -32,7 +32,7 @@ export default function UpdateUsuario({ navigation }) {
         })
             .then(resp => { return resp.json() })
             .then(async data => {
-                if (data.length > 0) {
+                if (data.status == 201) {
                     navigation.navigate('Menu');
                 } else {
                     ToastAndroid.show('Erro ao atualizar usuário', ToastAndroid.SHORT);
@@ -63,14 +63,14 @@ export default function UpdateUsuario({ navigation }) {
                     </View>
                     <View style={styles.midBot}>
                         <View style={styles.btnConatiner}>
-                            <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Menu')}>
-                                <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
-                                    <Text style={styles.text}>VOLTAR</Text>
+                            <TouchableOpacity style={styles.btn} onPress={() => { atualizar() }}>
+                                <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
+                                    <Text style={styles.text}>SALVAR</Text>
                                 </LinearGradient>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.btn} onPress={() => { atualizar() }}>
-                                <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
-                                    <Text style={styles.text}>SALVAR</Text>
+                            <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Menu')}>
+                                <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
+                                    <Text style={styles.text}>VOLTAR</Text>
                                 </LinearGradient>
                             </TouchableOpacity>
                         </View>

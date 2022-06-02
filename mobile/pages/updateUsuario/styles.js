@@ -44,22 +44,22 @@ const styles = StyleSheet.create({
         margin: 20,
     },
     btn: {
-        width: "50%",
+        width: "60%",
         height: "100%",
+        marginTop: -50,
     },
     btnConatiner:{
         width: "100%",
         height: "100%",
-        flexDirection: "row",
-        paddingLeft: 50,
+        flex: 1,
+        alignItems: 'center',
     },
     gradient: {
-        width: "70%",
+        width: "100%",
         height: "50%",
         borderRadius: 30,
         alignItems: "center",
         justifyContent: "center",
-        margin: "auto"
     },
     text:{
         color: "#fff"

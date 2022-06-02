@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { View, Text, KeyboardAvoidingView, TextInput, TouchableOpacity, ToastAndroid } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
+import BouncyCheckboxGroup, { ICheckboxButton } from "react-native-bouncy-checkbox-group";
 
 export default function CreateUsuario({ navigation }) {
     const [nome, setNome] = useState("");
@@ -11,6 +12,23 @@ export default function CreateUsuario({ navigation }) {
     const [email, setEmail] = useState("");
     const [telefone, setTelefone] = useState("");
     const [endereco, setEndereco] = useState("");
+    const [cargo, setCargo] = useState("");
+    const staticData = [
+        {
+            id: 1,
+            value: "F",
+            text: 'Funcionário',
+            fillColor: 'green',
+            textStyle: styles.textStyle
+        },
+        {
+            id: 2,
+            value: "C",
+            text: 'Cliente',
+            fillColor: 'green',
+            textStyle: styles.textStyle
+        }
+    ];
 
     const cadastrar = () => {
         let data = {
@@ -19,23 +37,24 @@ export default function CreateUsuario({ navigation }) {
             cpf: cpf,
             email: email,
             telefone: telefone,
-            endereco: endereco
+            endereco: endereco,
+            cargo: cargo
         }
-        // fetch('http://10.87.207.19:8080/us/log/true', { 
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(data),
-        // })
-        //     .then(resp => { return resp.json() })
-        //     .then(data => {
-        //         if (data.length > 0) {
-        //             ToastAndroid.show('Cadastro realizado com sucesso', ToastAndroid.SHORT);
-        //         } else {
-        //             ToastAndroid.show('Não foi possível cadastrar um novo usuário', ToastAndroid.SHORT);
-        //         }
-        //     })
+        fetch('http://10.87.207.19:8080/cadastrar', {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data),
+        })
+            .then(resp => { return resp })
+            .then(data => {
+                if (data.status == 200) {
+                    ToastAndroid.show('Cadastro realizado com sucesso', ToastAndroid.SHORT);
+                } else {
+                    ToastAndroid.show('Não foi possível cadastrar um novo usuário', ToastAndroid.SHORT);
+                }
+            })
     }
     return (
         <KeyboardAvoidingView behavior="height">
@@ -52,12 +71,23 @@ export default function CreateUsuario({ navigation }) {
                         <TextInput value={email} onChangeText={setEmail} style={styles.inputs} placeholder="e-mail" />
                         <TextInput value={telefone} onChangeText={setTelefone} style={styles.inputs} placeholder="Telefone" />
                         <TextInput value={endereco} onChangeText={setEndereco} style={styles.inputs} placeholder="Endereço" />
+                        <View style={styles.checkbox}>
+                            <BouncyCheckboxGroup data={staticData} style={{ flexDirection: "column" }}
+                                onChange={(cargo = staticData) => {
+                                    setCargo(cargo.value)
+                                }} />
+                        </View>
                     </View>
                     <View style={styles.midBot}>
                         <View style={styles.btnConatiner}>
                             <TouchableOpacity style={styles.btn} onPress={() => { cadastrar() }}>
-                                <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
+                                <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                                     <Text style={styles.text}>CADASTRAR</Text>
+                                </LinearGradient>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Menu')}>
+                                <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
+                                    <Text style={styles.text}>VOLTAR</Text>
                                 </LinearGradient>
                             </TouchableOpacity>
                         </View>

@@ -33,11 +33,6 @@ export default function Menu({ navigation }) {
                             <Text style={styles.text}>LOCALIZAR CHAMADO</Text>
                         </LinearGradient>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('AtualizarChamado') }}>
-                        <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
-                            <Text style={styles.text}>ATUALIZAR CHAMADO</Text>
-                        </LinearGradient>
-                    </TouchableOpacity>
                 </View>
             </View>
         </View>
