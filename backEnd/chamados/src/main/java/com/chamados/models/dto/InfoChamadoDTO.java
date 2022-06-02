@@ -7,8 +7,10 @@ import com.chamados.models.entities.Chamado;
 @AllArgsConstructor
 @Data
 */
-public class ChamadoClienteDTO {
+public class InfoChamadoDTO {
 	private long id;
+	private ChamadoFuncionarioInfoDTO funcionario;
+	private ChamadoClienteInfoDTO cliente;
 	private String produto;
 	private String cor;
 	private String descricao;
@@ -16,8 +18,10 @@ public class ChamadoClienteDTO {
 	private String marca;
 	private long orcamento;
 
-	public ChamadoClienteDTO(Chamado c) {
+	public InfoChamadoDTO(Chamado c) {
 		this.id = c.getId();
+		this.funcionario = new ChamadoFuncionarioInfoDTO(c.getFuncionario());
+		this.cliente = new ChamadoClienteInfoDTO(c.getCliente());
 		this.produto = c.getProduto();
 		this.cor = c.getCor();
 		this.descricao = c.getDescricao();
@@ -26,27 +30,28 @@ public class ChamadoClienteDTO {
 		this.orcamento = c.getOrcamento();
 	}
 
-	public ChamadoClienteDTO(long id, String produto, String cor, String descricao, String status, String marca,
-			long orcamento) {
-		this.id = id;
-		this.produto = produto;
-		this.cor = cor;
-		this.descricao = descricao;
-		this.status = status;
-		this.marca = marca;
-		this.orcamento = orcamento;
-	}
-
-	public ChamadoClienteDTO() {
-
-	}
-
 	public long getId() {
 		return id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public ChamadoFuncionarioInfoDTO getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(ChamadoFuncionarioInfoDTO funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public ChamadoClienteInfoDTO getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(ChamadoClienteInfoDTO cliente) {
+		this.cliente = cliente;
 	}
 
 	public String getProduto() {
@@ -96,4 +101,5 @@ public class ChamadoClienteDTO {
 	public void setOrcamento(long orcamento) {
 		this.orcamento = orcamento;
 	}
+
 }

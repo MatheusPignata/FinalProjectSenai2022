@@ -6,12 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.chamados.models.dto.ChamadoClienteDto;
-import com.chamados.models.dto.ChamadoInfoDto;
+import com.chamados.models.dto.ChamadoClienteDTO;
+import com.chamados.models.dto.InfoChamadoDTO;
+import com.chamados.models.dto.TodosChamadosDTO;
 import com.chamados.models.entities.Chamado;
 import com.chamados.models.entities.Usuario;
 import com.chamados.models.repositorys.ChamadoRepository;
@@ -23,35 +23,39 @@ public class ChamadoControll {
 
 	Chamado usu;
 
-	public ResponseEntity<ChamadoInfoDto> criarChamado(Chamado chamado, long id) {
+	public ResponseEntity<Object> criarChamado(Chamado chamado) {
 		try {
+			Usuario funcionario = new Usuario();
+			funcionario.setId(chamado.getFuncionario().getId());
+			chamado.setFuncionario(funcionario);
+
 			Usuario usuario = new Usuario();
-			usuario.setId(id);
-			chamado.setUsuario(usuario);
+			usuario.setId(chamado.getCliente().getId());
+			chamado.setCliente(usuario);
+
 			usu = repository.save(chamado);
-			return new ResponseEntity<ChamadoInfoDto>(new ChamadoInfoDto(usu), HttpStatus.ACCEPTED);
+			return ResponseEntity.ok().body("");
 		} catch (DataIntegrityViolationException e) {
-			return new ResponseEntity<ChamadoInfoDto>(HttpStatus.BAD_REQUEST);
+			return ResponseEntity.badRequest().body("");
 		}
 	}
-	
-	public List<ChamadoClienteDto> listarChamadosCliente(long id) {
-		List<ChamadoClienteDto> lis = new ArrayList<ChamadoClienteDto>();
-		repository.findAll().stream().filter(u -> u.getUsuario().getId() == id).forEach(u -> {
-			lis.add(new ChamadoClienteDto(u));
+
+	public List<ChamadoClienteDTO> listarChamadosCliente(long id) {
+		List<ChamadoClienteDTO> lis = new ArrayList<ChamadoClienteDTO>();
+		repository.findAll().stream().filter(u -> u.getCliente().getId() == id).forEach(u -> {
+			lis.add(new ChamadoClienteDTO(u));
 		});
 		return lis;
 	}
-	
 
-	public List<ChamadoInfoDto> listarChamados(String status) {
-		List<ChamadoInfoDto> lis = new ArrayList<ChamadoInfoDto>();
+	public List<TodosChamadosDTO> listarChamados(String status) {
+		List<TodosChamadosDTO> lis = new ArrayList<TodosChamadosDTO>();
 		repository.findAll().stream().forEach(u -> {
 			if (status == null) {
-				lis.add(new ChamadoInfoDto(u));
+				lis.add(new TodosChamadosDTO(u));
 			} else {
 				if ((u.getStatus() != null) && u.getStatus().equals(status)) {
-					lis.add(new ChamadoInfoDto(u));
+					lis.add(new TodosChamadosDTO(u));
 				}
 			}
 		});
@@ -60,7 +64,7 @@ public class ChamadoControll {
 
 	public ResponseEntity<Object> listarInfoChamado(long id) {
 		usu = repository.findById(id).orElse(null);
-		return usu != null ? ResponseEntity.ok().body(new ChamadoInfoDto(usu)) : ResponseEntity.badRequest().body("");
+		return usu != null ? ResponseEntity.ok().body(new InfoChamadoDTO(usu)) : ResponseEntity.badRequest().body("");
 	}
 
 	public ResponseEntity<Object> altChamado(Chamado u, long id) {
@@ -72,12 +76,13 @@ public class ChamadoControll {
 				ch.setOrcamento(u.getOrcamento());
 				ch.setProduto(u.getProduto());
 				ch.setStatus(u.getStatus());
+				ch.setSerial(u.getSerial());
+				ch.setFuncionario(u.getFuncionario());
+				ch.setCliente(u.getCliente());
 
 				Chamado chamado = repository.save(ch);
-				ChamadoInfoDto chamadoDto = new ChamadoInfoDto(chamado);
 
-				return chamado != null ? new ResponseEntity<Object>(chamadoDto, HttpStatus.OK)
-						: new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+				return chamado != null ? ResponseEntity.ok().body(null) : ResponseEntity.status(406).body(null);
 			}).orElse(ResponseEntity.notFound().build());
 		} catch (DataIntegrityViolationException e) {
 			return ResponseEntity.badRequest().body("");

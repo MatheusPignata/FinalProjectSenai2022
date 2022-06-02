@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chamados.controllers.process.ChamadoControll;
-import com.chamados.models.dto.ChamadoClienteDto;
-import com.chamados.models.dto.ChamadoInfoDto;
+import com.chamados.models.dto.ChamadoClienteDTO;
+import com.chamados.models.dto.TodosChamadosDTO;
 import com.chamados.models.entities.Chamado;
 
 @RestController
@@ -24,15 +23,15 @@ public class ChamadoRoute {
 	@Autowired
 	ChamadoControll controll;
 
-	//todos chamados
+	// todos chamados
 	@GetMapping("/listchamado")
-	public List<ChamadoInfoDto> listarChamado(@RequestParam(required = false) String status) {
+	public List<TodosChamadosDTO> listarChamado(@RequestParam(required = false) String status) {
 		return controll.listarChamados(status);
 	}
 
-	//chamados do cliente
+	// chamados do cliente
 	@GetMapping("/listchamado/cliente/{id}")
-	public List<ChamadoClienteDto> listarChamadosCliente(@PathVariable long id) {
+	public List<ChamadoClienteDTO> listarChamadosCliente(@PathVariable long id) {
 		return controll.listarChamadosCliente(id);
 	}
 
@@ -41,9 +40,9 @@ public class ChamadoRoute {
 		return controll.listarInfoChamado(id);
 	}
 
-	@PostMapping("/criarchamado/{id}")
-	public ResponseEntity<ChamadoInfoDto> criarChamado(@RequestBody Chamado chamado, @PathVariable long id) {
-		return controll.criarChamado(chamado, id);
+	@PostMapping("/criarchamado")
+	public ResponseEntity<Object> criarChamado(@RequestBody Chamado chamado) {
+		return controll.criarChamado(chamado);
 	}
 
 	@PutMapping("/alterarchamado/{id}")

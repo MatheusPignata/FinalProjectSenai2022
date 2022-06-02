@@ -10,13 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.chamados.controllers.process.UsuarioControll;
-import com.chamados.models.dto.AdminLoginDto;
-import com.chamados.models.dto.UsuarioInfoDto;
-import com.chamados.models.dto.UsuarioLoginDto;
+import com.chamados.models.dto.UsuarioLoginDTO;
 import com.chamados.models.entities.Usuario;
 
 @RestController
@@ -26,7 +23,7 @@ public class UsuarioRoute {
 
 	// todos usuarios
 	@GetMapping("/listuser")
-	public List<UsuarioLoginDto> listarUsuario() {
+	public List<UsuarioLoginDTO> listarUsuario() {
 		return controll.listarUsuarios();
 	}
 
@@ -38,15 +35,14 @@ public class UsuarioRoute {
 
 	// login e cadastro
 	@PostMapping("/login")
-	public ResponseEntity<UsuarioLoginDto> loginUsuario(@RequestBody Usuario u) {
+	public ResponseEntity<UsuarioLoginDTO> loginUsuario(@RequestBody Usuario u) {
 		return controll.loginUsuario(u.getCpf(), u.getSenha());
 	}
 
 	@PostMapping("/cadastrar")
-	public ResponseEntity<UsuarioLoginDto> cadastrarUsuario(@RequestBody Usuario u) {
+	public ResponseEntity<Object> cadastrarUsuario(@RequestBody Usuario u) {
 		return controll.criarUsuario(u);
 	}
-	
 
 	@PutMapping("/alterar/{id}")
 	public ResponseEntity<Object> alterarIndoUsuario(@RequestBody Usuario u, @PathVariable long id) {

@@ -8,9 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.chamados.models.dto.AdminLoginDto;
-import com.chamados.models.dto.UsuarioInfoDto;
-import com.chamados.models.dto.UsuarioLoginDto;
+import com.chamados.models.dto.UsuarioLoginDTO;
 import com.chamados.models.entities.Usuario;
 import com.chamados.models.repositorys.UsuarioRepository;
 
@@ -19,37 +17,30 @@ public class UsuarioControll {
 	@Autowired
 	UsuarioRepository repository;
 
-	public ResponseEntity<UsuarioLoginDto> criarUsuario(Usuario u) {
+	public ResponseEntity<Object> criarUsuario(Usuario u) {
 		try {
-			Usuario usuario = repository.save(u);
-			return new ResponseEntity<UsuarioLoginDto>(new UsuarioLoginDto(usuario), HttpStatus.ACCEPTED);
+			repository.save(u);
+			return ResponseEntity.ok().body(null);
 		} catch (DataIntegrityViolationException e) {
-			return new ResponseEntity<UsuarioLoginDto>(HttpStatus.BAD_REQUEST);
+			return ResponseEntity.badRequest().body(null);
 		}
 	}
 
-	public ResponseEntity<UsuarioLoginDto> loginUsuario(String cpf, String senha) {
-		Usuario u = repository.login(cpf, senha);
-		return u != null ? new ResponseEntity<UsuarioLoginDto>(new UsuarioLoginDto(u), HttpStatus.ACCEPTED)
-				: new ResponseEntity<UsuarioLoginDto>(HttpStatus.BAD_REQUEST);
+	public ResponseEntity<UsuarioLoginDTO> loginUsuario(String cpf, String senha) {
+		Usuario usuario = repository.login(cpf, senha);
+		return usuario != null ? new ResponseEntity<UsuarioLoginDTO>(new UsuarioLoginDTO(usuario), HttpStatus.ACCEPTED)
+				: new ResponseEntity<UsuarioLoginDTO>(HttpStatus.BAD_REQUEST);
 	}
 
 	public ResponseEntity<Object> listarInfoUsuario(long id) {
-		Usuario u = repository.findById(id).orElse(null);
-		return u != null ? ResponseEntity.ok().body(u) : ResponseEntity.badRequest().body("");
+		Usuario usuario = repository.findById(id).orElse(null);
+		return usuario != null ? ResponseEntity.ok().body(usuario) : ResponseEntity.badRequest().body("");
 	}
 
-	public List<UsuarioLoginDto> listarUsuarios() {
-		List<UsuarioLoginDto> lis = new ArrayList<UsuarioLoginDto>();
-		repository.findAll().stream()
-				.forEach(u -> lis.add(new UsuarioLoginDto(u)));
+	public List<UsuarioLoginDTO> listarUsuarios() {
+		List<UsuarioLoginDTO> lis = new ArrayList<UsuarioLoginDTO>();
+		repository.findAll().stream().forEach(u -> lis.add(new UsuarioLoginDTO(u)));
 		return lis;
-	}
-
-	public ResponseEntity<AdminLoginDto> loginAdmin(Usuario u) {
-		Usuario usuario = repository.login(u.getCpf(), u.getSenha());
-		return usuario != null ? new ResponseEntity<AdminLoginDto>(new AdminLoginDto(usuario), HttpStatus.ACCEPTED)
-				: new ResponseEntity<AdminLoginDto>(HttpStatus.BAD_REQUEST);
 	}
 
 	public ResponseEntity<Object> altUsuario(Usuario u, long id) {
@@ -61,11 +52,10 @@ public class UsuarioControll {
 				us.setSenha(u.getSenha());
 				us.setTelefone(u.getTelefone());
 				us.setEndereco(u.getEndereco());
-				
+
 				Usuario usuario = repository.save(us);
 
-				return usuario != null ? new ResponseEntity<Object>(usuario, HttpStatus.OK)
-						: new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+				return usuario != null ? ResponseEntity.ok().body(null) : ResponseEntity.status(406).body(null);
 			}).orElse(ResponseEntity.notFound().build());
 		} catch (DataIntegrityViolationException e) {
 			return ResponseEntity.badRequest().body("");

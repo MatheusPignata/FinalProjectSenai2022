@@ -9,10 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 //gerar contrutor inteiro e vazio
 //@AllArgsConstructor
 //NoArgsConstructor
@@ -29,8 +25,12 @@ public class Chamado {
 	private long id;
 
 	@ManyToOne
+	@JoinColumn(name = "id_funcionario", nullable = false)
+	private Usuario funcionario;
+
+	@ManyToOne
 	@JoinColumn(name = "id_usuario", nullable = false)
-	private Usuario usuario;
+	private Usuario cliente;
 
 	@Column(name = "produto")
 	private String produto;
@@ -47,8 +47,29 @@ public class Chamado {
 	@Column(name = "marca")
 	private String marca;
 
+	@Column(name = "serial")
+	private String serial;
+
 	@Column(name = "orcamento")
 	private long orcamento;
+
+	public Chamado(long id, Usuario funcionario, Usuario cliente, String produto, String cor, String descricao,
+			String status, String marca, String serial, long orcamento) {
+		this.id = id;
+		this.funcionario = funcionario;
+		this.cliente = cliente;
+		this.produto = produto;
+		this.cor = cor;
+		this.descricao = descricao;
+		this.status = status;
+		this.marca = marca;
+		this.serial = serial;
+		this.orcamento = orcamento;
+	}
+
+	public Chamado() {
+
+	}
 
 	public long getId() {
 		return id;
@@ -58,12 +79,20 @@ public class Chamado {
 		this.id = id;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public Usuario getFuncionario() {
+		return funcionario;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setFuncionario(Usuario funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public Usuario getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Usuario cliente) {
+		this.cliente = cliente;
 	}
 
 	public String getProduto() {
@@ -114,22 +143,11 @@ public class Chamado {
 		this.orcamento = orcamento;
 	}
 
-	public Chamado(long id, Usuario usuario, String produto, String cor, String descricao, String status, String marca,
-			long orcamento) {
-		super();
-		this.id = id;
-		this.usuario = usuario;
-		this.produto = produto;
-		this.cor = cor;
-		this.descricao = descricao;
-		this.status = status;
-		this.marca = marca;
-		this.orcamento = orcamento;
+	public String getSerial() {
+		return serial;
 	}
 
-	public Chamado() {
-		
+	public void setSerial(String serial) {
+		this.serial = serial;
 	}
-	
-	
 }

@@ -7,33 +7,27 @@ import com.chamados.models.entities.Usuario;
 @AllArgsConstructor
 @Data
 */
-public class UsuarioLoginDTO {
+public class ChamadoClienteInfoDTO {
 	private long id;
 	private String nome;
-	private String email;
 	private long telefone;
 	private String endereco;
-	private String cargo;
 
-	public UsuarioLoginDTO(Usuario u) {
+	public ChamadoClienteInfoDTO(Usuario u) {
 		this.id = u.getId();
 		this.nome = u.getNome();
-		this.email = u.getEmail();
 		this.telefone = u.getTelefone();
 		this.endereco = u.getEndereco();
-		this.cargo = u.getCargo();
 	}
 
-	public UsuarioLoginDTO(long id, String nome, String email, long telefone, String endereco, String cargo) {
+	public ChamadoClienteInfoDTO(long id, String nome, long telefone, String endereco) {
 		this.id = id;
 		this.nome = nome;
-		this.email = email;
 		this.telefone = telefone;
 		this.endereco = endereco;
-		this.cargo = cargo;
 	}
 
-	public UsuarioLoginDTO() {
+	public ChamadoClienteInfoDTO() {
 
 	}
 
@@ -53,14 +47,6 @@ public class UsuarioLoginDTO {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public long getTelefone() {
 		return telefone;
 	}
@@ -75,14 +61,6 @@ public class UsuarioLoginDTO {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
-	}
-
-	public String getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
 	}
 
 }

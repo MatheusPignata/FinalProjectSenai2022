@@ -8,12 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 //gerar contrutor inteiro e vazio
 //@AllArgsConstructor
 //@NoArgsConstructor
@@ -67,7 +61,6 @@ public class Usuario {
 	
 	public Usuario(long id, String senha, String nome, String email, String cpf, String endereco, long telefone,
 			String cargo) {
-		super();
 		this.id = id;
 		this.senha = senha;
 		this.nome = nome;
@@ -146,7 +139,5 @@ public class Usuario {
 	public String toString() {
 		return "Usuario [id=" + id + ", senha=" + senha + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf
 				+ ", endereco=" + endereco + ", telefone=" + telefone + ", cargo=" + cargo + "]";
-	}
-
-	
+	}	
 }
