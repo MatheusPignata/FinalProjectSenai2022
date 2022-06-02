@@ -47,7 +47,7 @@ export default function ListaChamado({ navigation }) {
                             </View>
                         </View>
                     </View>
-                    <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Menu')}>
+                    <TouchableOpacity style={styles.btn} onPress={() => navigation.goBack()}>
                     <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                         <Text style={styles.text}>VOLTAR</Text>
                     </LinearGradient>
