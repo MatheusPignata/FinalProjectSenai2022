@@ -1,42 +1,33 @@
 import * as React from 'react';
 import { TouchableOpacity, View, Text, KeyboardAvoidingView, Image, TextInput, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { DataTable } from 'react-native-paper';
 import { useState, useEffect } from 'react';
 import styles from './styles';
 
-export default function ListaChamado({ navigation }) {
-    
+export default function ListaChamado({ navigation, route }) {
+    const { id } = route.params;
     const [searchBar, setSearch] = useState("");
     const [chamados, setChamados] = useState([]);
 
     useEffect( () => {
-        fetch("http://192.168.0.102:8080/listchamado/cliente/"+2)
+        fetch("http://10.87.207.19:8080/listchamado/cliente/"+id)
         .then(resp => {return resp.json()})
         .then(data => {
             setChamados(data);
         })
     }, []);
 
-    const ch = (i) => {
-        console.log(i);
-       return (
-           <View>
-                {
-                    chamados.map((e, key) => {
-                        if(i == "id") {
-                            return (<Text key={key}>{e.id}</Text>)
-                        }else if(i == "produto") {
-                            return (<Text key={key}>{e.produto}</Text>)
-                        }else if(i == 'status') {
-                            return (<Text key={key}>{e.status}</Text>)
-                        }else if(i == 'descricao') {
-                            return (<Text key={key}>{e.descricao}</Text>)
-                        }
-                       
-                    })
-                }
-           </View>
-       )
+    const ch = (key, e) => {
+        return(
+            <DataTable.Row key={key}>
+                <DataTable.Cell>{e.id}</DataTable.Cell>
+                <DataTable.Cell>{e.produto}</DataTable.Cell>
+                <DataTable.Cell>{e.orcamento}</DataTable.Cell>
+                <DataTable.Cell>{e.status}</DataTable.Cell>
+            </DataTable.Row>
+
+        )
     }
 
     return(
@@ -49,38 +40,23 @@ export default function ListaChamado({ navigation }) {
                     <View style={styles.searchBar}>
                         <TextInput value={searchBar} onChangeText={setSearch} placeholder="Buscar..." style={{ width: 150, height: 35, marginBottom:"5%", borderWidth: 1, borderColor: "black", borderRadius: 10 }} />    
                     </View>
-                    <View style={styles.tabela}>
-                        <View style={styles.uptable}>
-                            <View style={styles.lista}>
-                                <Text style={{ color: "#fff", fontWeight: "bold" }}>Chamado</Text> 
-                            </View> 
-                            <View style={styles.lista2}>
-                                <Text style={{ color: "#fff", fontWeight: "bold" }}>Produto</Text>
-                            </View>
-                            <View style={styles.lista3}>
-                                <Text style={{ color: "#fff", fontWeight: "bold" }}>Status</Text>
-                            </View>
-                            <View style={styles.lista4}>
-                                <Text style={{ color: "#fff", fontWeight: "bold" }}>Tecnico</Text>
-                            </View>
-                        </View>
-                        <ScrollView>
-                            <View style={styles.conteudoLista}>
-                                <View style={styles.conteudo}>
-                                    {ch("id")}
-                                </View> 
-                                <View style={styles.conteudo2}>
-                                    {ch("produto")}
-                                </View>
-                                <View style={styles.conteudo3}>
-                                    {ch("status")}
-                                </View>
-                                <View style={styles.conteudo4}>
-                                    {ch("descricao")}
-                                </View>
-                            </View>
-                        </ScrollView>
-                    </View>
+
+                    <DataTable>
+                        <DataTable.Header>
+
+                            
+                            <DataTable.Title sortDirection='descending'><Text style={ styles.titleTable}>id</Text></DataTable.Title>
+                            <DataTable.Title><Text style={ styles.titleTable}>produto</Text></DataTable.Title>
+                            <DataTable.Title><Text style={ styles.titleTable}>orçamento</Text></DataTable.Title>
+                            <DataTable.Title><Text style={ styles.titleTable}>status</Text></DataTable.Title>
+                        </DataTable.Header>
+                        {
+                            chamados.map((e, key) => {
+                                return ch(key, e)
+                            })
+                        }
+                    </DataTable>
+                    
                     <TouchableOpacity style={styles.btn} onPress={() => navigation.goBack()}>
                     <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                         <Text style={styles.text}>VOLTAR</Text>

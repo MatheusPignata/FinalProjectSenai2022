@@ -33,6 +33,10 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
     },
+    titleTable: {
+        fontSize:15,
+        fontWeight: "bold",
+    },
     btn: {
         flex: 1,
         width: 150,

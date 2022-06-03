@@ -18,7 +18,7 @@ export default function Login({ navigation }) {
         
        
         
-        fetch('http://192.168.0.102:8080/login', {
+        fetch('http://10.87.207.19:8080/login', {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"
@@ -31,7 +31,7 @@ export default function Login({ navigation }) {
                     if (data.cargo == "F") {
                         navigation.navigate("Menu");
                     } else {
-                        navigation.navigate("ListaChamado");
+                        navigation.navigate("ListaChamado", data);
                     }
                 } else{
                     ToastAndroid.show('CPF ou senha inválidos', ToastAndroid.SHORT);
