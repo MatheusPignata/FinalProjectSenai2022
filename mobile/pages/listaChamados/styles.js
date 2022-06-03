@@ -20,8 +20,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
-        paddingTop: 50,
-        alignItems: "center",
     },
     midTop: {
         width: "100%",
@@ -49,11 +47,10 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: "center",
         justifyContent: "center",
-        margin:'auto'
+        marginLeft: 105
     },
     text:{
-        color: "#fff",
-
+        color: "#fff"
     },
     uptable: {
         flexDirection: "row",
@@ -99,7 +96,6 @@ const styles = StyleSheet.create({
         height: 350,
         borderWidth: 1,
         borderColor: "black",
-        width: "95%"
     }
 })
 

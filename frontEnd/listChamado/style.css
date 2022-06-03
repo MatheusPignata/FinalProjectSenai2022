@@ -37,26 +37,35 @@ tbody td{
     padding: 10px 5px;
 }
 
+a:hover{
+    cursor: pointer;
+}
+
 .col1, .chamado{
     width: 5%;
     text-align: center;
 }
 
 .col2, .prod{
-    width: 55%;
+    width: 45%;
     text-align: left;
     padding: 0 10px;
 }
 
-.col3, .status{
-    width: 15%;
+.col3, .sn{
+    width: 20%;
     text-align: center;
 }
 
 .col4, .tec{
-    width: 25%;
+    width: 20%;
     text-align: left;
     padding: 0 10px;
+}
+
+.col5, .status{
+    width: 10%;
+    text-align: center;
 }
 
 tbody tr:nth-child(odd){
@@ -66,9 +75,11 @@ tbody tr:nth-child(odd){
 tbody tr:nth-child(even){
     background-color: var(--detail-color);
 }
+
 .model{
     display: none;
 }
+
 @media(max-width: 1000px){
     .pesquisa{
         margin: 50px 0 -30px 0;

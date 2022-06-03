@@ -15,9 +15,13 @@
 
     <div class="mid">
         <div class="content">
-            <div class="pesquisa">
-                <input type="search" id="busca" placeholder="BUSCAR..." onkeyup="buscar()">
-            </div>
+            <input  autocomplete="off" role="combobox" list="" id="datalist" name="browsers" placeholder="Select your fav browser">
+            <datalist id="browsers" role="listbox">
+                <option value="Chrome">aaaaaaa</option>
+                <option value="Firefox">ddddddd</option>
+                <option value="Internet Explorer">cccccc</option>
+            </datalist>
+         </div>
 
             <div class="inputs">
                 <input type="text" id="user_cod" placeholder="NOME COMPLETO">

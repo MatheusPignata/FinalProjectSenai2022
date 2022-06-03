@@ -2,13 +2,6 @@
     margin-bottom: 80px;
 }
 
-input[type="search"]{
-    border: none;
-    background-color: #eee;
-    padding: 30px;
-    border-radius: 20px;
-}
-
 .inputs{
     display: grid;
     grid-template-columns: 400px 400px;
@@ -16,6 +9,33 @@ input[type="search"]{
     grid-row-gap: 40px;
    
 } 
+
+datalist {
+    position: absolute;
+    top: 80px;
+    border: 1px solid #000;
+    border-radius: 0 0 5px 5px;
+    border-top: none;
+    font-family: sans-serif;
+    width: 400px;
+    padding: 5px;
+    max-height: 10rem;
+    overflow-y: hidden;
+    
+}
+
+option {
+    background-color: white;
+    padding: 4px;
+    color: var(--title-color);
+    margin-bottom: 1px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+option:hover,  .active{
+    background-color: var(--detail-color);
+}
 
 .btns{
     display: flex;
@@ -26,9 +46,6 @@ button{
 }
 
 @media(max-width: 1000px){
-    .pesquisa{
-        margin: 50px 0 -30px 0;
-    }
 
     .title{
         font-size: 4em;
