@@ -23,7 +23,7 @@ export default function UpdateUsuario({ navigation }) {
             endereco: endereco
         }
 
-        fetch('http://10.87.207.19:8080/', {
+        fetch('http://192.168.0.102:8080/', {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"

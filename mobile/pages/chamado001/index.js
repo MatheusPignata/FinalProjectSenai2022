@@ -24,7 +24,7 @@ export default function LocalizarChamado({ navigation }) {
             orcamento: orcamento
         }
 
-        fetch('http://10.87.207.2:3000/chamado', {
+        fetch('http://192.168.0.102:3000/chamado', {
             "method": "PUT",
             "headers": {
                 "Content-Type": "application/json"

@@ -2,21 +2,18 @@ import * as React from 'react';
 import { useState } from 'react';
 import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView, ToastAndroid } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import storage from '../data/index';
 import styles from './styles';
 
 export default function Login({ navigation }) {
     const [cpf, setCpf] = useState("");
     const [senha, setSenha] = useState("");
 
-   
-
     const autenticarUser = () => {
         let data = {
             cpf: cpf,
             senha: senha
         }
-        fetch('http://192.168.0.102:8080/login', {
+        fetch('http://10.87.207.19:8080/login', {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"
@@ -26,11 +23,10 @@ export default function Login({ navigation }) {
             .then(resp => { return resp.json() })
             .then(async data => {
                 if (data.status != 400) {
-                    storage.definirData(data);
                     if (data.cargo == "F") {
                         navigation.navigate("Menu");
                     } else {
-                        navigation.navigate("ListaChamado", data);
+                        navigation.navigate("ListaChamado");
                     }
                 } else{
                     ToastAndroid.show('CPF ou senha inválidos', ToastAndroid.SHORT);

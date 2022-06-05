@@ -45,12 +45,11 @@ const styles = StyleSheet.create({
     btn: {
         marginTop: 50,
         flex: 1,
-        width: "80%",
-        height: "20%",
+        width: "50%",
     },
     gradient: {
         width: "100%",
-        height: "20%",
+        height: 50,
         borderRadius: 30,
         alignItems: "center",
         justifyContent: "center",
