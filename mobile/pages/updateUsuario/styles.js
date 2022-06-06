@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
-        backgroundColor: "#250E42",
+        backgroundColor: "#250E42"
     },
     top: {
         width: "100%",
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         height: "80%",
         backgroundColor: "#fff",
         borderTopLeftRadius: 100,
-        borderTopRightRadius: 100,
+        borderTopRightRadius: 100
     },
     midTop: {
         width: "100%",
@@ -29,37 +29,38 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         borderTopLeftRadius: 100,
-        borderTopRightRadius: 100,
+        borderTopRightRadius: 100
     },
     midBot: {
         width: "100%",
         height: "20%",
-        backgroundColor: "#fff",
+        backgroundColor: "#fff"
     },
     inputs: {
-        width: "60%",
+        width: "80%",
         height: "4%",
         borderBottomColor: "black",
         borderBottomWidth: 1,
-        margin: 20,
+        margin: 20
     },
     btn: {
-        width: "60%",
-        height: "100%",
-        marginTop: -50,
-    },
-    btnConatiner:{
-        width: "100%",
-        height: "100%",
-        flex: 1,
-        alignItems: 'center',
+        width: 150,
+        height: 60
     },
     gradient: {
         width: "100%",
-        height: "50%",
+        height: "100%",
         borderRadius: 30,
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "center"
+    },
+    btnConatiner:{
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: "center",
+        justifyContent: "space-around",
+        width: "100%",
+        height: "100%"
     },
     text:{
         color: "#fff"

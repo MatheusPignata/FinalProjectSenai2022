@@ -20,46 +20,51 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
-        alignItems:'center',
+        alignItems: 'center',
     },
 
     caixaTop: {
-        width:'80%',
-        flex:1,
-        alignItems:'center'
+        width: '80%',
+        flex: 1,
+        alignItems: 'center'
     },
-    
-    
     inputs: {
-        width: "60%",
+        width: "80%",
         height: "4.2%",
         borderBottomColor: "black",
         borderBottomWidth: 1,
         marginTop: 35
     },
     btn: {
-        width: "40%",
-        height:50,
+        width: 150,
+        height: 60,
     },
     gradient: {
         width: "100%",
-        height: 35,
+        height: "100%",
         borderRadius: 30,
         alignItems: "center",
         justifyContent: "center",
-      
     },
-    checkbox:{
+    btnContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: "center",
+        justifyContent: "space-between",
+        width: "100%",
+        height: "100%",
+    },
+    checkbox: {
         width: "50%",
-        marginTop:20,
-        alignItems:'center',
+        marginTop: 20,
+        alignItems: 'center',
         marginBottom: 25
     },
-    text:{
+    text: {
         color: "#fff"
     },
-    textStyle:{
+    textStyle: {
         textDecorationLine: "none"
-    }
+    },
 })
 export default styles;

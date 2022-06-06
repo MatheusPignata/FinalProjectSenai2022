@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TouchableOpacity, View, Text, KeyboardAvoidingView, Image, TextInput, StyleSheet, Button } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { DataTable } from 'react-native-paper';
+// import { DataTable } from 'react-native-paper';
 import { useState, useEffect } from 'react';
 import styles from './styles';
 //import storage from '../data/index';

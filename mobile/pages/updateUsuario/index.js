@@ -11,7 +11,7 @@ export default function UpdateUsuario({ navigation }) {
     const [email, setEmail] = useState("");
     const [telefone, setTelefone] = useState("");
     const [endereco, setEndereco] = useState("");
-    const [searchBar, setSearch] = useState("");
+    const [id, setSearch] = useState("");
 
     const atualizar = () => {
         let data = {
@@ -21,24 +21,45 @@ export default function UpdateUsuario({ navigation }) {
             email: email,
             telefone: telefone,
             endereco: endereco
-        }
+        };
 
-        fetch('http://192.168.0.102:8080/', {
-            "method": "POST",
+        fetch('http://10.87.207.19:8080/listuser/' + id, {
             "headers": {
                 "Content-Type": "application/json"
             },
             "body": JSON.stringify(data),
         })
-            .then(resp => { return resp.json() })
+            .then(resp => { return resp })
+            .then(async data => {
+                if (data.status == 200) {
+                    data = JSON.stringify(data)
+                    setNome(data.nome)
+                    setSenha(data.senha)
+                    setCpf(data.cpf)
+                    setEmail(data.email)
+                    setTelefone(data.telefone)
+                    setEndereco(data.endereco)
+                } else {
+                    ToastAndroid.show('Usuário não encontrado', ToastAndroid.SHORT);
+                };
+            });
+
+        fetch('http://10.87.207.19:8080/alterar/' + id, {
+            "method": "Put",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": JSON.stringify(data),
+        })
+            .then(resp => { return resp })
             .then(async data => {
                 if (data.status == 201) {
                     navigation.navigate('Menu');
                 } else {
                     ToastAndroid.show('Erro ao atualizar usuário', ToastAndroid.SHORT);
-                }
-            })
-    }
+                };
+            });
+    };
 
     return (
         <KeyboardAvoidingView behavior="height">
@@ -49,11 +70,11 @@ export default function UpdateUsuario({ navigation }) {
                 <View style={styles.mid}>
                     <View style={styles.midTop}>
                         <View style={styles.searchBar}>
-                            <TextInput value={searchBar} onChangeText={setSearch} placeholder="Buscar..." style={{ width: "100%", height: "100%" }} />
+                            <TextInput value={id} onChangeText={setSearch} placeholder="Buscar..." style={{ width: "100%", height: "100%" }} />
                             <TouchableOpacity style={{ width: "100%", height: "90%" }}>
                                 <Image style={{ width: "10%", height: "90%", marginTop: 4 }} source={require('../../assets/lupa.png')} />
                             </TouchableOpacity>
-                        </View>
+                       </View>
                         <TextInput value={nome} onChangeText={setNome} style={styles.inputs} placeholder="Nome" />
                         <TextInput value={senha} onChangeText={setSenha} style={styles.inputs} secureTextEntry={true} placeholder="Senha" />
                         <TextInput value={cpf} onChangeText={setCpf} style={styles.inputs} placeholder="CPF" />
@@ -78,5 +99,5 @@ export default function UpdateUsuario({ navigation }) {
                 </View>
             </View>
         </KeyboardAvoidingView>
-    )
-}
+    );
+};

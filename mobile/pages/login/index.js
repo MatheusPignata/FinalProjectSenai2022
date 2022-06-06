@@ -9,14 +9,12 @@ export default function Login({ navigation }) {
     const [cpf, setCpf] = useState("");
     const [senha, setSenha] = useState("");
 
-   
-
     const autenticarUser = () => {
         let data = {
             cpf: cpf,
             senha: senha
         }
-        fetch('http://192.168.0.102:8080/login', {
+        fetch('http://10.87.207.19:8080/login', {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"
