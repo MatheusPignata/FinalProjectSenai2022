@@ -35,6 +35,7 @@ thead tr th{
 
 tbody td{
     padding: 10px 5px;
+    cursor: pointer;
 }
 
 a:hover{

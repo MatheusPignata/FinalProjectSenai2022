@@ -47,9 +47,7 @@ public class UsuarioControll {
 		try {
 			return repository.findById(id).map(us -> {
 				us.setNome(u.getNome());
-				us.setCpf(u.getCpf());
 				us.setEmail(u.getEmail());
-				us.setSenha(u.getSenha());
 				us.setTelefone(u.getTelefone());
 				us.setEndereco(u.getEndereco());
 

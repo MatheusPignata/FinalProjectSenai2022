@@ -15,20 +15,17 @@
 
     <div class="mid">
         <div class="content">
-            <input  autocomplete="off" role="combobox" list="" id="datalist" name="browsers" placeholder="Select your fav browser">
+            <input  autocomplete="off" role="combobox" list="" id="datalist" name="browsers" placeholder="SELECIONE O USUARIO">
             <datalist id="browsers" role="listbox">
-                <option value="Chrome">aaaaaaa</option>
-                <option value="Firefox">ddddddd</option>
-                <option value="Internet Explorer">cccccc</option>
             </datalist>
          </div>
 
             <div class="inputs">
-                <input type="text" id="user_cod" placeholder="NOME COMPLETO">
-                <input type="text" id="user_pw" placeholder="SENHA">
+                <input type="text" id="user_nome" placeholder="NOME COMPLETO">
+                <input type="password" id="user_pw" placeholder="SENHA" disabled>
                 <input type="text" id="user_email" placeholder="E-MAIL">
-                <input type="text" id="user_tel" placeholder="TELEFONE">
-                <input type="text" id="user_cpf" placeholder="CPF">
+                <input type="text" id="tel" placeholder="TELEFONE" maxlength="15">
+                <input type="password" id="user_cpf" placeholder="CPF" disabled>
                 <input type="text" id="user_endereco" placeholder="ENDEREÇO">
             </div>
 
@@ -36,8 +33,8 @@
                 <button onclick="backpg()">
                     <span class="text">VOLTAR</span>
                 </button>
-                <button onclick="cadastrar()">
-                    <span class="text">CADASTRAR</span>
+                <button onclick="atualizar()">
+                    <span class="text">ATUALIZAR</span>
                 </button>
             </div>
         </div>

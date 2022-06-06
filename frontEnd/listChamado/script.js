@@ -12,6 +12,7 @@ function load() {
             let order = document.querySelector(".order").cloneNode(true);
 
             order.classList.remove("model");
+            order.addEventListener("click", () => {window.location.href = '../chamado/index.html?id=' + c.id});
             order.querySelector(".chamado").innerHTML = c.id;
             order.querySelector(".prod").innerHTML = c.produto;
             order.querySelector(".sn").innerHTML = c.serial;

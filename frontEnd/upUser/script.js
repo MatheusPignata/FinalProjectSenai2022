@@ -1,6 +1,15 @@
-load()
+window.onload = load();
 
 let input = document.querySelector("#datalist");
+let user_nome = document.querySelector("#user_nome");
+let user_pw = document.querySelector("#user_pw");
+let user_email = document.querySelector("#user_email");
+let user_tel = document.querySelector("#tel");
+let user_cpf = document.querySelector("#user_cpf");
+let user_endereco = document.querySelector("#user_endereco");
+let user_cargo = '';
+let tempId = '';
+let users = [];
 
 function load(){
     fetch(url + 'listuser')
@@ -12,9 +21,36 @@ function load(){
                 option.value = e.nome;
                 option.innerHTML = e.nome;
                 browsers.appendChild(option);
+                users.push(e);
             }
         })
+        coisinha();
     });
+}
+
+function atualizar(){
+    let obj = {
+        'nome': user_nome.value,
+        'email': user_email.value,
+        'telefone': user_tel.value,
+        'endereco': user_endereco.value,
+        'cargo': user_cargo
+    }
+
+    console.log(obj);
+    fetch(url + 'alterar/' + tempId, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(obj),
+    }).then(res => {
+        console.log(res.status);
+        if(res.status == 200) { alert("Atualizado com sucesso!!")}
+        location.reload();
+    }).catch(err => {
+        console.log(err);
+    })
 }
 
 //tudo isso pra fazer o input ficar com o foco quando o usuario clicar no campo
@@ -24,17 +60,32 @@ input.onfocus = function () {
     input.style.borderRadius = "5px 5px 0 0";  
 };
 
-for (let option of browsers.options) {
-    option.onclick = function () {
-    input.value = option.value;
-    browsers.style.display = 'none';
-    }
-};
+function coisinha(){
+    for (let option of browsers.options) {
+        option.onclick = function () {
+            input.value = option.value;
+            browsers.style.display = 'none';
+
+            function getUser(user){
+                return user.nome == input.value;
+            }
+            tempId = users.find(getUser).id;
+            user_nome.value = users.find(getUser).nome;
+            user_pw.value = '**********';
+            user_email.value = users.find(getUser).email;
+            user_tel.value = users.find(getUser).telefone;
+            user_cpf.value = '**************';
+            user_endereco.value = users.find(getUser).endereco;
+            user_cargo = users.find(getUser).cargo;
+        }
+    };
+    
+}
 
 input.onblur = function() {
     setTimeout(function() {
         browsers.style.display = 'none';
-    }, 1050);
+    }, 150);
     
 };
 
@@ -53,6 +104,7 @@ input.oninput = function() {
 var currentFocus = -1;
 
 input.onkeydown = function(e) {
+    console.log(currentFocus)
     if(e.keyCode == 40){
       currentFocus++
      addActive(browsers.options);
