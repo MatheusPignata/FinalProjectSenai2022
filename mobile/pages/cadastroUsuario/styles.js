@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
     caixaTop: {
         width: '80%',
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     inputs: {
         width: "80%",
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         alignItems: "center",
-        justifyContent: "space-between",
+        justifyContent: "space-evenly",
         width: "100%",
         height: "100%",
     },
@@ -66,5 +67,11 @@ const styles = StyleSheet.create({
     textStyle: {
         textDecorationLine: "none"
     },
+    inputBox:{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
 })
 export default styles;

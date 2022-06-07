@@ -4,13 +4,16 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: "#250E42"
     },
     top: {
         width: "100%",
         height: "20%",
         flex: 1,
-        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center"
     },
@@ -19,21 +22,26 @@ const styles = StyleSheet.create({
         height: "80%",
         backgroundColor: "#fff",
         borderTopLeftRadius: 100,
-        borderTopRightRadius: 100
+        borderTopRightRadius: 100,
     },
-    midTop: {
+    inputBox: {
         width: "100%",
         height: "100%",
         backgroundColor: "#fff",
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
+        justifyContent: "center",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100
     },
     midBot: {
         width: "100%",
         height: "20%",
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
         backgroundColor: "#fff"
     },
     inputs: {
@@ -54,7 +62,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     },
-    btnConatiner:{
+    btnConatiner: {
         flex: 1,
         flexDirection: 'row',
         alignItems: "center",
@@ -62,12 +70,12 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%"
     },
-    text:{
+    text: {
         color: "#fff"
     },
-    searchBar:{
+    searchBar: {
         width: "80%",
-        height: "10%",
+        height: "65%",
         borderRadius: 30,
         borderWidth: 1,
         borderColor: "black",
@@ -77,6 +85,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: "#C4C4C4"
+    },
+    searchBox: {
+        width: "100%",
+        height: "100%",
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })
 export default styles;
