@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { TouchableOpacity, View, Text, KeyboardAvoidingView, Image, TextInput, StyleSheet, Button } from 'react-native';
+import { TouchableOpacity, View, Text, KeyboardAvoidingView, TextInput, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-// import { DataTable } from 'react-native-paper';
+import { DataTable } from 'react-native-paper';
 import { useState, useEffect } from 'react';
 import styles from './styles';
 //import storage from '../data/index';
@@ -17,16 +17,32 @@ export default function ListaChamado({ navigation, route }) {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
 
-    useEffect(() => {
+   
+
+    const listarChamados =  () => {
         const url = route.params != undefined ? 'http://192.168.0.102:8080/listchamado/cliente/'+route.params.id: 'http://192.168.0.102:8080/listchamado';
-        console.log(url);
+        console.log('cu');
         fetch(url)
         .then(resp => {return resp.json()})
         .then(data => {
-            setChamados(data);
+            setChamados(data)
         })
-    }, []);
+    }
 
+    useEffect(() => {
+        listarChamados()
+    }, [searchBar])
+
+    useEffect(() => {
+        fetch("http://192.168.0.102:8080/filter/"+searchBar)
+        .then(resp => {return resp.json()})
+        .then(data => {
+            if(searchBar != "") {
+                setChamados(data);
+            }
+        })
+    })
+    /*
     useEffect(() => {
         (async () => {
           const { status } = await BarCodeScanner.requestPermissionsAsync();
@@ -45,16 +61,21 @@ export default function ListaChamado({ navigation, route }) {
       if (hasPermission === false) {
         return <Text>No access to camera</Text>;
       }
-
+      */
     const ch = (key, e) => {
         return(
-            <DataTable.Row key={key}>
+            <DataTable.Row key={key} style={styles.colunasTabela}>
                 <DataTable.Cell>{e.id}</DataTable.Cell>
                 <DataTable.Cell>{e.produto}</DataTable.Cell>
-                <DataTable.Cell>{e.orcamento}</DataTable.Cell>
+                <DataTable.Cell>{e.funcionario.nome}</DataTable.Cell>
+                <DataTable.Cell>{e.serial}</DataTable.Cell>
                 <DataTable.Cell>{e.status}</DataTable.Cell>
             </DataTable.Row>
         )
+    }
+
+    const buscar = () => {
+        
     }
 
     return(
@@ -67,18 +88,25 @@ export default function ListaChamado({ navigation, route }) {
                     <View style={styles.searchBar}>
                         <TextInput value={searchBar} onChangeText={setSearch} placeholder="Buscar..." style={{ width: "50%", height: 35, marginTop: 25, margin: "auto", borderWidth: 1, borderColor: "black", borderRadius: 10 }} />    
                     </View>
-                    <DataTable>
-                        <DataTable.Header>
+                    <DataTable style={styles.tabela}>
+                        
+                        <DataTable.Header style={styles.headerTabela}>
                             <DataTable.Title sortDirection='descending'><Text style={ styles.titleTable}>id</Text></DataTable.Title>
                             <DataTable.Title><Text style={ styles.titleTable}>produto</Text></DataTable.Title>
-                            <DataTable.Title><Text style={ styles.titleTable}>orçamento</Text></DataTable.Title>
+                            <DataTable.Title><Text style={ styles.titleTable}>Func</Text></DataTable.Title>
+                            <DataTable.Title><Text style={ styles.titleTable}>serial</Text></DataTable.Title>
                             <DataTable.Title><Text style={ styles.titleTable}>status</Text></DataTable.Title>
                         </DataTable.Header>
+                        <ScrollView>
+
+                       
                         {
                             chamados.map((e, key) => {
                                 return ch(key, e)
                             })
                         }
+                    
+                        </ScrollView>
                     </DataTable>
                     
                     <TouchableOpacity style={styles.btn} onPress={() => navigation.goBack()}>

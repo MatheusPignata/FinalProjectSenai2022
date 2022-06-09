@@ -14,7 +14,7 @@ export default function Login({ navigation }) {
             cpf: cpf,
             senha: senha
         }
-        fetch('http://10.87.207.19:8080/login', {
+        fetch('http://192.168.0.102:8080/login', {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"

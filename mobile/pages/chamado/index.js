@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView } from 'react-native';
+import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 
@@ -48,33 +48,35 @@ export default function Chamado({ navigation }) {
                 <Text style={{ fontSize: 40, color: "#8300E9", fontWeight: "bold" }}>Chamado</Text>
             </View>
             <View style={styles.mid}>
-                <View style={styles.midTop}>
-                    <Text style={{ fontSize: 22, marginTop: 30, color: "#8300E9" }}>Criar Chamado</Text>
-                    <TextInput value={produto} onChangeText={setProduto} style={styles.inputs} placeholder="Produto" />
-                    <TextInput value={marca} onChangeText={setMarca} style={styles.inputs} placeholder="Marca" />
-                    <TextInput value={serial} onChangeText={setSerial} style={styles.inputs} placeholder="Serial Number" />
-                    <TextInput value={tecnico} onChangeText={setTecnico} style={styles.inputs} placeholder="Técnico Responsável" />
-                    <TextInput value={cor} onChangeText={setCor} style={styles.inputs} placeholder="Cor" />
-                    <TextInput value={statusprod} onChangeText={setStatusprod} style={styles.inputs} placeholder="Status" />
-                    <TextInput value={orcamento} onChangeText={setOrcamento} style={styles.inputs}placeholder="Orcamento" />
-                    <View>
-                        <TextInput style={styles.inputdesc} secureTextEntry={false} placeholder="Descrição do Problema"></TextInput>
-                    </View>
-                    <View style={styles.midBot}>
-                        <View style={styles.btnConatiner}>
-                            <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Menu')}>
-                                <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
-                                    <Text style={styles.text}>VOLTAR</Text>
-                                </LinearGradient>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.btn} onPress={() => { cadastrarChamado() }}>
-                                <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
+                <ScrollView>
+                    <View style={styles.midTop}>
+                        <Text style={{ fontSize: 22, marginTop: 30, color: "#8300E9" }}>Criar Chamado</Text>
+                        <TextInput value={produto} onChangeText={setProduto} style={styles.inputs} placeholder="Produto" />
+                        <TextInput value={marca} onChangeText={setMarca} style={styles.inputs} placeholder="Marca" />
+                        <TextInput value={serial} onChangeText={setSerial} style={styles.inputs} placeholder="Serial Number" />
+                        <TextInput value={tecnico} onChangeText={setTecnico} style={styles.inputs} placeholder="Técnico Responsável" />
+                        <TextInput value={cor} onChangeText={setCor} style={styles.inputs} placeholder="Cor" />
+                        <TextInput value={statusprod} onChangeText={setStatusprod} style={styles.inputs} placeholder="Status" />
+                        <TextInput value={orcamento} onChangeText={setOrcamento} style={styles.inputs}placeholder="Orcamento" />
+                        <View style={styles.caixaDescricao}>
+                            <TextInput style={styles.inputdesc} secureTextEntry={false} placeholder="Descrição do Problema"></TextInput>
+                        </View>
+                        
+                        <View style={styles.btnContainer}>
+                            <TouchableOpacity style={styles.btn} onPress={() => { cadastrar() }}>
+                                <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                                     <Text style={styles.text}>CADASTRAR</Text>
                                 </LinearGradient>
                             </TouchableOpacity>
+                            <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Menu')}>
+                                <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
+                                    <Text style={styles.text}>VOLTAR</Text>
+                                </LinearGradient>
+                            </TouchableOpacity>
                         </View>
+                        
                     </View>
-                </View>
+               </ScrollView>
             </View>
         </View>
         </KeyboardAvoidingView>

@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
         backgroundColor: "#250E42",
+        
     },
     top: {
         width: "100%",
@@ -21,19 +22,10 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
     },
-    midTop: {
-        width: "100%",
-        height: "100%",
-        backgroundColor: "#fff",
-        flex: 1,
-        flexDirection: "column",
-        alignItems: "center",
-        borderTopLeftRadius: 100,
-        borderTopRightRadius: 100,
-    },
     titleTable: {
         fontSize:15,
         fontWeight: "bold",
+        color: 'white'
     },
     btn: {
         flex: 1,
@@ -57,46 +49,23 @@ const styles = StyleSheet.create({
         marginTop: 30,
         backgroundColor: "#8f5cd0"
     },
-    lista: {
-        width: 75,
-        alignItems: "center",
-    },
-    lista2: {
-        width: 150,
-        alignItems: "center",
-    },
-    lista3: {
-        width: 75,
-        alignItems: "center",
-    },
-    lista4: {
-        width: 75,
-        alignItems: "center",
-    },
-    conteudoLista: {
-        flexDirection: "row"
-    },
-    conteudo: {
-        width: 75,
-        alignItems: "center",
-    },
-    conteudo2: {
-        width: 150,
-        alignItems: "center",
-    },
-    conteudo3: {
-        width: 75,
-        alignItems: "center",
-    },
-    conteudo4: {
-        width: 75,
-        alignItems: "center",
-    },
     tabela: {
-        height: 350,
-        borderWidth: 1,
-        borderColor: "black",
-    }
+        height: "70%",
+    },
+    searchBar: {
+        width: '100%',
+        justifyContent:'center',
+        alignItems:'center',
+        marginBottom: 10
+    },
+    colunasTabela: {
+        backgroundColor:'#fff'
+    },
+    headerTabela: {
+        backgroundColor: '#8f5cd0',
+        textDecorationColor:'',
+        borderRadius: 25,
+    },
 })
 
 export default styles;

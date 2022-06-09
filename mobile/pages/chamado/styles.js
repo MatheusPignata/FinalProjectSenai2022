@@ -45,26 +45,27 @@ const styles = StyleSheet.create({
         margin: 20,
     },
     btn: {
-        width: "40%",
-        height: "200%",
-        paddingLeft: 5
-    },
-    btnConatiner:{
-        width: "100%",
-        height: "100%",
-        flexDirection: "row",
-        paddingLeft: 50,
+        width: 150,
+        height: 60,
     },
     gradient: {
         width: "100%",
-        height: "20%",
+        height: "100%",
         borderRadius: 30,
         alignItems: "center",
         justifyContent: "center",
     },
+    btnContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: "center",
+        justifyContent: "space-evenly",
+        width: "100%",
+        height: "100%",
+        marginBottom: 25
+    },
     text: {
         color: "#fff",
-        width: 80
     },
     inputdesc: {
         height: 100,
@@ -72,6 +73,9 @@ const styles = StyleSheet.create({
         backgroundColor: "gray",
         padding: 0,
         borderRadius: 5,
+    },
+    caixaDescricao: {
+        marginBottom: 25
     }
 });
 
