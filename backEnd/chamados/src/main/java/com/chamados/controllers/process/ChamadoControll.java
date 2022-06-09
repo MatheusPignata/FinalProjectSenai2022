@@ -97,4 +97,20 @@ public class ChamadoControll {
 			return ResponseEntity.badRequest().body("");
 		}
 	}
+	
+	public List<TodosChamadosDTO> filter(String frase) {
+		List<Chamado> lis = repository.findAll();
+		
+		List<TodosChamadosDTO> lisFiltrado = new ArrayList<TodosChamadosDTO>();
+		
+		for (Chamado chamado : lis) {
+			String id = "" +chamado.getId();
+			String orcamento = "" +chamado.getOrcamento();
+			
+			if(chamado.getProduto().contains(frase) || chamado.getStatus().contains(frase) || id.contains(frase) || chamado.getSerial().contains(frase)) {
+				lisFiltrado.add(new TodosChamadosDTO(chamado));
+			}
+		}
+		return lisFiltrado;
+	}
 }
