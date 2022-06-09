@@ -54,4 +54,9 @@ public class ChamadoRoute {
 	public ResponseEntity<Object> remChamado(@PathVariable long id) {
 		return controll.remChamado(id);
 	}
+	
+	@GetMapping("/filter/{frase}")
+	public List<TodosChamadosDTO> filter(@PathVariable String frase) {
+		return controll.filter(frase);
+	}
 }
