@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         height: "100%",
-        backgroundColor: "#250E42"
+        backgroundColor: "#250E42",
     },
     top: {
         width: "100%",
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         height: "4.2%",
         borderBottomColor: "black",
         borderBottomWidth: 1,
-        marginTop: 35
+        marginTop: 35,
     },
     btn: {
         width: 150,
@@ -67,11 +67,22 @@ const styles = StyleSheet.create({
     textStyle: {
         textDecorationLine: "none"
     },
-    inputBox:{
+    inputBox: {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-    }
+    },
+    modal: {
+        width: "70%",
+        height: "50%",
+        backgroundColor: '#ffff',
+        marginLeft: "15%",
+        marginTop: '40%',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderRadius: 20,
+    },
 })
 export default styles;

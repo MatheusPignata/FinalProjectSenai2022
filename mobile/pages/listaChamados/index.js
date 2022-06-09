@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { TouchableOpacity, View, Text, KeyboardAvoidingView, TextInput, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { DataTable } from 'react-native-paper';
 import { useState, useEffect } from 'react';
 import styles from './styles';
 //import storage from '../data/index';
@@ -16,8 +15,6 @@ export default function ListaChamado({ navigation, route }) {
     // QR CODE
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
-
-   
 
     const listarChamados =  () => {
         const url = route.params != undefined ? 'http://192.168.0.102:8080/listchamado/cliente/'+route.params.id: 'http://192.168.0.102:8080/listchamado';

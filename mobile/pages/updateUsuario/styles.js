@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     inputBox: {
         width: "100%",
         height: "100%",
+        marginTop: 20,
         backgroundColor: "#fff",
         flex: 1,
         flexDirection: "column",
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     },
     searchBar: {
         width: "80%",
-        height: "65%",
+        height: "100%",
         borderRadius: 30,
         borderWidth: 1,
         borderColor: "black",

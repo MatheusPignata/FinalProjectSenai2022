@@ -11,6 +11,8 @@ const definirData = async (json) => {
 const pegarData = async () => {
     try {
         const value = await AsyncStorage.getItem('@data');
+       // console.log("VALOR: "+value);
+        
         if(value !== null) {
            return  value;
         }
