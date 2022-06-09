@@ -17,6 +17,7 @@ public class InfoChamadoDTO {
 	private String status;
 	private String marca;
 	private double orcamento;
+	private String serial;
 
 	public InfoChamadoDTO(Chamado c) {
 		this.id = c.getId();
@@ -28,6 +29,7 @@ public class InfoChamadoDTO {
 		this.status = c.getStatus();
 		this.marca = c.getMarca();
 		this.orcamento = c.getOrcamento();
+		this.serial = c.getSerial();
 	}
 
 	public long getId() {
@@ -100,6 +102,14 @@ public class InfoChamadoDTO {
 
 	public void setOrcamento(double orcamento) {
 		this.orcamento = orcamento;
+	}
+
+	public String getSerial() {
+		return serial;
+	}
+
+	public void setSerial(String serial) {
+		this.serial = serial;
 	}
 
 }

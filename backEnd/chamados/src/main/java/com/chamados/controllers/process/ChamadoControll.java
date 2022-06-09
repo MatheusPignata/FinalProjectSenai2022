@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import com.chamados.models.dto.ChamadoClienteDTO;
+import com.chamados.models.dto.ChamadoIdQrCode;
 import com.chamados.models.dto.InfoChamadoDTO;
 import com.chamados.models.dto.TodosChamadosDTO;
 import com.chamados.models.entities.Chamado;
@@ -34,7 +35,7 @@ public class ChamadoControll {
 			chamado.setCliente(usuario);
 
 			usu = repository.save(chamado);
-			return ResponseEntity.ok().body("");
+			return ResponseEntity.ok().body(new ChamadoIdQrCode(usu));
 		} catch (DataIntegrityViolationException e) {
 			return ResponseEntity.badRequest().body("");
 		}
@@ -80,6 +81,7 @@ public class ChamadoControll {
 				ch.setFuncionario(u.getFuncionario());
 				ch.setCliente(u.getCliente());
 
+				
 				Chamado chamado = repository.save(ch);
 
 				return chamado != null ? ResponseEntity.ok().body(null) : ResponseEntity.status(406).body(null);

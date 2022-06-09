@@ -6,6 +6,15 @@
    
 } 
 
+select{
+    height: 30px;
+    font-size: 20px;
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    font-weight: 600;
+}
+
 textarea{
     margin-top: 28px;
     padding: 5px;
@@ -19,6 +28,57 @@ textarea{
 
 button{
     margin: 100px 50px 0;
+}
+
+.Modal {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    width: 400px;
+    height: 400px;
+    padding-top: 100px;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4);
+    -webkit-transition: 0.5s;
+    overflow: auto;
+    transition: all 0.3s linear;
+  }
+  .Modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border-radius: 4px;
+    width: 400px;
+    height: 400px;
+  }
+  .ModalOpen { overflow: hidden; }
+  .is-hidden { display: none; }
+  .is-visuallyHidden { opacity: 0; }
+
+  .Close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 16px;
+  }
+  .Close:hover, .Close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .is-blurred {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+  }
+
+#qrcode{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
 }
 
 @media(max-width: 1000px){
