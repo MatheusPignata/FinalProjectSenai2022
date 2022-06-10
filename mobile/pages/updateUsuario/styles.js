@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     searchBar: {
-        width: "80%",
-        height: "100%",
+        width: 300,
+        height: 40,
         borderRadius: 30,
         borderWidth: 1,
         borderColor: "black",
