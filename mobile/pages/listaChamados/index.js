@@ -2,6 +2,7 @@ import * as React from 'react';
 import { TouchableOpacity, View, Text, KeyboardAvoidingView, TextInput, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useState, useEffect } from 'react';
+import { DataTable } from 'react-native-paper';
 import styles from './styles';
 //import storage from '../data/index';
 
@@ -17,7 +18,7 @@ export default function ListaChamado({ navigation, route }) {
     const [scanned, setScanned] = useState(false);
 
     const listarChamados =  () => {
-        const url = route.params != undefined ? 'http://192.168.0.102:8080/listchamado/cliente/'+route.params.id: 'http://192.168.0.102:8080/listchamado';
+        const url = route.params != undefined ? 'http://10.87.207.19:8080/listchamado/cliente/'+route.params.id: 'http://10.87.207.19:8080/listchamado';
         console.log('cu');
         fetch(url)
         .then(resp => {return resp.json()})
@@ -31,7 +32,7 @@ export default function ListaChamado({ navigation, route }) {
     }, [searchBar])
 
     useEffect(() => {
-        fetch("http://192.168.0.102:8080/filter/"+searchBar)
+        fetch("http://10.87.207.19:8080/filter/"+searchBar)
         .then(resp => {return resp.json()})
         .then(data => {
             if(searchBar != "") {

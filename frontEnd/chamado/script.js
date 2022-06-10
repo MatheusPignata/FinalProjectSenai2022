@@ -15,7 +15,6 @@ fetch(url + 'listchamado/' + idChamado)
 .then(res => {
     return res.json();
 }).then(data =>{
-    console.log(data)
     idCliente =  data.cliente.id;
     idTecnico = data.funcionario.id;
     produto.value = data.produto;
@@ -70,7 +69,7 @@ function makeCode () {
 
 var modal = document.getElementById('myModal');
 var body = document.getElementsByTagName('body');
-var container = document.querySelector('.content');
+var container = document.querySelector('.myContainer');
 var btnOpen = document.getElementById("myBtn");
 
 btnOpen.onclick = function() {
@@ -80,6 +79,8 @@ btnOpen.onclick = function() {
       modal.className = "Modal";
     }, 100);
     container.parentElement.className = "ModalOpen";
+
+    makeCode();
 }
 
 window.onclick = function(event) {

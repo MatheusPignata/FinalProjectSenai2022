@@ -38,6 +38,7 @@ function cadastrar(){
     let status = document.querySelector("#opt").value;
     let orcamento = document.querySelector("#orcamento").value;
     let descricao = document.querySelector("#descricao").value;
+    let idChamado;
 
     cli.forEach(e=>{
         if(e.telefone == tel){
@@ -71,6 +72,7 @@ function cadastrar(){
             }
             return res.json();
         }).then(data => {
+            makeCode(data.id);
         }).catch(err => {
         })
 
@@ -85,4 +87,34 @@ function cadastrar(){
         document.querySelector("#descricao").value = "";
         document.querySelector("#func").style.color = "#0000007e";
         document.querySelector("#opt").style.color = "#0000007e";
+}
+
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+	width : 300,
+	height : 300,
+    colorDark : "#8f5cd0",
+    colorLight : "#fff",
+});
+
+function makeCode (id) {		
+	qrcode.makeCode(id);
+    modal.className = "Modal is-visuallyHidden";
+    setTimeout(function() {
+      container.className = "MainContainer is-blurred";
+      modal.className = "Modal";
+    }, 100);
+    container.parentElement.className = "ModalOpen";
+}
+
+var modal = document.getElementById('myModal');
+var body = document.getElementsByTagName('body');
+var container = document.querySelector('.myContainer');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.className = "Modal is-hidden";
+        body.className = "";
+        container.className = "MainContainer";
+        container.parentElement.className = "";
+    }
 }

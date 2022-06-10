@@ -1,3 +1,14 @@
+.myContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    text-align: center;
+}
+
 .inputs{
     display: grid;
     grid-template-columns: 400px 400px;
@@ -31,47 +42,33 @@ button{
 }
 
 .Modal {
-    display: block;
+    height: 100vh;
+    width: 100vw;
     position: absolute;
-    left: 0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
-    z-index: 9999;
-    width: 400px;
+    left: 0;
+  }
+
+.Modal-content {
+    display: block;
     height: 400px;
-    padding-top: 100px;
-    background-color: black;
     background-color: rgba(0, 0, 0, 0.4);
     -webkit-transition: 0.5s;
     overflow: auto;
     transition: all 0.3s linear;
-  }
-  .Modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border-radius: 4px;
-    width: 400px;
-    height: 400px;
-  }
-  .ModalOpen { overflow: hidden; }
-  .is-hidden { display: none; }
-  .is-visuallyHidden { opacity: 0; }
+}
 
-  .Close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 16px;
-  }
-  .Close:hover, .Close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
+.ModalOpen { overflow: hidden; }
+.is-hidden { display: none; }
+.is-visuallyHidden { opacity: 0; }
 
-  .is-blurred {
+.is-blurred {
     filter: blur(2px);
     -webkit-filter: blur(2px);
-  }
+}
 
 #qrcode{
     display: flex;

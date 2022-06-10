@@ -4,6 +4,7 @@ import { View, Text, Modal, TextInput, TouchableOpacity, ToastAndroid, ScrollVie
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
 import BouncyCheckboxGroup, { ICheckboxButton } from "react-native-bouncy-checkbox-group";
+import { BlurView } from 'expo-blur';
 
 export default function CreateUsuario({ navigation }) {
     const [nome, setNome] = useState("");
@@ -32,7 +33,6 @@ export default function CreateUsuario({ navigation }) {
     ];
 
     const cadastrar = () => {
-        setModalVisible(true)
         let data = {
             nome: nome,
             senha: senha,
@@ -43,7 +43,7 @@ export default function CreateUsuario({ navigation }) {
             cargo: cargo
         }
         if (data.senha == "" || data.nome == "" || data.cpf == "" || data.email == "" || data.telefone == "" || data.endereco == "" || data.cargo == "") {
-            ToastAndroid.show("Preencha todos os campos", ToastAndroid.SHORT);
+            ToastAndroid.show("Preencha todos os campos", ToastAndroid.SHORT);   
         } else {
             fetch('http://10.87.207.19:8080/cadastrar', {
                 "method": "POST",
@@ -56,36 +56,43 @@ export default function CreateUsuario({ navigation }) {
                 .then(data => {
                     if (data.status == 200) {
                         setModalVisible(true)
+                        setNome("")
+                        setSenha("")
+                        setCpf("")
+                        setEmail("")
+                        setTelefone("")
+                        setEndereco("")
                     } else {
                         ToastAndroid.show('Não foi possível cadastrar um novo usuário', ToastAndroid.SHORT);
                     }
                 })
         }
-
     }
     return (
         <View style={styles.container}>
             <Modal
                 style={styles.modalShadow}
-                animationType="slide"
+                animationType="fade"
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => {
                     setModalVisible(!modalVisible);
                 }}
             >
-                <View style={styles.modal}>
-                    <Text style={{ fontSize: 18 }}>Cadastro realizado com sucesso</Text>
-                    <Image
-                        source={require('../assets/feito.png')}
-                    >
-                    </Image>
-                    <TouchableOpacity style={styles.btn} onPress={() => { setModalVisible(false) }}>
-                        <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
-                            <Text style={styles.text}>concluido</Text>
-                        </LinearGradient>
-                    </TouchableOpacity>
-                </View>
+                <BlurView intensity={80} tint="dark" style={styles.blurContainer}>
+                    <View style={styles.modal}>
+                        <Text style={{ fontSize: 18 }}>Cadastro realizado com sucesso</Text>
+                        <Image
+                            source={require('../assets/feito.png')}
+                        >
+                        </Image>
+                        <TouchableOpacity style={styles.btn} onPress={() => { setModalVisible(false) }}>
+                            <LinearGradient style={styles.gradient} colors={["#4630AB", "#2B0548"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
+                                <Text style={styles.text}>concluido</Text>
+                            </LinearGradient>
+                        </TouchableOpacity>
+                    </View>
+                </BlurView>
             </Modal>
             <View style={styles.top}>
                 <Text style={{ fontSize: 40, color: "#8300E9", textAlign: "center", fontWeight: "bold" }}>REGISTRAR USUARIO</Text>

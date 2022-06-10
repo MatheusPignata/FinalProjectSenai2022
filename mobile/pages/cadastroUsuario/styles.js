@@ -77,12 +77,22 @@ const styles = StyleSheet.create({
         width: "70%",
         height: "50%",
         backgroundColor: '#ffff',
-        marginLeft: "15%",
-        marginTop: '40%',
         justifyContent: 'space-evenly',
         alignItems: 'center',
         borderWidth: 1,
         borderRadius: 20,
+        marginHorizontal: '15%'
+    },
+    modalShadow: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: "100%",
+        height: "100%"
+    },
+    blurContainer: {
+        flex: 1,
+        justifyContent: 'center',
     },
 })
 export default styles;
