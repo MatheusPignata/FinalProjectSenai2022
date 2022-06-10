@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import styles from './styles';
@@ -12,8 +12,19 @@ export default function UpdateUsuario({ navigation }) {
     const [email, setEmail] = useState("");
     const [telefone, setTelefone] = useState("");
     const [endereco, setEndereco] = useState("");
-    const [id, setSearch] = useState("");
+
+    const [searchBar, setSearch] = useState("");
+    const [usuarios, setUsuarios] = useState([]);
     
+ /*
+    useEffect(() => {
+       
+        if(searchBar != "") {
+            setUsuarios([]);
+            
+        }
+    })*/
+
     const buscar =  () => {
         // const data = storage.pegarData()
         // data.then(json => {
@@ -23,11 +34,12 @@ export default function UpdateUsuario({ navigation }) {
 
         fetch('http://10.87.207.19:8080/listuser')
             .then(resp => { return resp })
-            .then(async data => {
+            .then( data => {
                 if(data.status == 200) {
                    data.json().then(json => {
-                        console.log(json.nome);
-                    
+                    setUsuarios(json)
+                 
+                   console.log(usuarios != '' ?  'cu': 'pen');
                    })
                 }
                 // if (data.status == 200) {
@@ -81,17 +93,24 @@ export default function UpdateUsuario({ navigation }) {
             </View>
             <View style={styles.mid}>
 
-                <ScrollView>
+                
                     <View style={styles.searchBox}>
                         <View style={styles.searchBar}>
-                            <TextInput value={id} onChangeText={setSearch} placeholder="Buscar..." style={{ width: "100%", height: "100%" }} />
+                            <TextInput  onChangeText={setSearch} placeholder="Buscar..." style={{ width: "100%", height: "100%" }} />
                             <TouchableOpacity style={{ width: "10%", height: "90%" }} onPress={() => buscar()}>
                                 <Image style={{ width: "100%", height: "90%", marginTop: 4 }} source={require('../../assets/lupa.png')} />
                             </TouchableOpacity>
                         </View>
+                        <View style={styles.usuarios}>
+                           <Text onPress={console.log('oi')} style={styles.nomeUsuario}>Michael</Text>
+                           <Text onPress={console.log('oi')} style={styles.nomeUsuario}>Mikaelly</Text>
+                           <Text onPress={console.log('oi')} style={styles.nomeUsuario}>oi</Text>
+                           <Text onPress={console.log('oi')} style={styles.nomeUsuario}>oi</Text>
+                        </View>
                     </View>
+                    <ScrollView>
                     <View style={styles.inputBox}>
-                        <TextInput value={nome} onChangeText={setNome} style={styles.inputs} placeholder="Nome" />
+                        <TextInput editable={false} value={nome} onChangeText={setNome} style={styles.inputs} placeholder="Nome" />
                         <TextInput value={senha} onChangeText={setSenha} style={styles.inputs} secureTextEntry={true} placeholder="Senha" />
                         <TextInput value={cpf} onChangeText={setCpf} style={styles.inputs} placeholder="CPF" />
                         <TextInput value={email} onChangeText={setEmail} style={styles.inputs} placeholder="e-mail" />

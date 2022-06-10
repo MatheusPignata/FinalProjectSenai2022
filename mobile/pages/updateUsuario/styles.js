@@ -26,24 +26,24 @@ const styles = StyleSheet.create({
     },
     inputBox: {
         width: "100%",
-        height: "100%",
-        marginTop: 20,
+        height: '45%',
+        marginTop: 5,
         backgroundColor: "#fff",
         flex: 1,
-        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         borderTopLeftRadius: 100,
-        borderTopRightRadius: 100
+        borderTopRightRadius: 100,
     },
     midBot: {
         width: "100%",
-        height: "20%",
+        height: "30%",
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        marginBottom:'5%'
     },
     inputs: {
         width: "80%",
@@ -75,12 +75,13 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     searchBar: {
-        width: "80%",
-        height: "100%",
+        width: "60%",
+        height: 35,
         borderRadius: 30,
         borderWidth: 1,
         borderColor: "black",
-        marginTop: 15,
+        marginTop: "5%",
+        
         paddingLeft: 15,
         paddingRight: 35,
         flexDirection: 'row',
@@ -89,11 +90,28 @@ const styles = StyleSheet.create({
     },
     searchBox: {
         width: "100%",
-        height: "100%",
-        flex: 1,
-        flexDirection: 'row',
+        height: '25%',
+        flex: 0,    
         justifyContent: 'center',
         alignItems: 'center',
+        
+    },
+    usuarios: {
+        width: '70%',
+        height: "55%",
+        backgroundColor: '#8f5cd0',
+        marginTop: 5
+    },
+    nomeUsuario: {
+        fontSize:17,
+        fontWeight: "bold",
+        marginTop: '1.5%',
+        borderColor: 'black',
+        borderStyle:'solid',
+        borderBottomWidth: 1,
+        paddingLeft: 15,
+        color:'white',
+        borderColor:'white'
     }
 })
 export default styles;
