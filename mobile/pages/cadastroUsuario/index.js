@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { View, Text, Modal, TextInput, TouchableOpacity, ToastAndroid, ScrollView, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { TextInputMask } from 'react-native-masked-text'
 import styles from './styles';
 import BouncyCheckboxGroup, { ICheckboxButton } from "react-native-bouncy-checkbox-group";
 import { BlurView } from 'expo-blur';
@@ -43,7 +44,7 @@ export default function CreateUsuario({ navigation }) {
             cargo: cargo
         }
         if (data.senha == "" || data.nome == "" || data.cpf == "" || data.email == "" || data.telefone == "" || data.endereco == "" || data.cargo == "") {
-            ToastAndroid.show("Preencha todos os campos", ToastAndroid.SHORT);   
+            ToastAndroid.show("Preencha todos os campos", ToastAndroid.SHORT);
         } else {
             fetch('http://192.168.0.102:8080/cadastrar', {
                 "method": "POST",
@@ -103,9 +104,24 @@ export default function CreateUsuario({ navigation }) {
                     <View style={styles.inputBox}>
                         <TextInput value={nome} onChangeText={setNome} style={styles.inputs} placeholder="Nome" />
                         <TextInput value={senha} onChangeText={setSenha} style={styles.inputs} secureTextEntry={true} placeholder="Senha" />
-                        <TextInput value={cpf} onChangeText={setCpf} style={styles.inputs} placeholder="CPF" />
+                        <TextInputMask
+                            type={'cpf'}
+                            value={cpf}
+                            onChangeText={setCpf}
+                            style={styles.inputs}
+                            placeholder="CPF" />
                         <TextInput value={email} onChangeText={setEmail} style={styles.inputs} placeholder="e-mail" />
-                        <TextInput value={telefone} onChangeText={setTelefone} style={styles.inputs} placeholder="Telefone" />
+                        <TextInputMask
+                            type={'cel-phone'}
+                            options={{
+                                maskType: 'BRL',
+                                withDDD: true,
+                                dddMask: '(99)'
+                            }}
+                            value={telefone}
+                            onChangeText={setTelefone}
+                            style={styles.inputs}
+                            placeholder="Telefone" />
                         <TextInput value={endereco} onChangeText={setEndereco} style={styles.inputs} placeholder="Endereço" />
                         <View style={styles.checkbox}>
                             <BouncyCheckboxGroup data={staticData} style={{ flexDirection: "column" }}

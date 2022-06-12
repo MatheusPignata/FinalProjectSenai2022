@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, Modal } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { TextInputMask } from 'react-native-masked-text'
 import styles from './styles';
 import { BlurView } from 'expo-blur';
 import storage from '../data/index'
@@ -15,7 +16,7 @@ export default function UpdateUsuario({ navigation }) {
 
     const [searchBar, setSearch] = useState("");
     const [usuarios, setUsuarios] = useState([]);
-    
+
     const [modalVisible, setModalVisible] = useState(false)
 
     useEffect(() => {
@@ -24,16 +25,16 @@ export default function UpdateUsuario({ navigation }) {
         fetch('http://192.168.0.102:8080/listuser')
             .then(resp => { return resp })
             .then(data => {
-                if(data.status == 200) {
+                if (data.status == 200) {
                     data.json().then(json => {
-                        if(searchBar != "") {
+                        if (searchBar != "") {
                             json.forEach(e => {
-                                if(e.nome.includes(searchBar)) {
+                                if (e.nome.includes(searchBar)) {
                                     usuariosFiltrados.push(e)
                                 }
                             })
                             setUsuarios(usuariosFiltrados)
-                        }else {
+                        } else {
                             setUsuarios([])
                         }
                     })
@@ -65,27 +66,27 @@ export default function UpdateUsuario({ navigation }) {
             },
             "body": JSON.stringify(data),
         })
-        .then(resp => { return resp })
-        .then(data => {
-            if (data.status == 200) {
-                setModalVisible(true)
-            } else {
-                ToastAndroid.show('Erro ao atualizar usuário', ToastAndroid.SHORT);
-            };
-        });
+            .then(resp => { return resp })
+            .then(data => {
+                if (data.status == 200) {
+                    setModalVisible(true)
+                } else {
+                    ToastAndroid.show('Erro ao atualizar usuário', ToastAndroid.SHORT);
+                };
+            });
     };
 
     return (
         <View style={styles.container}>
             <Modal
-                    style={styles.modalShadow}
-                    animationType="fade"
-                    transparent={true}
-                    visible={modalVisible}
-                    onRequestClose={() => {
-                        setModalVisible(!modalVisible);
-                    }}
-                >
+                style={styles.modalShadow}
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    setModalVisible(!modalVisible);
+                }}
+            >
                 <BlurView intensity={80} tint="dark" style={styles.blurContainer}>
                     <View style={styles.modal}>
                         <Text style={{ fontSize: 18 }}>Alteração realizada com sucesso</Text>
@@ -105,36 +106,47 @@ export default function UpdateUsuario({ navigation }) {
                 <Text style={{ fontSize: 40, color: "#8300E9", fontWeight: "bold" }}>USUARIO</Text>
             </View>
             <View style={styles.mid}>
-                    <View style={styles.searchBox}>
-                        <View style={styles.searchBar}>
-                            <TextInput  onChangeText={setSearch} placeholder="Buscar..." style={{ width: "100%", height: "100%" }} />
-                            <TouchableOpacity style={{ width: "10%", height: "90%" }} onPress={() => buscar()}>
-                                <Image style={{ width: "100%", height: "90%", marginTop: 4 }} source={require('../../assets/lupa.png')} />
-                            </TouchableOpacity>
-                        </View>
-                        {
-                            usuarios != '' ? 
+                <View style={styles.searchBox}>
+                    <View style={styles.searchBar}>
+                        <TextInput onChangeText={setSearch} placeholder="Buscar..." style={{ width: "100%", height: "100%" }} />
+                        <TouchableOpacity style={{ width: "10%", height: "90%" }} onPress={() => buscar()}>
+                            <Image style={{ width: "100%", height: "90%", marginTop: 4 }} source={require('../../assets/lupa.png')} />
+                        </TouchableOpacity>
+                    </View>
+                    {
+                        usuarios != '' ?
                             <View style={styles.usuarios}>
                                 {
-                                usuarios.map(e=> {
-                                    return(
-                                        <View>
-                                            <Text onPress={() => setarInputs(e)} style={styles.nomeUsuario}>{e.nome}</Text>
-                                        </View>
-                                    )
-                                })
+                                    usuarios.map(e => {
+                                        return (
+                                            <View>
+                                                <Text onPress={() => setarInputs(e)} style={styles.nomeUsuario}>{e.nome}</Text>
+                                            </View>
+                                        )
+                                    })
                                 }
                             </View>
-                            : 
+                            :
                             <View>
                             </View>
-                        }
-                    </View>
-                    <ScrollView>
+                    }
+                </View>
+                <ScrollView>
                     <View style={styles.inputBox}>
                         <TextInput editable={(nome != '') ? true : false} value={nome} onChangeText={setNome} style={styles.inputs} placeholder="Nome" />
                         <TextInput editable={(email != '') ? true : false} value={email} onChangeText={setEmail} style={styles.inputs} placeholder="e-mail" />
-                        <TextInput editable={(telefone != '') ? true : false} value={telefone} onChangeText={setTelefone} style={styles.inputs} placeholder="Telefone" />
+                        <TextInputMask
+                            type={'cel-phone'}
+                            options={{
+                                maskType: 'BRL',
+                                withDDD: true,
+                                dddMask: '(99)'
+                            }}
+                            editable={(telefone != '') ? true : false}
+                            value={telefone}
+                            onChangeText={setTelefone}
+                            style={styles.inputs}
+                            placeholder="Telefone" />
                         <TextInput editable={(endereco != '') ? true : false} value={endereco} onChangeText={setEndereco} style={styles.inputs} placeholder="Endereço" />
                     </View>
                     <View style={styles.midBot}>

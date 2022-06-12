@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView, ToastAndroid, Alert } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { TextInputMask } from 'react-native-masked-text'
 import storage from '../data/index';
 import styles from './styles';
 
@@ -24,7 +25,6 @@ export default function Login({ navigation }) {
             .then(resp => { return resp })
             .then(async data => {
                 if (data.status == 202) {
-                   
                     data.json().then(json => {
                         storage.definirData(json);
                         if (json.cargo == "F") {
@@ -33,8 +33,8 @@ export default function Login({ navigation }) {
                             navigation.navigate("ListaChamado", data);
                         }
                     })
-                  
-                } else{
+
+                } else {
                     Alert.alert('CPF ou senha inválidos');
                 }
             })
@@ -49,8 +49,14 @@ export default function Login({ navigation }) {
                 <View style={styles.mid}>
                     <View style={styles.midTop}>
                         <Text style={{ fontSize: 40, marginTop: 50, color: "#8300E9", fontWeight: "bold" }}>ENTRAR</Text>
-                        <TextInput value={cpf} onChangeText={setCpf} style={styles.inputs} placeholder="CPF" />
-                        <TextInput value={senha} onChangeText={setSenha} style={styles.inputs} secureTextEntry={true} placeholder="Senha" />
+                        <TextInputMask
+                            type={'cpf'}
+                            value={cpf}
+                            onChangeText={setCpf}
+                            style={styles.inputs}
+                            placeholder="CPF" />
+                        <TextInput value={senha} onChangeText={setSenha} style={styles.inputs} secureTextEntry={true} placeholder="Senha"
+                        />
                         <TouchableOpacity onPress={() => { autenticarUser() }} style={styles.btn} >
                             <LinearGradient style={styles.gradient} colors={["#482673", "#8F5CD0"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}>
                                 <Text style={styles.text}>ENTRAR</Text>
