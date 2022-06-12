@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     },
     inputBox: {
         width: "100%",
-        height: '45%',
+        height: '60%',
         marginTop: 5,
         backgroundColor: "#fff",
         flex: 1,
@@ -47,10 +47,10 @@ const styles = StyleSheet.create({
     },
     inputs: {
         width: "80%",
-        height: "4%",
+        height: "10%",
         borderBottomColor: "black",
         borderBottomWidth: 1,
-        margin: 20
+        margin: 20,
     },
     btn: {
         width: 150,
@@ -75,23 +75,17 @@ const styles = StyleSheet.create({
         color: "#fff"
     },
     searchBar: {
-<<<<<<< HEAD
-        width: "60%",
-        height: 35,
-=======
-        width: 300,
+        width: '70%',
         height: 40,
->>>>>>> 20d6dd15af38aefcfbeeee5e6c8686e4fccaed63
         borderRadius: 30,
         borderWidth: 1,
         borderColor: "black",
         marginTop: "5%",
-        
         paddingLeft: 15,
         paddingRight: 35,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: "#C4C4C4"
+     
     },
     searchBox: {
         width: "100%",
@@ -105,7 +99,9 @@ const styles = StyleSheet.create({
         width: '70%',
         height: "55%",
         backgroundColor: '#8f5cd0',
-        marginTop: 5
+        marginTop: 5,
+        borderRadius: 10,
+        borderColor: "black",
     },
     nomeUsuario: {
         fontSize:17,
@@ -117,6 +113,27 @@ const styles = StyleSheet.create({
         paddingLeft: 15,
         color:'white',
         borderColor:'white'
-    }
+    },
+    modal: {
+        width: "70%",
+        height: "50%",
+        backgroundColor: '#ffff',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderRadius: 20,
+        marginHorizontal: '15%'
+    },
+    modalShadow: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: "100%",
+        height: "100%"
+    },
+    blurContainer: {
+        flex: 1,
+        justifyContent: 'center',
+    },
 })
 export default styles;

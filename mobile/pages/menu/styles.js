@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
-        marginTop: 40
+        marginTop: 20
     },
     btn: {
         flex: 1,
         width: "80%",
-        marginTop: 5
+        marginTop: 4
     },
     gradient: {
         width: "100%",
@@ -51,6 +51,44 @@ const styles = StyleSheet.create({
     image: {
         height: 250,
         width: "70%"
+    },
+    scanQr: {
+        width: 100,
+        height: 100,
+        justifyContent:'center',
+        alignItems:'center',
+        marginBottom: 10,
+
+        
+    },
+    areaScan: {
+        width: '100%',
+        height: '85%',
+    },
+    containerScan: {
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center',
+        width:'100%',
+        height:'100%',
+        position:'absolute',
+        backgroundColor:'white'
+    },
+    btnFecharScan: {
+        width: 150,
+        height: 60,
+        alignItems:'center',
+        justifyContent:'center',
+       
+        
+    },
+    gradientQr: {
+        width: "100%",
+        height: "100%",
+        borderRadius: 20,
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
     }
 });
 

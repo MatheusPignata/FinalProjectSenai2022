@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent:'center',
         alignItems:'center',
-        marginBottom: 10
+        marginBottom: 10,
+        
     },
     colunasTabela: {
         backgroundColor:'#fff'

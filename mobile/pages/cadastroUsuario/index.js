@@ -45,7 +45,7 @@ export default function CreateUsuario({ navigation }) {
         if (data.senha == "" || data.nome == "" || data.cpf == "" || data.email == "" || data.telefone == "" || data.endereco == "" || data.cargo == "") {
             ToastAndroid.show("Preencha todos os campos", ToastAndroid.SHORT);   
         } else {
-            fetch('http://10.87.207.19:8080/cadastrar', {
+            fetch('http://192.168.0.102:8080/cadastrar', {
                 "method": "POST",
                 "headers": {
                     "Content-Type": "application/json"

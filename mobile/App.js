@@ -10,7 +10,9 @@ import UpdateUsuario from './pages/updateUsuario';
 import CreateUsuario from './pages/cadastroUsuario';
 import Chamado from './pages/chamado';
 import AtualizarChamado from './pages/atualizarChamado';
-import ListaChamado from './pages/listaChamados'
+import ListaChamado from './pages/listaChamados';
+import ChamadoUnico from './pages/chamadoIndividual';
+
 
 export default function App() {
   return (
@@ -23,6 +25,7 @@ export default function App() {
         <Stack.Screen name="Chamado" component={Chamado} options={{ headerShown: false }} />
         <Stack.Screen name="AtualizarChamado" component={AtualizarChamado} options={{ headerShown: false }} />
         <Stack.Screen name="ListaChamado" component={ListaChamado} options={{ headerShown: false }} />
+        <Stack.Screen name="ChamadoUnico" component={ChamadoUnico} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

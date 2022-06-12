@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderTopLeftRadius: 100,
         borderTopRightRadius: 100,
+        paddingBottom: '15%'
     },
     midBot: {
         width: "100%",
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-evenly",
         width: "100%",
         height: "100%",
-        marginBottom: 25
+      
     },
     text: {
         color: "#fff",
@@ -76,7 +77,56 @@ const styles = StyleSheet.create({
     },
     caixaDescricao: {
         marginBottom: 25
-    }
+    },
+    caixaListFC: {
+        width: "60%",
+        height: "5%",
+       
+        margin: 20,
+        color:'black'
+    },
+    inputFC: {
+        width: "100%",
+        height: "100%",
+        color:'black',
+        borderBottomColor: "black",
+        borderBottomWidth: 1,
+    },
+    caixaFC: {
+        width:'100%',
+        height:'100%',
+        backgroundColor: '#8f5cd0',
+        borderBottomRightRadius: 5,
+        borderBottomLeftRadius: 5
+    },
+    btnCaixaFC: {
+        marginLeft: 5,
+        marginRight: 5,
+        borderBottomColor:'white',
+        borderBottomWidth: 1,
+        color:'white'
+    },
+    modal: {
+        width: "70%",
+        height: "50%",
+        backgroundColor: '#ffff',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderRadius: 20,
+        marginHorizontal: '15%'
+    },
+    modalShadow: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: "100%",
+        height: "100%"
+    },
+    blurContainer: {
+        flex: 1,
+        justifyContent: 'center',
+    },
 });
 
 export default styles;
