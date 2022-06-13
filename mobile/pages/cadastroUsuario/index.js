@@ -116,7 +116,7 @@ export default function CreateUsuario({ navigation }) {
                             options={{
                                 maskType: 'BRL',
                                 withDDD: true,
-                                dddMask: '(99)'
+                                dddMask: '(99) '
                             }}
                             value={telefone}
                             onChangeText={setTelefone}
