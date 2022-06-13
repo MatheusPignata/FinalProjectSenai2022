@@ -29,9 +29,11 @@ const styles = StyleSheet.create({
     },
     btn: {
         flex: 1,
-        width: 150,
+        width: "35%",
+        height: 60,
         borderRadius: 20,
-        marginTop: 20
+        marginTop: 20,
+        marginHorizontal:'32.5%'
     },
     gradient: {
         width: "100%",
@@ -39,7 +41,6 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: "center",
         justifyContent: "center",
-        marginLeft: 105
     },
     text:{
         color: "#fff"

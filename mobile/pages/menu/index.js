@@ -43,7 +43,7 @@ export default function Menu({ navigation }) {
         <KeyboardAvoidingView>
         <View style={styles.container}>
             <View style={styles.top}>
-                <Image source={logo}style={styles.image}/>
+                <Text style={{ fontSize: 50, color: "#8300E9" }}>MENU</Text>
             </View>
             <View style={styles.mid}>
                 <View style={styles.midTop}>

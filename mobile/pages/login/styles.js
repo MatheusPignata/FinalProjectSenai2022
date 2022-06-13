@@ -6,6 +6,10 @@ const styles = StyleSheet.create({
         height: "100%",
         backgroundColor: "#250E42",
     },
+    image: {
+        height: 200,
+        width: 200
+    },
     top: {
         width: "100%",
         height: "30%",

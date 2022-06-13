@@ -49,8 +49,8 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     image: {
-        height: 250,
-        width: "70%"
+        height: 200,
+        width: 200
     },
     scanQr: {
         width: 100,

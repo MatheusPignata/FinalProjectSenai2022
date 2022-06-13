@@ -26,7 +26,7 @@ export default function ChamadoUnico({ navigation, route}) {
     const [modalVisible, setModalVisible] = useState(false)
 
     useEffect(() => {
-        fetch('http://192.168.0.102:8080/listchamado/'+id)
+        fetch('http://10.87.207.19:8080/listchamado/'+id)
         .then(resp => { return resp })
         .then(data => {
             if(data.status == 200) {

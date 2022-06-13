@@ -25,7 +25,7 @@ export default function Chamado({ navigation }) {
             orcamento: orcamento
         }
 
-        fetch('http://192.168.0.102:3000/chamado', {
+        fetch('http://10.87.207.19:3000/chamado', {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"

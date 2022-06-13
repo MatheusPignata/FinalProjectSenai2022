@@ -43,7 +43,7 @@ export default function Chamado({ navigation }) {
             orcamento: orcamento
         }
 
-        fetch('http://192.168.0.102:8080/criarchamado', {
+        fetch('http://10.87.207.19:8080/criarchamado', {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"
@@ -75,7 +75,7 @@ export default function Chamado({ navigation }) {
     useEffect(() => {
         const funcionariosFiltrados = [];
 
-        fetch('http://192.168.0.102:8080/listuser')
+        fetch('http://10.87.207.19:8080/listuser')
             .then(resp => { return resp })
             .then(data => {
                 if(data.status == 200) {
@@ -100,7 +100,7 @@ export default function Chamado({ navigation }) {
     useEffect(() => {
         const clientesFiltrados = [];
 
-        fetch('http://192.168.0.102:8080/listuser')
+        fetch('http://10.87.207.19:8080/listuser')
             .then(resp => { return resp })
             .then(data => {
                 if(data.status == 200) {

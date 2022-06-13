@@ -22,7 +22,7 @@ export default function UpdateUsuario({ navigation }) {
     useEffect(() => {
         const usuariosFiltrados = [];
 
-        fetch('http://192.168.0.102:8080/listuser')
+        fetch('http://10.87.207.19:8080/listuser')
             .then(resp => { return resp })
             .then(data => {
                 if (data.status == 200) {
@@ -59,7 +59,7 @@ export default function UpdateUsuario({ navigation }) {
             endereco: endereco,
         }
 
-        fetch('http://192.168.0.102:8080/alterar/' + id, {
+        fetch('http://10.87.207.19:8080/alterar/' + id, {
             "method": "PUT",
             "headers": {
                 "Content-Type": "application/json"

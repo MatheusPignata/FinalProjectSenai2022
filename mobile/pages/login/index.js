@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView, ToastAndroid, Alert } from 'react-native';
+import { TouchableOpacity, TextInput, View, Text, KeyboardAvoidingView, Image, Alert } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { TextInputMask } from 'react-native-masked-text'
 import storage from '../data/index';
 import styles from './styles';
+import logo from '../assets/chama.png';
 
 export default function Login({ navigation }) {
     const [cpf, setCpf] = useState("");
@@ -15,7 +16,7 @@ export default function Login({ navigation }) {
             cpf: cpf,
             senha: senha
         }
-        fetch('http://192.168.0.102:8080/login', {
+        fetch('http://10.87.207.19:8080/login', {
             "method": "POST",
             "headers": {
                 "Content-Type": "application/json"
@@ -30,12 +31,11 @@ export default function Login({ navigation }) {
                         if (json.cargo == "F") {
                             navigation.navigate("Menu");
                         } else {
-                            navigation.navigate("ListaChamado", data);
+                            navigation.navigate("ListaChamado", json);
                         }
                     })
-
                 } else {
-                    Alert.alert('CPF ou senha inválidos');
+                    Alert.alert('CPF/SENHA inválidos');
                 }
             })
     }
@@ -44,11 +44,12 @@ export default function Login({ navigation }) {
         <KeyboardAvoidingView behavior="height">
             <View style={styles.container}>
                 <View style={styles.top}>
-                    <Text style={{ fontSize: 50, color: "#8300E9" }}>OS</Text>
+                    <Image source={logo} style={styles.image}/>
+                    
                 </View>
                 <View style={styles.mid}>
                     <View style={styles.midTop}>
-                        <Text style={{ fontSize: 40, marginTop: 50, color: "#8300E9", fontWeight: "bold" }}>ENTRAR</Text>
+                        <Text style={{ fontSize: 40, marginTop: 50, color: "#8300E9", fontWeight: "bold" }}>LOGIN</Text>
                         <TextInputMask
                             type={'cpf'}
                             value={cpf}
