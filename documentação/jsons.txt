@@ -1,114 +1,174 @@
-Telas a finalizar:
-    cadChamado: X
-    cadUser: ✔
-    chamado: X
-    listChamado: X
-    login: X
-    menu: ✔
-    upUser: X
-
-
-JSON de cada tela:
-    cadChamado:
-        mando:
+CHAMADOS
+{
+    "01-verbo": "READ",
+    "01-rota": "/listchamado",
+    "01-status": 200,
+    "01-response": [
         {
-            "produto": "nome do produto",
-            "marca": 'marca do produto',
-            "serial": serial number,
-            "tecnico_responsalvel": "id tecnico",
-            "cliente": cpf do cliente
-            "cor": "cor do produto",
-            "status": "status do produto",
-            "orcamento": 'valor do serviço',
-            "descricao": "descricao do produto"
+            "id": 1,
+            "funcionario": {
+                "id": 1,
+                "nome": "jose da santos sauro"
+            },
+            "serial": "11111111111xz",
+            "status": "Pronto",
+            "produto": "Celular"
+        },
+        {
+            "id": 2,
+            "funcionario": {
+                "id": 2,
+                "nome": "Marcos da Silva"
+            },
+            "serial": "321321321sa",
+            "status": "Analise",
+            "produto": "PC"
         }
+    ],
+    "02-verbo": "READ",
+    "02-rota": "/listchamado/1",
+    "02-status": 200,
+    "02-response": [
+        {
+            "id": 1,
+            "funcionario": {
+                "id": 1,
+                "nome": "jose da santos sauro"
+            },
+            "cliente": {
+                "id": 1,
+                "nome": "Pedro da Silva",
+                "telefone": "16231323",
+                "endereco": "Rua das Curva, 555, Bairro das Ruas"
+            },
+            "produto": "Celular",
+            "cor": "preto",
+            "descricao": "Celular com defeito na tela",
+            "status": "Concluido",
+            "marca": "Motorola",
+            "orcamento": 300,
+            "serial": "11111111111xz"
+        }
+    ],
+    "03-verbo": "POST",
+    "03-rota": "/criarchamado",
+    "03-request": {
+        "produto": "Celular",
+        "cor": "preto",
+        "descricao": "Celular com defeito na tela",
+        "status": "Andamento",
+        "marca": Motorola,
+        "serial":"11111111111xz",
+        "orcamento": 300,
+        "funcionario":2,
+        "cliente":1
+    },
+    "03-true-status": 200,
+    "03-response":{
+        "id": 13
+    },
+    "04-verbo": "PUT",
+    "04-rota": "alterarchamado/1",
+    "04-request":{
+        "produto": "Celular",
+        "cor": "preto",
+        "descricao": "Celular com defeito na tela",
+        "status": "Concluido",
+        "marca": Motorola,
+        "serial":"11111111111xz",
+        "orcamento": 300,
+        "funcionario":2,
+        "cliente":1
+    },
+    "05-verbo": "DELETE",
+    "05-rota": "/deletarchamado/1",
+    "05-true-status": 200,
+    "05-response":{
+        "id": "1"
+    }
+}
 
-        recebo:
-            {
-                status http;
-            }
-
-    cadUser:
-        mando: 
-            {
-                'nome': nome,
-                'senha': pw,
-                'email': email,
-                'telefone': tel,
-                'cpf': cpf,
-                'endereco': endereco,
-                'cargo': cargo
-            }
-
-        recebo:
-            {
-                status http;
-            }
-
-
-    chamado:
-        mando:
-            update
-            {
-                "produto": "nome do produto",
-                "marca": 'marca do produto',
-                "serial": serial number,
-                "tecnico_responsalvel": "id tecnico",
-                "cliente": cpf do cliente
-                "cor": "cor do produto",
-                "status": "status do produto",
-                "orcamento": 'valor do serviço',
-                "descricao": "descricao do produto"
-            }
-
-        recebo:
-            {
-                status http;
-            }
-
-    listChamado:
-        mando:
-
-        recebo:
-            {
-                "id": id do produto,
-                "produto": "nome do produto",
-                "serial": serial number,
-                "tecnico_responsalvel": "id tecnico",
-                "status": "status do produto"
-            }
-
-    login:
-        mando: 
-            {
-                'cpf': cpf,
-                'senha': pw
-            }
-
-        recebo:
-            {
-                'id': user_id,
-                'name': 'user_name',
-                'cargo': user_cargo
-            }
-
-    menu:
-        mando:
-
-        recebo:
-
-    upUser:
-        mando:
-        update
-            {
-                'nome': nome,
-                'senha': pw,
-                'email': email,
-                'telefone': tel,
-                'cpf': cpf,
-                'endereco': endereco
-            }
-        recebo:
-            {
-                status http;
-            }
+USUARIO
+{
+    "01-verbo": "READ",
+    "01-rota": "/listuser",
+    "01-status": 200,
+    "01-response": [
+        {
+            "id": 1,
+            "nome": "jose da santos sauro",
+            "email": "josesantossauro@gmail.com",
+            "telefone": "16231323",
+            "endereco": "Rua das Curva, 555, Bairro das Ruas",
+            "cargo": "C"
+        },
+        {
+            "id": 2,
+            "nome": "jose",
+            "email": "jsaddsae@gmail.com",
+            "telefone": "16231323",
+            "endereco": "Rua das Curva, 555, Bairro das Ruas",
+            "cargo": "F"
+        },
+    ],
+    "02-verbo": "READ",
+    "02-rota": "/listuser/1",
+    "02-status": 200,
+    "02-response": [
+        {
+            "id": 1,
+            "senha": "123",
+            "nome": "jose da santos sauro",
+            "email": "josesantossauro@gmail.com",
+            "cpf": "444",
+            "endereco": "Rua das Curva, 555, Bairro das Ruas",
+            "telefone": "16231323",
+            "cargo": "C"
+        }
+    ],
+    "03-verbo": "POST",
+    "03-rota": "/cadastrar",
+    "03-request": {
+        "senha":"123",
+        "cpf":"321.321.321-32",
+        "nome": "teste da silva",
+        "email": "teste@gmail.com",
+        "telefone": "(19) 99999-9999",
+        "endereco": "Rua das Curva, 555, Bairro das Ruas",
+        "cargo": "C"
+    },
+    "03-true-status": 200,
+    "03-response":{
+        "id": 1
+    },
+    "03-verbo": "POST",
+    "03-rota": "/login",
+    "03-request": {
+        "cpf":"444",
+        "senha":"123"
+    }
+    "03-true-status": 200,
+    "03-response":{
+        "id": 1,
+        "nome": "jose da santos sauro",
+        "email": "josesantossauro@gmail.com",
+        "telefone": "16231323",
+        "endereco": "Rua das Curva, 555, Bairro das Ruas",
+        "cargo": "C"
+    },
+    "04-verbo": "PUT",
+    "04-rota": "alterar/1",
+    "04-request":{
+        "nome": "jose",
+		"email": "pene@gmail.com",
+		"telefone": "16231323",
+		"endereco": "Rua das Curva, 555, Bairro das Ruas",
+		"cargo": "C"
+    },
+    "05-verbo": "DELETE",
+    "05-rota": "/deletarchamado/1",
+    "05-true-status": 200,
+    "05-response":{
+        "id": "1"
+    }
+}
