@@ -1,0 +1,1 @@
+ALTER TABLE chamados ADD FOREIGN KEY (id_funcionario) REFERENCES Usuarios(id_usuario);
